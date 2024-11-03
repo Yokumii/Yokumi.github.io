@@ -1,0 +1,2230 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Discrete Mathematics | Yokumi的个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="一些写在前面的话：本笔记分为离散上（16 章）和离散下（811 章+离散结构：群）两部分。其中离散上于 2023.03-2023.06 编写，离散下于 2023.09-2024.01 编写。由于笔者的个人原因，编写离散上时的水平有限，可读性、美观程度都较为一般，读者可选择其他的学习参考方式。仅笔者草率且不负责任的了解，我校计算机本科对于离散数学的学习内容是属于较多较细的一类，建议各位读者以自己学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Discrete Mathematics">
+<meta property="og:url" content="https://yokimii.github.io/blog/2024/11/03/Discrete-Mathematics/index.html">
+<meta property="og:site_name" content="Yokumi的个人博客">
+<meta property="og:description" content="一些写在前面的话：本笔记分为离散上（16 章）和离散下（811 章+离散结构：群）两部分。其中离散上于 2023.03-2023.06 编写，离散下于 2023.09-2024.01 编写。由于笔者的个人原因，编写离散上时的水平有限，可读性、美观程度都较为一般，读者可选择其他的学习参考方式。仅笔者草率且不负责任的了解，我校计算机本科对于离散数学的学习内容是属于较多较细的一类，建议各位读者以自己学">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1803261/202001/1803261-20200104235946402-2074052543.png">
+<meta property="og:image" content="https://yokimii.github.io/blog/Pasted%20image%2020231130095820.png">
+<meta property="og:image" content="https://yokimii.github.io/blog/Pasted%20image%2020231130100407.png">
+<meta property="og:image" content="https://yokimii.github.io/blog/Pasted%20image%2020231130101054.png">
+<meta property="og:image" content="https://yokimii.github.io/blog/Pasted%20image%2020231130101158.png">
+<meta property="og:image" content="https://yokimii.github.io/blog/Pasted%20image%2020231130101448.png">
+<meta property="og:image" content="https://yokimii.github.io/blog/Pasted%20image%2020231130101540.png">
+<meta property="og:image" content="https://yokimii.github.io/blog/Pasted%20image%2020231130101800.png">
+<meta property="og:image" content="https://yokimii.github.io/blog/Pasted%20image%2020231130101959.png">
+<meta property="og:image" content="https://yokimii.github.io/blog/Pasted%20image%2020231130102048.png">
+<meta property="og:image" content="https://yokimii.github.io/blog/Pasted%20image%2020231130102648.png">
+<meta property="og:image" content="https://yokimii.github.io/blog/Pasted%20image%2020231130102755.png">
+<meta property="og:image" content="https://yokimii.github.io/blog/Pasted%20image%2020231130103247.png">
+<meta property="og:image" content="https://yokimii.github.io/blog/Pasted%20image%2020231130103620.png">
+<meta property="og:image" content="https://yokimii.github.io/blog/Pasted%20image%2020231130104552.png">
+<meta property="og:image" content="https://yokimii.github.io/blog/Pasted%20image%2020231130104902.png">
+<meta property="og:image" content="https://yokimii.github.io/blog/Pasted%20image%2020231130105105.png">
+<meta property="og:image" content="https://yokimii.github.io/blog/Pasted%20image%2020231130105741.png">
+<meta property="og:image" content="https://yokimii.github.io/blog/Pasted%20image%2020231130105755.png">
+<meta property="og:image" content="https://yokimii.github.io/blog/Pasted%20image%2020231130110608.png">
+<meta property="og:image" content="https://yokimii.github.io/blog/Pasted%20image%2020231130112418.png">
+<meta property="article:published_time" content="2024-11-03T08:18:13.000Z">
+<meta property="article:modified_time" content="2024-11-03T08:18:19.662Z">
+<meta property="article:author" content="Yokumi">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img2018.cnblogs.com/blog/1803261/202001/1803261-20200104235946402-2074052543.png">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Yokumi的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Yokumi的个人博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/blog/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://yokimii.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Discrete-Mathematics" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2024/11/03/Discrete-Mathematics/" class="article-date">
+  <time class="dt-published" datetime="2024-11-03T08:18:13.000Z" itemprop="datePublished">2024-11-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Discrete Mathematics
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><strong>一些写在前面的话：</strong><br>本笔记分为离散上（1<del>6 章）和离散下（8</del>11 章+离散结构：群）两部分。其中离散上于 2023.03-2023.06 编写，离散下于 2023.09-2024.01 编写。<br>由于笔者的个人原因，编写离散上时的水平有限，可读性、美观程度都较为一般，读者可选择其他的学习参考方式。<br>仅笔者草率且不负责任的了解，我校计算机本科对于离散数学的学习内容是属于较多较细的一类，建议各位读者以自己学校的内容重点为主，该笔记仅可供一些提炼参考。<br>若发现笔记的错误，读者自己学会就好，我已经不想再碰它啦<br>祝各位离散数学的 learner 们都可以学习到有用的知识，获得理想的成绩</li>
+</ul>
+<p><em><strong>Discrete Mathematics 上</strong></em></p>
+<h1 id="1-Logic-and-Proofs-逻辑和证明"><a href="#1-Logic-and-Proofs-逻辑和证明" class="headerlink" title="1. Logic and Proofs 逻辑和证明"></a>1. Logic and Proofs 逻辑和证明</h1><h2 id="1-1-Propositional-Logic-命题逻辑"><a href="#1-1-Propositional-Logic-命题逻辑" class="headerlink" title="1.1 Propositional Logic 命题逻辑"></a>1.1 Propositional Logic 命题逻辑</h2><h3 id="1-1-2-Proposition-命题"><a href="#1-1-2-Proposition-命题" class="headerlink" title="1.1.2 Proposition 命题"></a>1.1.2 Proposition 命题</h3><p>A <strong>proposition</strong> is a declarative sentence (that is, a sentence that declares a fact) that is either true or false, but not both.</p>
+<p>We use letters to denote <strong>propositional variables 命题变量</strong>(or <strong>sentential variables 语句变量</strong>).The conventional letters used for propositional variables are p, q, r, s, … . The <strong>truth value</strong> of a proposition is true, denoted by T, if it is a true proposition, and the truth value of a proposition is false, denoted by F, if it is a false proposition. Propositions that cannot be expressed in terms of simpler propositions are called <strong>atomic propositions 原子命题</strong>.</p>
+<p>The area of logic that deals with propositions is called the <strong>propositional calculus or propositional logic</strong>.</p>
+<hr>
+<h3 id="1-1-3-Truth-table-真值表"><a href="#1-1-3-Truth-table-真值表" class="headerlink" title="1.1.3 Truth table 真值表"></a>1.1.3 Truth table 真值表</h3><table>
+<thead>
+<tr>
+<th>ENGLISH</th>
+<th>中文</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>negation</td>
+<td>否定</td>
+</tr>
+<tr>
+<td>Conjunction</td>
+<td>合取</td>
+</tr>
+<tr>
+<td>Disjunction</td>
+<td>析取</td>
+</tr>
+<tr>
+<td>Exclusive</td>
+<td>异或</td>
+</tr>
+<tr>
+<td>implication</td>
+<td>蕴含</td>
+</tr>
+<tr>
+<td>bi-implication</td>
+<td>双向蕴含</td>
+</tr>
+</tbody></table>
+<p>![[Pasted image 20230301205339.png]]<br>![[Pasted image 20230301205348.png]]<br>![[Pasted image 20230301205402.png]]<br>![[Pasted image 20230314184919.png]]<br>![[Pasted image 20230314184948.png]]</p>
+<h3 id="1-1-4-Precedence-of-Logical-Operators-逻辑运算符的优先级"><a href="#1-1-4-Precedence-of-Logical-Operators-逻辑运算符的优先级" class="headerlink" title="1.1.4 Precedence of Logical Operators 逻辑运算符的优先级"></a>1.1.4 Precedence of Logical Operators 逻辑运算符的优先级</h3><p>![[Pasted image 20230301205654.png]]</p>
+<h3 id="1-1-5-Logic-and-Bit-Operations-逻辑运算和比特运算"><a href="#1-1-5-Logic-and-Bit-Operations-逻辑运算和比特运算" class="headerlink" title="1.1.5 Logic and Bit Operations 逻辑运算和比特运算"></a>1.1.5 Logic and Bit Operations 逻辑运算和比特运算</h3><p>A <em>bit string</em> is a sequence of zero or more bits. The <em>length</em> of this string is the number of bits in the string.</p>
+<h2 id="1-2-Applications-of-Propositional-Logic-命题逻辑的应用"><a href="#1-2-Applications-of-Propositional-Logic-命题逻辑的应用" class="headerlink" title="1.2 Applications of Propositional Logic 命题逻辑的应用"></a>1.2 Applications of Propositional Logic 命题逻辑的应用</h2><h3 id="1-2-6-Logic-Circuits-逻辑电路"><a href="#1-2-6-Logic-Circuits-逻辑电路" class="headerlink" title="1.2.6 Logic Circuits 逻辑电路"></a>1.2.6 Logic Circuits 逻辑电路</h3><p>A <strong>logic circuit</strong> (or <strong>digital circuit</strong>) receives input signals <em>p1, p2, … , pn</em>, each a bit [either 0 (off) or 1 (on)], and produces output signals <em>s1, s2, … , sn</em>, each a bit. </p>
+<p>The <strong>inverter</strong>, or <strong>NOT gate</strong>, takes an input bit <em>p</em>, and produces as output <em>¬p</em>. The <strong>OR gate</strong> takes two input signals <em>p</em> and <em>q</em>, each a bit, and produces as output the signal <em>p ∨ q</em>. Finally, the <strong>AND gate</strong> takes two input signals <em>p</em> and <em>q</em>, each a bit, and produces as output the signal <em>p ∧ q</em>. </p>
+<p>![[Pasted image 20230301210543.png]]</p>
+<h2 id="1-3-Propositional-Equivalences-命题等价式"><a href="#1-3-Propositional-Equivalences-命题等价式" class="headerlink" title="1.3 Propositional Equivalences 命题等价式"></a>1.3 Propositional Equivalences 命题等价式</h2><h3 id="1-3-1-Introduction-引言"><a href="#1-3-1-Introduction-引言" class="headerlink" title="1.3.1 Introduction 引言"></a>1.3.1 Introduction 引言</h3><p>A compound proposition that is always true, no matter what the truth values of the propositional variables that occur in it, is called a <em>tautology</em> <strong>永真式&#x2F;重言式</strong>. A compound proposition that is always false is called a <em>contradiction</em> <strong>永假式&#x2F;矛盾式</strong>. A compound proposition that is neither a tautology nor a contradiction is called a <em>contingency</em> <strong>可满足式&#x2F;可能式</strong></p>
+<h3 id="1-3-2-Logical-Equivalences-逻辑等价式"><a href="#1-3-2-Logical-Equivalences-逻辑等价式" class="headerlink" title="1.3.2 Logical Equivalences 逻辑等价式"></a>1.3.2 Logical Equivalences 逻辑等价式</h3><p>The compound propositions <em>p</em> and <em>q</em> are called <em>logically equivalent</em> if <em>p ↔ q</em> is a tautology.<br>The notation <em>p ≡ q</em> denotes that <em>p</em> and <em>q</em> are logically equivalent.<br>![[Pasted image 20230301211206.png]]</p>
+<ul>
+<li><em><strong>De Morgan laws</strong></em><blockquote>
+<p>![[Pasted image 20230301211258.png]]</p>
+</blockquote>
+</li>
+</ul>
+<p>![[Pasted image 20230301211646.png|550]]<br>![[Pasted image 20230311102507.png|500]]<br>![[Pasted image 20230301213539.png]]<br>![[Pasted image 20230314075755.png]]</p>
+<h3 id="1-3-5-Satisfiability-可满足性"><a href="#1-3-5-Satisfiability-可满足性" class="headerlink" title="1.3.5 Satisfiability 可满足性"></a>1.3.5 Satisfiability 可满足性</h3><p>A compound proposition is <strong>satisfiable</strong> if there is an assignment of truth values to its variables that makes it true (that is, when it is a tautology or a contingency). When no such assignments exists, that is, when the compound proposition is false for all assignments of truth values to its variables, the compound proposition is <strong>unsatisfiable</strong>.</p>
+<h3 id="1-3-6-Applications-of-Satisfifiability-可满足性的应用"><a href="#1-3-6-Applications-of-Satisfifiability-可满足性的应用" class="headerlink" title="1.3.6 Applications of Satisfifiability 可满足性的应用"></a>1.3.6 Applications of Satisfifiability 可满足性的应用</h3><ul>
+<li>The n-Queens Problem：<blockquote>
+<p>![[Pasted image 20230302131211.png|500]]</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="1-3-7-Dual-formula对偶式"><a href="#1-3-7-Dual-formula对偶式" class="headerlink" title="1.3.7 Dual formula对偶式"></a>1.3.7 Dual formula对偶式</h3><p>![[Pasted image 20230314160503.png]]</p>
+<h2 id="Supply补充：范式"><a href="#Supply补充：范式" class="headerlink" title="Supply补充：范式"></a>Supply补充：范式</h2><h3 id="简单析取式、简单合取式"><a href="#简单析取式、简单合取式" class="headerlink" title="简单析取式、简单合取式"></a>简单析取式、简单合取式</h3><p>只有析取&#x2F;合取</p>
+<h3 id="Disjunctive-normal-form-析取范式-DNF"><a href="#Disjunctive-normal-form-析取范式-DNF" class="headerlink" title="Disjunctive normal form 析取范式 DNF"></a>Disjunctive normal form 析取范式 DNF</h3><p>有限个<strong>简单合取式</strong>的<em><strong>析取</strong></em>构成的析取式</p>
+<h3 id="Conjunctive-normal-form-合取范式-CNF"><a href="#Conjunctive-normal-form-合取范式-CNF" class="headerlink" title="Conjunctive normal form 合取范式 CNF"></a>Conjunctive normal form 合取范式 CNF</h3><p>有限个<strong>简单析取式</strong>的<em><strong>合取</strong></em>构成的合取式</p>
+<h3 id="存在性定理"><a href="#存在性定理" class="headerlink" title="存在性定理"></a>存在性定理</h3><p>任意一个命题公式均存在与之等值的析取范式和合取范式<br><strong>（不唯一）</strong><br>![[Pasted image 20230314190107.png]]</p>
+<h3 id="Minterm-极小项"><a href="#Minterm-极小项" class="headerlink" title="Minterm 极小项"></a>Minterm 极小项</h3><p>若公式中共有N个命题变项P1，……，P n，在这N个变项的合取式中，每个变项Pi或其否定~Pi，<strong>均出现且两者仅出现一个</strong>，并且按命题变项的下标排列（字母按字典序列），这样的<strong>简单合取式</strong>称为<strong>极小项</strong>，又称<strong>布尔合取</strong>。<br>![[Pasted image 20230314080313.png]]<br><strong>编码：</strong></p>
+<blockquote>
+<p>![[Pasted image 20230314080346.png|inl]] ![[Pasted image 20230314080426.png|inl]]</p>
+</blockquote>
+<h3 id="Principal-Major-DNF-主析取范式"><a href="#Principal-Major-DNF-主析取范式" class="headerlink" title="Principal&#x2F;Major DNF 主析取范式"></a>Principal&#x2F;Major DNF 主析取范式</h3><ul>
+<li><p>若干不同的极小项组成的析取式</p>
+</li>
+<li><p>定理：任意一个命题公式均存在与之等值的主析取范式且唯一</p>
+</li>
+<li><p>求法：1. 真值表法     2. 等值演算法<br>![[Pasted image 20230414202540.png]]</p>
+</li>
+</ul>
+<h3 id="Maxterm-极大项"><a href="#Maxterm-极大项" class="headerlink" title="Maxterm 极大项"></a>Maxterm 极大项</h3><p>如公式中共有N个命题变项P1，……，P n ，这N个变项的简单析取式中，每个变项Pi或其否定~ Pi，<strong>均出现且两者仅出现一个</strong>，并且按命题变项的下标排列（字母按字典序列）这样的<strong>简单析取式</strong>称为<strong>极大项</strong>，又称<strong>布尔析取</strong>。<br>![[Pasted image 20230314080733.png]]</p>
+<h3 id="Principal-Major-CNF-主合取范式"><a href="#Principal-Major-CNF-主合取范式" class="headerlink" title="Principal&#x2F;Major CNF 主合取范式"></a>Principal&#x2F;Major CNF 主合取范式</h3><ul>
+<li><p>若干不同的极大项组成的析取式</p>
+</li>
+<li><p>定理：任意一个命题公式均存在与之等值的主合取范式且唯一<br>![[Pasted image 20230414202840.png]]</p>
+</li>
+</ul>
+<h2 id="1-4-Predicates-and-Quantifiers-谓词和量词"><a href="#1-4-Predicates-and-Quantifiers-谓词和量词" class="headerlink" title="1.4 Predicates and Quantifiers 谓词和量词"></a>1.4 Predicates and Quantifiers 谓词和量词</h2><h3 id="1-4-2-Predicates-谓词"><a href="#1-4-2-Predicates-谓词" class="headerlink" title="1.4.2 Predicates 谓词"></a>1.4.2 Predicates 谓词</h3><p>A statement involving the $n$ variables $x_1, x_2, … , x_n$ can be denoted by<br>   $$P(x_1, x_2, … ,x_n)$$.<br>A statement of the form P(x1, x2, … , xn) is the value of the <strong>propositional function P</strong> at the <em>n-tuple (x1, x2, … , xn)</em>, and <em>P</em> is also called an <em>n</em> <strong>-place predicate n位谓词</strong> or an <em>n</em> <strong>-ary predicate n元谓词</strong>.</p>
+<ul>
+<li><strong>PRECONDITIONS AND POSTCONDITIONS 前置条件和后置条件</strong> <blockquote>
+<p>The statements that describe valid input are known as <strong>preconditions</strong> and the conditions that the output should satisfy when the program has run are known as <strong>postconditions</strong>.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="1-4-3-Quantifiers-量词"><a href="#1-4-3-Quantifiers-量词" class="headerlink" title="1.4.3 Quantifiers 量词"></a>1.4.3 Quantifiers 量词</h3><p>![[Pasted image 20230314082453.png]]</p>
+<ul>
+<li><strong>唯一存在量词 unique existential</strong>：<blockquote>
+<p>存在量词符号后加：  ！<br>The notation <strong>∃!</strong> $xP(x)$  states “There exists a unique x such that $P(x)$ is true.”</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="1-4-6-Precedence-of-Quantififiers-量词的优先级"><a href="#1-4-6-Precedence-of-Quantififiers-量词的优先级" class="headerlink" title="1.4.6 Precedence of Quantififiers 量词的优先级"></a>1.4.6 Precedence of Quantififiers 量词的优先级</h3><p>The quantififiers ∀ and ∃ have higher precedence than all logical operators from propositional calculus.</p>
+<h3 id="1-4-7-Binding-Variables-变量绑定"><a href="#1-4-7-Binding-Variables-变量绑定" class="headerlink" title="1.4.7 Binding Variables 变量绑定"></a>1.4.7 Binding Variables 变量绑定</h3><p>An expression like $P(x)$ is said to have a <strong>free variable x</strong> (meaning, x is undefined).</p>
+<p>A quantifier (either ∀ or ∃) operates on an expression having one or more free variables, and <strong>binds</strong> one or more of those variables, to produce an expression having one or more <strong>bound variables</strong>.</p>
+<h3 id="1-4-9-Negating-Quantifified-Expressions-量化表达式的否定"><a href="#1-4-9-Negating-Quantifified-Expressions-量化表达式的否定" class="headerlink" title="1.4.9 Negating Quantifified Expressions 量化表达式的否定"></a>1.4.9 Negating Quantifified Expressions 量化表达式的否定</h3><h4 id="De-Morgan’s-Laws-for-Quantififiers-量词的德摩根律"><a href="#De-Morgan’s-Laws-for-Quantififiers-量词的德摩根律" class="headerlink" title="De Morgan’s Laws for Quantififiers 量词的德摩根律:"></a>De Morgan’s Laws for Quantififiers 量词的德摩根律:</h4><p>¬∀xP(x) ≡ ∃x ¬P(x)<br>¬∃xQ(x) ≡ ∀x ¬Q(x)</p>
+<h4 id="1-4-9-1-Example-示例"><a href="#1-4-9-1-Example-示例" class="headerlink" title="1.4.9.1 Example 示例"></a>1.4.9.1 Example 示例</h4><ul>
+<li>Some student in this class has visited Guangzhou.</li>
+<li>Every student in this class has visited Chengdu or Guangzhou.</li>
+</ul>
+<blockquote>
+<p>G (x): “x has visited Guangzhou.” ，C (x):“x has visited Chengdu.”</p>
+</blockquote>
+<p><strong>The U.D. for the variable x consists of the students in this class.</strong></p>
+<ul>
+<li>∃xG(x).</li>
+<li>∀x(C(x) ∨ G(x))</li>
+</ul>
+<p><strong>The U.D. for the variable x consists of all people.</strong><br>S(x): “x is a student in this class.”</p>
+<ul>
+<li>∃x(S(x) ∧ G(x))</li>
+<li>∀x(S(x) → (C(x) ∨ G(x)))</li>
+</ul>
+<p><strong>全称量词用蕴含，存在量词用合取</strong></p>
+<h2 id="1-5-Nested-Quantififiers-嵌套量词"><a href="#1-5-Nested-Quantififiers-嵌套量词" class="headerlink" title="1.5 Nested Quantififiers 嵌套量词"></a>1.5 Nested Quantififiers 嵌套量词</h2><h3 id="1-5-3-The-Order-of-Quantififiers-量词的顺序"><a href="#1-5-3-The-Order-of-Quantififiers-量词的顺序" class="headerlink" title="1.5.3 The Order of Quantififiers 量词的顺序"></a>1.5.3 The Order of Quantififiers 量词的顺序</h3><p>在没有其他量词的语句中，在不改变量化式意义的前提下嵌套全称量词的顺序是可以改变的</p>
+<p>![[Pasted image 20230318102305.png]]</p>
+<h2 id="Supply补充：合式公式、前束范式"><a href="#Supply补充：合式公式、前束范式" class="headerlink" title="Supply补充：合式公式、前束范式"></a>Supply补充：合式公式、前束范式</h2><h3 id="1-一阶逻辑的合式公式"><a href="#1-一阶逻辑的合式公式" class="headerlink" title="1 一阶逻辑的合式公式"></a>1 一阶逻辑的合式公式</h3><h4 id="1-1-定义"><a href="#1-1-定义" class="headerlink" title="1.1 定义"></a>1.1 定义</h4><p><strong>项(term)</strong></p>
+<ul>
+<li>个体常项和个体变项是项</li>
+<li>若f(x1 ,x2 ,…,xn )是n元函数, t1 ,t2 ,…,tn是项, 则f(t1 ,t2 ,…,tn )是项</li>
+<li>所有的项都是有限次地应用上述规则形成的</li>
+<li>例如: a, x, f(a), g(a, x), g(x, f(a))</li>
+</ul>
+<p><strong>原子公式(atomic formula)</strong></p>
+<ul>
+<li>若R(x1 ,x2 ,…,xn )是n元谓词, t1 ,t2 ,…,tn是项, 则R(t1 ,t2 ,…,tn )是原子公式</li>
+<li>例如: F(a), G(a, y), F(f(a)), G(x, g(a, y))</li>
+</ul>
+<p><strong>合式公式(well-formed formula)</strong></p>
+<ul>
+<li><p>原子公式是合式公式</p>
+</li>
+<li><p>若A是合式公式，则(~A)是合式公式</p>
+</li>
+<li><p>若A,B是合式公式，则(A∧B), (A∨B), (A→B), (A↔B)也是合式公式</p>
+</li>
+<li><p>若A是合式公式，则∃xA, ∀xA也是合式公式</p>
+</li>
+<li><p>有限次地应用上述规则形成的符号串是合式公式</p>
+<blockquote>
+<p>$F (f (a, a), b)$<br>$∃x(F(x)∧∀y(G(y)→H(x,y)))$</p>
+</blockquote>
+</li>
+<li><p>约定：省略多余括号</p>
+<blockquote>
+<p>最外层<br>优先级递减： ∃, ∀; ~; ∧, ∨; →, ↔</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="1-2-合式公式中的变项"><a href="#1-2-合式公式中的变项" class="headerlink" title="1.2 合式公式中的变项"></a>1.2 合式公式中的变项</h4><p><strong>量词辖域:</strong> 在∃xA, ∀xA中, <strong>A</strong>是量词的辖域。例如:<br>∃x(<strong>F(x)∧∀y(G(y)→H(x,y))</strong>)<br>∃x<strong>F(x)</strong> ∧∀y <strong>(G(y)→H(x,y))</strong></p>
+<p><strong>指导变项:</strong> 紧跟在量词后面的个体变项。例如：∃<strong>x</strong>(F(x)∧∀<strong>y</strong>(G(y)→H(x,y)))</p>
+<p><strong>约束出现:</strong> 在辖域中与指导变项同名的变项. 例如：∃<strong>x</strong>(F(<strong>x</strong>)∧∀<em>y</em>(G(<em>y</em>)→H(<strong>x</strong>,<em>y</em>)))</p>
+<p><strong>自由出现:</strong> 既非指导变项又非约束出现. 例如：∀<em>y</em>(G(<em>y</em>)→H(x,<em>y</em>))</p>
+<h4 id="1-3-闭式-Closed-Form"><a href="#1-3-闭式-Closed-Form" class="headerlink" title="1.3 闭式 (Closed Form)"></a>1.3 闭式 (Closed Form)</h4><p><strong>闭式: 无自由出现的变项</strong></p>
+<h4 id="1-4-合式公式的解释"><a href="#1-4-合式公式的解释" class="headerlink" title="1.4 合式公式的解释"></a>1.4 合式公式的解释</h4><p>![[Pasted image 20230320190705.png]]</p>
+<h4 id="1-5-一阶逻辑类型"><a href="#1-5-一阶逻辑类型" class="headerlink" title="1.5 一阶逻辑类型"></a>1.5 一阶逻辑类型</h4><p><strong>永真式Tautology：</strong></p>
+<ul>
+<li>在各种<strong>解释</strong>下取值均为真 <strong>(逻辑有效式)</strong></li>
+<li>命题逻辑永真式: 在各种赋值下取值均为真 <strong>(重言式)</strong></li>
+</ul>
+<p><strong>永假式Contradiction:</strong></p>
+<ul>
+<li>在各种<strong>解释</strong>下取值均为假 <strong>(矛盾式)</strong></li>
+<li>命题逻辑永假式: 在各种赋值下取值均为假 <strong>(矛盾式)</strong></li>
+</ul>
+<p><strong>可满足式：</strong> 非永假式</p>
+<h3 id="2-一阶逻辑等值式"><a href="#2-一阶逻辑等值式" class="headerlink" title="2 一阶逻辑等值式"></a>2 一阶逻辑等值式</h3><h4 id="2-0-定义"><a href="#2-0-定义" class="headerlink" title="2.0 定义"></a>2.0 定义</h4><p>![[Pasted image 20230320191917.png]]</p>
+<h3 id="一阶逻辑等值式-来源）"><a href="#一阶逻辑等值式-来源）" class="headerlink" title="一阶逻辑等值式(来源）"></a>一阶逻辑等值式(来源）</h3><p>1.命题逻辑等值式的代换实例<br>2.与量词有关的</p>
+<blockquote>
+<p>2.1 有限个体域量词消去<br>2.2 量词否定<br>2.3 量词辖域收缩与扩张<br>2.4 量词分配</p>
+</blockquote>
+<p>3.与变项有关的</p>
+<blockquote>
+<p>3.1 换名规则<br>3.2 代替规则</p>
+</blockquote>
+<h4 id="2-1-命题逻辑等值式的代换实例"><a href="#2-1-命题逻辑等值式的代换实例" class="headerlink" title="2.1 命题逻辑等值式的代换实例"></a>2.1 命题逻辑等值式的代换实例</h4><p>在命题逻辑等值式中, 代入一阶逻辑公式所得到的式子, 称为原来公式的代换实例。</p>
+<h4 id="2-2-有限个体域量词消去"><a href="#2-2-有限个体域量词消去" class="headerlink" title="2.2 有限个体域量词消去"></a>2.2 有限个体域量词消去</h4><p>![[Pasted image 20230320192220.png]]</p>
+<h4 id="2-3-量词辖域收缩与扩张（∀）"><a href="#2-3-量词辖域收缩与扩张（∀）" class="headerlink" title="2.3 量词辖域收缩与扩张（∀）"></a>2.3 量词辖域收缩与扩张（∀）</h4><ul>
+<li>假设B中不含x的出现<br>1）∀x(A(x)∨B) ⇔ ∀xA(x)∨B<br>2）∀x(A(x)∧B) ⇔ ∀xA(x)∧B<br>3）∀x(A(x)→B) ⇔ <strong>∃x</strong>A(x)→B<br>4）∀x(B→A(x)) ⇔ B→<strong>∀x</strong>A(x)</li>
+</ul>
+<h4 id="2-4-量词辖域收缩与扩张（∃）"><a href="#2-4-量词辖域收缩与扩张（∃）" class="headerlink" title="2.4 量词辖域收缩与扩张（∃）"></a>2.4 量词辖域收缩与扩张（∃）</h4><ul>
+<li>假设: B中不含x的出现<br>1）∃x(A(x)∨B) ⇔ ∃xA(x)∨B<br>2）∃x(A(x)∧B) ⇔ ∃xA(x)∧B<br>3）∃x(A(x)→B) ⇔ <strong>∀x</strong>A(x)→B<br>4）∃x(B→A(x)) ⇔ B→<strong>∃x</strong>A(x)</li>
+</ul>
+<h4 id="2-5-量词分配"><a href="#2-5-量词分配" class="headerlink" title="2.5 量词分配"></a>2.5 量词分配</h4><ul>
+<li>∀x(A(x)∧B(x)) ⇔ ∀xA(x)∧∀xB(x)</li>
+<li>∃x(A(x)∨B(x)) ⇔ ∃xA(x)∨∃xB(x)</li>
+</ul>
+<h5 id="反例"><a href="#反例" class="headerlink" title="反例"></a>反例</h5><p>![[Pasted image 20230320202334.png]]</p>
+<h5 id="蕴含"><a href="#蕴含" class="headerlink" title="蕴含"></a>蕴含</h5><p>![[Pasted image 20230320202428.png]]</p>
+<h5 id="附加前提法"><a href="#附加前提法" class="headerlink" title="附加前提法"></a>附加前提法</h5><p>![[Pasted image 20230320202437.png]]</p>
+<h3 id="3-1-换名-rename-规则"><a href="#3-1-换名-rename-规则" class="headerlink" title="3.1 换名(rename)规则"></a>3.1 换名(rename)规则</h3><p>把某个<strong>指导变项</strong>和其量词辖域中所有同名的<strong>约束变项</strong>, 都换成新的个体变项符号<br>![[Pasted image 20230320202609.png]]</p>
+<h3 id="3-2-代替-substitute-规则"><a href="#3-2-代替-substitute-规则" class="headerlink" title="3.2 代替(substitute)规则"></a>3.2 代替(substitute)规则</h3><p>把某个<strong>自由变项</strong>的所有出现, 都换成新的个体变项符号<br>![[Pasted image 20230320202636.png]]</p>
+<h3 id="4-谓词公式的范式-NF"><a href="#4-谓词公式的范式-NF" class="headerlink" title="4 谓词公式的范式(NF)"></a>4 谓词公式的范式(NF)</h3><ul>
+<li><strong>前束范式（Prenex Normal Form ）</strong><br>如果量词均在合式公式的开头，它们的辖域延伸到整个公式末尾，则该公式称为前束范式。</li>
+</ul>
+<ul>
+<li><p>∀x∀y∃z(Q(x,y) → R(z))</p>
+</li>
+<li><p>∀y∀x(~P(x,y) → Q(y))</p>
+</li>
+<li><p><strong>存在性定理：</strong><br>谓词逻辑合式公式均存在与之等值的前束范式</p>
+</li>
+<li><p><strong>构造方法：</strong><br>利用换名、代替、量词的收缩和扩张等进行等值变换</p>
+</li>
+</ul>
+<ul>
+<li><strong>量词顺序不同</strong><br>![[E}W@@[<del>OB</del>(W&#96;EL1KJ$}54D.jpg]]</li>
+</ul>
+<h2 id="1-6-Rules-of-Inference-推理规则"><a href="#1-6-Rules-of-Inference-推理规则" class="headerlink" title="1.6 Rules of Inference 推理规则"></a>1.6 Rules of Inference 推理规则</h2><h3 id="1-6-1-Tautological-implication-重言蕴含"><a href="#1-6-1-Tautological-implication-重言蕴含" class="headerlink" title="1.6.1 Tautological implication 重言蕴含"></a>1.6.1 Tautological implication 重言蕴含</h3><p><strong>定义：</strong><br>A、C是两个公式，如果A→C是<strong>重言式（tautologies）</strong>，则称A重言蕴含C，或称A能逻辑地推出 C，记作A ⇒ C</p>
+<p><strong>说明：</strong> →与⇒是有区别的</p>
+<ul>
+<li>→是联结词，A→C仍然是公式，公式A→C，当且仅当A真C假时才为假</li>
+<li>⇒是公式间的关系符，描述了两个公式间的关系，只能说A⇒C式成立或不成立</li>
+<li>重言蕴含A⇒C要成立的充要条件是对一切赋值，如果使A为真，则C也必须为真（<strong>此时A→C 为永真式&#x2F;重言式</strong>）。</li>
+</ul>
+<h3 id="1-6-2-Definition-定义"><a href="#1-6-2-Definition-定义" class="headerlink" title="1.6.2 Definition 定义"></a>1.6.2 Definition 定义</h3><p><strong>定义：</strong></p>
+<ul>
+<li><p>设 $A_1、A_2、…、A_m$，C 是公式，如果 $(A_1 ∧ A_2 ∧ … ∧A_m）→C$ 是<strong>重言式</strong>，则称 C 是前提集合{$A_1、A_2、…、A_m$}的有效结论，或称由{$A_1、A_2 、…、A_m$}逻辑地推论出 C，或称{$A_1、A_2 、…、A_m$} 重言蕴含 C。</p>
+</li>
+<li><p>由⇒的定义，可以记作 <strong>（A1 ∧ A2 ∧ … ∧ Am）⇒ C</strong>。</p>
+</li>
+</ul>
+<h3 id="1-6-3-Rules-of-Inference-推理规则"><a href="#1-6-3-Rules-of-Inference-推理规则" class="headerlink" title="1.6.3 Rules of Inference 推理规则"></a>1.6.3 Rules of Inference 推理规则</h3><h4 id="modus-ponens-law-of-detachment-假言推理规则"><a href="#modus-ponens-law-of-detachment-假言推理规则" class="headerlink" title="modus ponens&#x2F;law of detachment 假言推理规则"></a>modus ponens&#x2F;law of detachment 假言推理规则</h4><p>(p ∧ (p → q)) → q<br>![[Pasted image 20230321081345.png]]</p>
+<h4 id="Famous-rules-of-inference-一些著名的推理规则"><a href="#Famous-rules-of-inference-一些著名的推理规则" class="headerlink" title="Famous rules of inference 一些著名的推理规则"></a>Famous rules of inference 一些著名的推理规则</h4><p>![[Pasted image 20230322181529.png]]</p>
+<h3 id="1-6-4-Formal-Proofs-规范证明"><a href="#1-6-4-Formal-Proofs-规范证明" class="headerlink" title="1.6.4 Formal Proofs 规范证明"></a>1.6.4 Formal Proofs 规范证明</h3><p>![[Pasted image 20230322183104.png]]</p>
+<h3 id="1-6-5-Rules-of-inference-for-Predicate-logic-谓词逻辑的推理规则"><a href="#1-6-5-Rules-of-inference-for-Predicate-logic-谓词逻辑的推理规则" class="headerlink" title="1.6.5 Rules of inference for Predicate logic 谓词逻辑的推理规则"></a>1.6.5 Rules of inference for Predicate logic 谓词逻辑的推理规则</h3><p><strong>来源：</strong></p>
+<ol>
+<li>命题逻辑推理规则的代换实例</li>
+<li>一阶逻辑等值式生成的推理规则</li>
+<li>一阶逻辑蕴含式生成的推理规则</li>
+<li>一阶逻辑量词相关的推理规则</li>
+</ol>
+<h4 id="1-6-5-1-代换实例"><a href="#1-6-5-1-代换实例" class="headerlink" title="1.6.5.1 代换实例"></a>1.6.5.1 代换实例</h4><p>![[Pasted image 20230322184129.png]]</p>
+<table>
+<thead>
+<tr>
+<th>中文</th>
+<th>ENGLISH</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>假言推理</td>
+<td>Modus Ponens</td>
+</tr>
+<tr>
+<td>析取引入</td>
+<td>Addition</td>
+</tr>
+<tr>
+<td>合取消去</td>
+<td>Simplification</td>
+</tr>
+<tr>
+<td>拒取式</td>
+<td>Modus Tollens</td>
+</tr>
+<tr>
+<td>合取引入</td>
+<td>Conjunction</td>
+</tr>
+<tr>
+<td>假言三段论</td>
+<td>Hypothetical syllogism</td>
+</tr>
+<tr>
+<td>析取三段论</td>
+<td>Disjunctive syllogism</td>
+</tr>
+<tr>
+<td>消解规则</td>
+<td>Resolution</td>
+</tr>
+<tr>
+<td>构造性两难</td>
+<td>Constructive dilemma</td>
+</tr>
+</tbody></table>
+<h4 id="1-6-5-2-一阶逻辑等值式生成的推理规则"><a href="#1-6-5-2-一阶逻辑等值式生成的推理规则" class="headerlink" title="1.6.5.2 一阶逻辑等值式生成的推理规则"></a>1.6.5.2 一阶逻辑等值式生成的推理规则</h4><p>![[Pasted image 20230322184507.png]]</p>
+<h4 id="1-6-5-3-一阶逻辑蕴含式生成的推理规则"><a href="#1-6-5-3-一阶逻辑蕴含式生成的推理规则" class="headerlink" title="1.6.5.3 一阶逻辑蕴含式生成的推理规则"></a>1.6.5.3 一阶逻辑蕴含式生成的推理规则</h4><p>∀xA(x)∨∀xB(x) ⇒ ∀x(A(x)∨B(x))<br>∃x(A(x)∧B(x)) ⇒ ∃xA(x)∧∃xB(x)<br>∀x(A(x)→B(x)) ⇒ ∀xA(x)→∀xB(x)<br>∃x(A(x)→B(x)) ⇒ ∀xA(x)→∃xB(x)<br>∃xA(x) →∀xB(x) ⇒ ∀x(A(x)→B(x))</p>
+<h4 id="1-6-5-4-一阶逻辑量词相关推理规则"><a href="#1-6-5-4-一阶逻辑量词相关推理规则" class="headerlink" title="1.6.5.4 一阶逻辑量词相关推理规则"></a>1.6.5.4 一阶逻辑量词相关推理规则</h4><p><strong>先EI，后UI</strong></p>
+<h5 id="UI规则：universal-instantiation"><a href="#UI规则：universal-instantiation" class="headerlink" title="UI规则：universal instantiation"></a>UI规则：universal instantiation</h5><p>![[Pasted image 20230322184911.png]]</p>
+<h5 id="UG规则：universal-generalization"><a href="#UG规则：universal-generalization" class="headerlink" title="UG规则：universal generalization"></a>UG规则：universal generalization</h5><p>![[Pasted image 20230322185039.png]]</p>
+<h5 id="EI规则：existential-instantiation"><a href="#EI规则：existential-instantiation" class="headerlink" title="EI规则：existential instantiation"></a>EI规则：existential instantiation</h5><p>![[Pasted image 20230322185049.png]]</p>
+<h5 id="EG规则：existential-generalization"><a href="#EG规则：existential-generalization" class="headerlink" title="EG规则：existential generalization"></a>EG规则：existential generalization</h5><p>![[Pasted image 20230322185100.png]]</p>
+<h3 id="1-6-6-Fallacies-谬误"><a href="#1-6-6-Fallacies-谬误" class="headerlink" title="1.6.6 Fallacies 谬误"></a>1.6.6 Fallacies 谬误</h3><p>The proposition <strong>((p → q) ∧ q) → p</strong> is not a tautology, because it is false when p is false and q is true.This type of incorrect reasoning is called the <strong>fallacy of affirming the conclusion 肯定结论的谬误</strong>.</p>
+<p>The proposition <strong>((p → q) ∧ ¬p) → ¬q</strong> is not a tautology, because it is false when p is false and q is true.This type of incorrect reasoning is called the <strong>fallacy of denying the hypothesis 否定假设的谬误</strong>.</p>
+<h2 id="Supply：Construction-of-Proofs-补充：构造证明"><a href="#Supply：Construction-of-Proofs-补充：构造证明" class="headerlink" title="Supply：Construction of Proofs 补充：构造证明"></a>Supply：Construction of Proofs 补充：构造证明</h2><h3 id="构造证明1—直接证明法"><a href="#构造证明1—直接证明法" class="headerlink" title="构造证明1—直接证明法"></a>构造证明1—直接证明法</h3><p>![[Pasted image 20230322185341.png]]</p>
+<h3 id="构造证明2—附加前提证明法-CP规则"><a href="#构造证明2—附加前提证明法-CP规则" class="headerlink" title="构造证明2—附加前提证明法(CP规则)"></a>构造证明2—附加前提证明法(CP规则)</h3><ul>
+<li><p><strong>欲证明</strong><br>前提：A1 , A2 , …, Ak<br>结论：C→B</p>
+</li>
+<li><p><strong>等价地证明</strong><br>前提：A1 , A2 , …, Ak , C<br>结论：B</p>
+</li>
+<li><p><strong>理由：<br>  (A1∧A2∧…∧Ak )→(C→B)</strong><br>⇔ <del>( A1∧A2∧…∧Ak )∨(</del>C∨B)<br>⇔ ~ A1∨~ A2∨ … ∨<del>Ak∨</del>C∨B<br>⇔ ~(A1∧A2∧…∧Ak∧C)∨B<br>⇔ (A1∧A2∧…∧Ak∧C)→B</p>
+</li>
+</ul>
+<h3 id="构造证明3—反证法"><a href="#构造证明3—反证法" class="headerlink" title="构造证明3—反证法"></a>构造证明3—反证法</h3><p>![[Pasted image 20230322185950.png]]</p>
+<p><strong>设计命题或谓词<br>给出前提和结论的形式化表示<br>推理过程要完整<br>给出规范的三列形式</strong></p>
+<h2 id="1-7-Introduction-to-Proofs-证明介绍"><a href="#1-7-Introduction-to-Proofs-证明介绍" class="headerlink" title="1.7 Introduction to Proofs 证明介绍"></a>1.7 Introduction to Proofs 证明介绍</h2><h3 id="1-7-1-Definition-定义"><a href="#1-7-1-Definition-定义" class="headerlink" title="1.7.1 Definition 定义"></a>1.7.1 Definition 定义</h3><ul>
+<li>A <em><strong>theorem(定理)</strong></em> is a <em><strong>valid (正确)</strong></em> logical assertion which can be proved using</li>
+</ul>
+<ul>
+<li>other theorems</li>
+<li><em><strong>axioms (公理)</strong></em> (statements which are given to be true)</li>
+<li><em><strong>rules of inference (推理规则)</strong></em> (logical rules which allow the deduction of conclusions from premises).</li>
+</ul>
+<ul>
+<li>A <em><strong>lemma (引理)</strong></em> is a ‘pre-theorem’ or a result which is needed to prove a theorem.</li>
+<li>A <em><strong>corollary (推论)</strong></em> is a ‘post-theorem’ or a result which follows directly from a theorem.</li>
+<li>A <em><strong>conjecture (猜想)</strong></em> is a statement that is being proposed to be a true statement.</li>
+</ul>
+<ul>
+<li><strong>Form of theorems</strong><blockquote>
+<p>![[Pasted image 20230330151947.png|300]]</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="1-7-2-Proof-Methods-for-Implications-蕴含的证明方法"><a href="#1-7-2-Proof-Methods-for-Implications-蕴含的证明方法" class="headerlink" title="1.7.2 Proof Methods for Implications 蕴含的证明方法"></a>1.7.2 Proof Methods for Implications 蕴含的证明方法</h3><p>![[Pasted image 20230330152057.png|500]]</p>
+<h4 id="1-7-2-1-Direct-proof-直接证明法"><a href="#1-7-2-1-Direct-proof-直接证明法" class="headerlink" title="1.7.2.1 Direct proof 直接证明法"></a>1.7.2.1 Direct proof 直接证明法</h4><ul>
+<li>assumes the hypotheses are true</li>
+<li>uses the rules of inference, axioms and any logical equivalences to establish the truth of the conclusion.<blockquote>
+<p>![[Pasted image 20230330152352.png]]</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="1-7-2-2-Indirect-proof-间接证明法"><a href="#1-7-2-2-Indirect-proof-间接证明法" class="headerlink" title="1.7.2.2 Indirect proof 间接证明法"></a>1.7.2.2 Indirect proof 间接证明法</h4><ul>
+<li><strong>A direct proof of the contrapositive（逆反式）</strong><blockquote>
+<p>![[Pasted image 20230330152609.png]]![[Pasted image 20230330152744.png]]</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="1-7-2-3-Trivial-proof-平凡证明"><a href="#1-7-2-3-Trivial-proof-平凡证明" class="headerlink" title="1.7.2.3 Trivial proof 平凡证明"></a>1.7.2.3 Trivial proof 平凡证明</h4><ul>
+<li>If we know Q is true then P → Q is true.<blockquote>
+<p>![[Pasted image 20230330152905.png]]</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="1-7-2-4-Vacuous-proof-空证明"><a href="#1-7-2-4-Vacuous-proof-空证明" class="headerlink" title="1.7.2.4 Vacuous proof 空证明"></a>1.7.2.4 Vacuous proof 空证明</h4><ul>
+<li>If we know one of the hypotheses in P is false then P→Q is <strong>vacuously true</strong>.<blockquote>
+<p>![[Pasted image 20230330153510.png]]</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="1-7-2-5-Proof-by-contradiction-归谬证明"><a href="#1-7-2-5-Proof-by-contradiction-归谬证明" class="headerlink" title="1.7.2.5 Proof by contradiction 归谬证明"></a>1.7.2.5 Proof by contradiction 归谬证明</h4><p>To prove that a statement P is true</p>
+<ul>
+<li>assumes the statement P is false</li>
+<li>derives a contradiction, usually of the form Q ∧ ~Q which establishes ~ P → (Q ∧ ~Q )</li>
+<li>from which it follows that P must be true.<blockquote>
+<p>![[Pasted image 20230330153945.png|400]]</p>
+</blockquote>
+</li>
+</ul>
+<p>Contrast: The <em><strong>contrapositive</strong></em> proof:<br><strong>To proof P→ Q, construct and proof ~Q→ ~ P</strong></p>
+<h4 id="1-7-2-6-Proof-by-Cases-案例证明"><a href="#1-7-2-6-Proof-by-Cases-案例证明" class="headerlink" title="1.7.2.6 Proof by Cases 案例证明"></a>1.7.2.6 Proof by Cases 案例证明</h4><p>![[Pasted image 20230330154504.png]]</p>
+<p>![[Pasted image 20230330154938.png]]<br>![[Pasted image 20230330154948.png]]</p>
+<h4 id="1-7-2-7-Exhaustive-Proof-详尽证明"><a href="#1-7-2-7-Exhaustive-Proof-详尽证明" class="headerlink" title="1.7.2.7 Exhaustive Proof 详尽证明"></a>1.7.2.7 Exhaustive Proof 详尽证明</h4><p>![[Pasted image 20230330155458.png]]<br>![[Pasted image 20230330155506.png]]</p>
+<h4 id="1-7-2-8-Proof-by-Examples-示例证明"><a href="#1-7-2-8-Proof-by-Examples-示例证明" class="headerlink" title="1.7.2.8 Proof by Examples 示例证明"></a>1.7.2.8 Proof by Examples 示例证明</h4><p><strong>Remember</strong>：A universal statement can <u>never</u> be proven by using examples, <u>unless</u> the universe can be validly reduced to only <u>finitely</u> many examples, and your proof covers <u>all</u> of them!<br>![[Pasted image 20230330155953.png]]</p>
+<h3 id="1-7-3-Without-Loss-of-generality-不丢失普遍性"><a href="#1-7-3-Without-Loss-of-generality-不丢失普遍性" class="headerlink" title="1.7.3 Without Loss of generality 不丢失普遍性"></a>1.7.3 Without Loss of generality 不丢失普遍性</h3><p>![[Pasted image 20230330160509.png]]<br>![[Pasted image 20230330160516.png]]</p>
+<h2 id="1-8-Proof-Methods-and-Strategy-证明方法和策略"><a href="#1-8-Proof-Methods-and-Strategy-证明方法和策略" class="headerlink" title="1.8 Proof Methods and Strategy 证明方法和策略"></a>1.8 Proof Methods and Strategy 证明方法和策略</h2><h3 id="1-8-1-Proof-Methods-for-Existence-存在性证明"><a href="#1-8-1-Proof-Methods-for-Existence-存在性证明" class="headerlink" title="1.8.1 Proof Methods for Existence 存在性证明"></a>1.8.1 Proof Methods for Existence 存在性证明</h3><p>![[Pasted image 20230330161003.png]]</p>
+<h4 id="1-8-1-1-Constructive-Existence-Proof-构造性的存在性证明"><a href="#1-8-1-1-Constructive-Existence-Proof-构造性的存在性证明" class="headerlink" title="1.8.1.1 Constructive Existence Proof 构造性的存在性证明"></a>1.8.1.1 Constructive Existence Proof 构造性的存在性证明</h4><p>![[Pasted image 20230330161341.png]]</p>
+<h4 id="1-8-1-2-Nonconstructive-existence-proof-非构造性的存在性证明"><a href="#1-8-1-2-Nonconstructive-existence-proof-非构造性的存在性证明" class="headerlink" title="1.8.1.2 Nonconstructive existence proof 非构造性的存在性证明"></a>1.8.1.2 Nonconstructive existence proof 非构造性的存在性证明</h4><p>![[Pasted image 20230330161517.png]]</p>
+<h3 id="1-8-2-Proof-Methods-for-Uniqueness-唯一性证明"><a href="#1-8-2-Proof-Methods-for-Uniqueness-唯一性证明" class="headerlink" title="1.8.2 Proof Methods for Uniqueness 唯一性证明"></a>1.8.2 Proof Methods for Uniqueness 唯一性证明</h3><p>两个部分：<br><strong>存在性</strong>：证明存在某个元素 x 具有期望的性质<br><strong>唯一性</strong>：证明如果 x 和 y 都具有期望的性质，则x&#x3D;y<br>![[Pasted image 20230330163150.png]]</p>
+<h3 id="1-8-3-Proof-Methods-for-Nonexistence-不存在性证明"><a href="#1-8-3-Proof-Methods-for-Nonexistence-不存在性证明" class="headerlink" title="1.8.3 Proof Methods for Nonexistence 不存在性证明"></a>1.8.3 Proof Methods for Nonexistence 不存在性证明</h3><p>![[Pasted image 20230330163650.png]]</p>
+<h3 id="1-8-4-Universally-Quantified-Assertions-普遍量化的断言"><a href="#1-8-4-Universally-Quantified-Assertions-普遍量化的断言" class="headerlink" title="1.8.4 Universally Quantified Assertions 普遍量化的断言"></a>1.8.4 Universally Quantified Assertions 普遍量化的断言</h3><p>![[Pasted image 20230330164538.png]]<br>![[Pasted image 20230330165009.png|500]]</p>
+<h3 id="1-8-5-Proof-strategy-Overview-证明策略概述"><a href="#1-8-5-Proof-strategy-Overview-证明策略概述" class="headerlink" title="1.8.5 Proof strategy Overview 证明策略概述"></a>1.8.5 Proof strategy Overview 证明策略概述</h3><h4 id="1-8-5-1-Forward-Reasoning-正向推理"><a href="#1-8-5-1-Forward-Reasoning-正向推理" class="headerlink" title="1.8.5.1 Forward Reasoning 正向推理"></a>1.8.5.1 Forward Reasoning 正向推理</h4><p>![[Pasted image 20230330170502.png|500]]</p>
+<h4 id="1-8-5-2-Backward-Reasoning-逆向推理"><a href="#1-8-5-2-Backward-Reasoning-逆向推理" class="headerlink" title="1.8.5.2 Backward Reasoning 逆向推理"></a>1.8.5.2 Backward Reasoning 逆向推理</h4><p>![[Pasted image 20230330170530.png]]</p>
+<h3 id="1-8-6-Additional-Proof-Methods-额外的证明方法"><a href="#1-8-6-Additional-Proof-Methods-额外的证明方法" class="headerlink" title="1.8.6 Additional Proof Methods 额外的证明方法"></a>1.8.6 Additional Proof Methods 额外的证明方法</h3><ul>
+<li><strong>Mathematical induction</strong>, which is a useful method for proving statements of the form “∀n P(n), where the domain consists of all positive integers.</li>
+<li><strong>Structural induction</strong>, which can be used to prove such results about recursively defined sets.</li>
+<li><strong>Cantor diagonalization</strong> is used to prove results about the size of infinite sets.</li>
+<li><strong>Combinatorial proofs</strong> use counting arguments.</li>
+</ul>
+<hr>
+<h1 id="2-Basic-Structures-Sets-Functions-Sequences-Sums-and-Matrices-基本结构"><a href="#2-Basic-Structures-Sets-Functions-Sequences-Sums-and-Matrices-基本结构" class="headerlink" title="2. Basic Structures: Sets, Functions, Sequences, Sums, and Matrices 基本结构"></a>2. Basic Structures: Sets, Functions, Sequences, Sums, and Matrices 基本结构</h1><h2 id="2-1-Set-集合"><a href="#2-1-Set-集合" class="headerlink" title="2.1 Set 集合"></a>2.1 Set 集合</h2><h3 id="2-1-1-Introduction-引言"><a href="#2-1-1-Introduction-引言" class="headerlink" title="2.1.1 Introduction 引言"></a>2.1.1 Introduction 引言</h3><p><strong>Definition 1:</strong><br>![[Pasted image 20230404120315.png]]</p>
+<p><strong>Notation: roster method 花名册方法</strong><br>list the elements between braces:<br>S &#x3D; {a, b, c, d}&#x3D;{b, c, a, d, d}</p>
+<p><strong>Notation: specification by predicates（谓词）</strong><br>![[Pasted image 20230404120817.png]]</p>
+<p><strong>Common Universal Sets:</strong><br>![[Pasted image 20230404120642.png]]<br>![[Pasted image 20230404120650.png]]</p>
+<p><strong>Definition 2:</strong><br>![[Pasted image 20230404120854.png]]</p>
+<p><strong>Empty Set 空集：</strong><br>The void set, the null set, the empty set, denoted {} or ∅, is the set with no members.</p>
+<h3 id="2-1-3-Subsets-子集"><a href="#2-1-3-Subsets-子集" class="headerlink" title="2.1.3 Subsets 子集"></a>2.1.3 Subsets 子集</h3><p><strong>Subsets 子集：</strong><br>![[Pasted image 20230404145401.png]]</p>
+<p><strong>Proper subset 真子集</strong><br>![[Pasted image 20230404145604.png]]</p>
+<h3 id="2-1-4-The-Size-of-a-Set-集合的大小"><a href="#2-1-4-The-Size-of-a-Set-集合的大小" class="headerlink" title="2.1.4 The Size of a Set 集合的大小"></a>2.1.4 The Size of a Set 集合的大小</h3><p><strong>Cardinality 基数</strong><br>![[Pasted image 20230404081336.png]]</p>
+<ul>
+<li>N is <em>infinite</em> since |N| is not a natural number.</li>
+<li>It is called a <em><strong>transfinite cardinal number</strong></em>.</li>
+</ul>
+<h3 id="2-1-5-Power-Sets-幂集"><a href="#2-1-5-Power-Sets-幂集" class="headerlink" title="2.1.5 Power Sets 幂集"></a>2.1.5 Power Sets 幂集</h3><p>![[Pasted image 20230404081633.png]]<br>幂集中的元素都是集合<br>If a set has <em>n</em> elements, then its power set has $2^n$ elements.</p>
+<h3 id="2-1-6-Cartesian-Products-笛卡尔积"><a href="#2-1-6-Cartesian-Products-笛卡尔积" class="headerlink" title="2.1.6 Cartesian Products 笛卡尔积"></a>2.1.6 Cartesian Products 笛卡尔积</h3><p><strong>ordered n-tuples 有序n元组</strong><br>![[Pasted image 20230404082104.png]]</p>
+<p><strong>ordered pairs 序偶</strong>：有序二元组<br>The ordered pairs (a, b) and (c, d) are equal if and only if a &#x3D; c and b &#x3D; d.</p>
+<p><strong>Cartesian product 笛卡尔乘积</strong><br>![[Pasted image 20230404150800.png]]<br><strong>Note: The Cartesian product of anything with ∅ is ∅.</strong></p>
+<p>![[Pasted image 20230404150905.png]]</p>
+<ul>
+<li>笛卡尔乘积不满足交换律</li>
+<li>笛卡尔乘积不满足结合律</li>
+</ul>
+<h3 id="2-1-7-Truth-Sets-and-Quantififiers-真值集和量词"><a href="#2-1-7-Truth-Sets-and-Quantififiers-真值集和量词" class="headerlink" title="2.1.7 Truth Sets and Quantififiers 真值集和量词"></a>2.1.7 Truth Sets and Quantififiers 真值集和量词</h3><p><strong>Definition：</strong><br>Given a predicate P, and a domain D, The <em>truth set</em> of P(x) is denoted by <strong>{x∈D | P(x)}</strong>.</p>
+<h2 id="2-2-Set-Operations-集合运算"><a href="#2-2-Set-Operations-集合运算" class="headerlink" title="2.2 Set Operations 集合运算"></a>2.2 Set Operations 集合运算</h2><h3 id="2-2-1-Introduction-引言"><a href="#2-2-1-Introduction-引言" class="headerlink" title="2.2.1 Introduction 引言"></a>2.2.1 Introduction 引言</h3><p><strong>Definition 1</strong><br>Let A and B be sets. The <strong>union（并集）</strong> of the sets A and B, denoted by <strong>A ∪ B</strong>, is the set that contains those elements that are either in A or in B, or in both.</p>
+<p><strong>Definition 2</strong><br>Let A and B be sets. The <strong>intersection（交集）</strong> of the sets A and B, denoted by <strong>A ∩ B</strong>, is the set containing those elements in both A and B.</p>
+<p><strong>Definition 3</strong><br>Two sets are called <strong>disjoint（不相交）</strong> if their intersection is the empty set.</p>
+<p><strong>Definition 4</strong><br><strong>complement（补集）</strong><br>![[Pasted image 20230404151724.png]]</p>
+<p><strong>principle of inclusion–exclusion 容斥原理</strong><br>|A ∪ B| &#x3D; |A| + |B| − |A ∩ B|</p>
+<p><strong>Definition 5</strong><br>Let A and B be sets. The <strong>difference（差）</strong> of A and B, denoted by <strong>A − B</strong>, is the set containing those elements that are in A but not in B. The difference of A and B is also called the complement of B relative to A.<br>![[Pasted image 20230404093351.png]]<br>![[Pasted image 20230404151952.png]]</p>
+<p><strong>symmetric difference（对称差）</strong><br>![[Pasted image 20230404152021.png]]</p>
+<h3 id="2-2-2-Set-Identities-集合恒等式"><a href="#2-2-2-Set-Identities-集合恒等式" class="headerlink" title="2.2.2 Set Identities 集合恒等式"></a>2.2.2 Set Identities 集合恒等式</h3><p>![[Pasted image 20230404152319.png|inl|350]] ![[Pasted image 20230404152358.png|inl|300]]</p>
+<p>![[Pasted image 20230404152822.png]]</p>
+<p><strong>Proving Set Identities 证明集合恒等式</strong></p>
+<ol>
+<li>Prove S1 ⊆ S2 and S2 ⊆ S1 separately.</li>
+<li>Use a membership table.</li>
+<li>Use set builder notation &amp; logical equivalences.<br>![[Pasted image 20230404153133.png]]<br>![[Pasted image 20230404153201.png]]<br>![[Pasted image 20230404153216.png]]</li>
+</ol>
+<h3 id="2-2-3-Generalized-Unions-and-Intersections-扩展的并集和交集"><a href="#2-2-3-Generalized-Unions-and-Intersections-扩展的并集和交集" class="headerlink" title="2.2.3 Generalized Unions and Intersections 扩展的并集和交集"></a>2.2.3 Generalized Unions and Intersections 扩展的并集和交集</h3><p>![[Pasted image 20230404153459.png]]</p>
+<h3 id="2-2-4-Computer-Representation-of-Sets-集合的计算机表示"><a href="#2-2-4-Computer-Representation-of-Sets-集合的计算机表示" class="headerlink" title="2.2.4 Computer Representation of Sets 集合的计算机表示"></a>2.2.4 Computer Representation of Sets 集合的计算机表示</h3><p>![[Pasted image 20230404154108.png]]<br>![[Pasted image 20230404154223.png]]</p>
+<h2 id="2-3-Function-函数"><a href="#2-3-Function-函数" class="headerlink" title="2.3 Function 函数"></a>2.3 Function 函数</h2><h3 id="2-3-1-introduction-引言"><a href="#2-3-1-introduction-引言" class="headerlink" title="2.3.1 introduction 引言"></a>2.3.1 introduction 引言</h3><ul>
+<li>Definition:<blockquote>
+<p>Let A and B be nonempty sets. A function f from A to B is an assignment of exactly one element of B to each element of A. We write f(a) &#x3D; b if b is the unique element of B assigned by the function f to the element a of A. If f is a function from A to B, we write f : A → B.![[Pasted image 20230418155811.png]]</p>
+</blockquote>
+</li>
+</ul>
+<p>A is called the <strong>domain（域&#x2F;定义域）</strong><br>B is called the <strong>codomain （陪域）</strong><br>If $f (x) &#x3D; y$</p>
+<ul>
+<li>y is called the <strong>image (像)</strong> of x under f <strong>(value)</strong></li>
+<li>x is called a **preimage (源像) ****** of y <strong>(argument)</strong><br>The <strong>range (值域)</strong> of f is the set of all images of set $A$ under $f$. It is denoted by $f (A)$.<br>![[Pasted image 20230418160046.png]]</li>
+</ul>
+<h3 id="2-3-2-Special-types-of-Functions-特殊种类的函数"><a href="#2-3-2-Special-types-of-Functions-特殊种类的函数" class="headerlink" title="2.3.2 Special types of Functions 特殊种类的函数"></a>2.3.2 Special types of Functions 特殊种类的函数</h3><p><strong>1. One-to-One Functions</strong><br>A function f is said to be one-to-one, or an injection, if and only if f(a) &#x3D; f(b) implies that a &#x3D; b for all a and b in the domain of f. A function is said to be injective if it is one-to-one.<br>![[Pasted image 20230418160540.png]]</p>
+<p><em><strong>Sufficient conditions for 1-1 functions</strong></em><br>For functions f over numbers, we say:</p>
+<ul>
+<li>f is strictly (or monotonically) increasing iff <strong>x&gt;y → f(x)&gt;f(y)</strong> for all x,y in domain;</li>
+<li>f is strictly (or monotonically) decreasing iff <strong>x&gt;y → f(x)&lt;f(y)</strong> for all x,y in domain;</li>
+<li>If f is either strictly increasing or strictly decreasing, then f is one-to-one. </li>
+<li><em>Converse is not necessarily true. E.g. 1&#x2F;x</em></li>
+</ul>
+<p><strong>2. Onto (Surjective) Functions</strong><br>A function f from A to B is called onto, or a surjection, if and only if for every element b ∈ B there is an element a ∈ A with f(a) &#x3D; b. A function f is called surjective if it is onto.<br>![[Pasted image 20230418161144.png]]</p>
+<p><strong>3. Bijection Functions</strong><br>A function f is said to be a <strong>one-to-one correspondence</strong>, or a <strong>bijection</strong>, or <strong>reversible</strong>, or <strong>invertible</strong>, iff it is both one-to-one and onto.</p>
+<ul>
+<li>If two finite sets can be placed into 1-1 correspondence, then they have the same size</li>
+</ul>
+<h3 id="2-3-3-Properties-of-functions-函数的特性"><a href="#2-3-3-Properties-of-functions-函数的特性" class="headerlink" title="2.3.3 Properties of functions 函数的特性"></a>2.3.3 Properties of functions 函数的特性</h3><p><strong>Function Operations</strong><br>![[Pasted image 20230418161850.png]]<br>![[Pasted image 20230418161904.png]]</p>
+<p><strong>The Identity Function 恒等函数</strong><br>![[Pasted image 20230418193041.png]]</p>
+<p><strong>Inverse Functions 反函数</strong><br>![[Pasted image 20230418193257.png]]</p>
+<p><strong>Composition of Functions 合成函数</strong><br>![[Pasted image 20230418193407.png]]</p>
+<ul>
+<li>The commutative law does not hold for the composition of functions.</li>
+<li>The associative law holds for the composition of functions.<br>![[Pasted image 20230418193456.png]]</li>
+</ul>
+<p>![[Pasted image 20230418193551.png]]</p>
+<h3 id="2-3-4-Graphs-of-Functions-函数的图"><a href="#2-3-4-Graphs-of-Functions-函数的图" class="headerlink" title="2.3.4 Graphs of Functions 函数的图"></a>2.3.4 Graphs of Functions 函数的图</h3><p>![[Pasted image 20230418193746.png]]</p>
+<h3 id="2-3-5-Some-Important-functions-一些重要函数"><a href="#2-3-5-Some-Important-functions-一些重要函数" class="headerlink" title="2.3.5 Some Important functions 一些重要函数"></a>2.3.5 Some Important functions 一些重要函数</h3><ol>
+<li><p><strong>Floor and ceiling function</strong><br>![[Pasted image 20230418194016.png]]<br>Application: Truncation used in computer network and communication network<br>![[Pasted image 20230418194117.png]]<br><strong>Properties of floor and ceiling</strong><br>![[Pasted image 20230418194217.png]]</p>
+</li>
+<li><p><strong>Factorial function</strong><br>![[Pasted image 20230418194311.png]]</p>
+</li>
+<li><p><strong>Characteristic Functions</strong><br>![[Pasted image 20230418194434.png]]</p>
+</li>
+<li><p><strong>Mod-n Functions</strong><br>![[Pasted image 20230418194518.png]]</p>
+</li>
+<li><p><strong>Partial Functions</strong><br>![[Pasted image 20230418194546.png]]</p>
+</li>
+</ol>
+<h2 id="2-4-Sequences-and-Summations-序列与求和"><a href="#2-4-Sequences-and-Summations-序列与求和" class="headerlink" title="2.4 Sequences and Summations 序列与求和"></a>2.4 Sequences and Summations 序列与求和</h2><h3 id="2-4-1-Introduction-引言"><a href="#2-4-1-Introduction-引言" class="headerlink" title="2.4.1 Introduction 引言"></a>2.4.1 Introduction 引言</h3><p>A <strong>sequence</strong> or <strong>series</strong> is just like an ordered n-tuple,<br>except:</p>
+<ul>
+<li>Each element in the series has an associated <em><strong>index</strong></em> number.</li>
+<li>A sequence or series may be <em><strong>infinite</strong></em>.</li>
+</ul>
+<p>A <strong>summation</strong> is a compact notation for the sum of all terms in a (possibly infinite) series.</p>
+<h3 id="2-4-2-Sequences-序列"><a href="#2-4-2-Sequences-序列" class="headerlink" title="2.4.2 Sequences 序列"></a>2.4.2 Sequences 序列</h3><p>![[Pasted image 20230418202221.png]]</p>
+<h3 id="2-4-3-Recurrence-relations-递推关系"><a href="#2-4-3-Recurrence-relations-递推关系" class="headerlink" title="2.4.3 Recurrence relations 递推关系"></a>2.4.3 Recurrence relations 递推关系</h3><p>![[Pasted image 20230418202551.png]]<br>![[Pasted image 20230418202601.png]]</p>
+<p><strong>Fibonacci sequence 斐波那契数列</strong><br>![[Pasted image 20230418202643.png]]</p>
+<p><strong>closed Formula 闭公式</strong><br>Definition：<br>We say that we have solved the recurrence relation together with the initial conditions when we find an <strong>explicit formula</strong>, called a <strong>closed formula</strong>, for the terms of the sequence.<br>![[Pasted image 20230418203001.png]]</p>
+<h3 id="2-4-4-Special-sequences-特殊的序列"><a href="#2-4-4-Special-sequences-特殊的序列" class="headerlink" title="2.4.4 Special sequences 特殊的序列"></a>2.4.4 Special sequences 特殊的序列</h3><p>![[Pasted image 20230418203103.png]]</p>
+<h3 id="2-4-5-Summation-求和"><a href="#2-4-5-Summation-求和" class="headerlink" title="2.4.5 Summation 求和"></a>2.4.5 Summation 求和</h3><p>![[Pasted image 20230418203152.png]]</p>
+<p><strong>Manipulations</strong><br>![[Pasted image 20230418203421.png]]</p>
+<p><strong>Some Shortcut Expressions</strong><br>![[Pasted image 20230418203618.png]]</p>
+<h2 id="2-5-Cardinality-of-Sets-集合的基数"><a href="#2-5-Cardinality-of-Sets-集合的基数" class="headerlink" title="2.5 Cardinality of Sets 集合的基数"></a>2.5 Cardinality of Sets 集合的基数</h2><h3 id="2-5-1-Introduction-引言"><a href="#2-5-1-Introduction-引言" class="headerlink" title="2.5.1 Introduction 引言"></a>2.5.1 Introduction 引言</h3><p>Definition:<br>The number of distinct elements in set A, denoted |A|, is called the <strong>cardinality</strong> of A.</p>
+<p><strong>Definition 1</strong><br>The sets $A$ and $B$ have the same <strong>cardinality</strong> if and only if there is a <em>one-to-one correspondence</em> from $A$ to $B$. When $A$ and $B$ have the same cardinality, we write $|A| &#x3D; |B|$.<br>![[Pasted image 20230425190729.png]]<br>![[Pasted image 20230425191103.png]]</p>
+<h3 id="2-5-2-Countable-Sets-可数集合"><a href="#2-5-2-Countable-Sets-可数集合" class="headerlink" title="2.5.2 Countable Sets 可数集合"></a>2.5.2 Countable Sets 可数集合</h3><p><strong>Definition:</strong><br>For any set $S$, if $S$ is finite or if $|S|&#x3D;|N|$, we say that S is <strong>countable</strong>. Else, $S$ is <strong>uncountable</strong>.<br>Examples: $N$，$Z$<br>Examples: $R$</p>
+<p><strong>Definition:</strong><br>The cardinalities of infinite sets are not natural numbers, but are special objects called <strong>transfinite cardinal numbers (超限基数)</strong>.</p>
+<p>When an infinite set $S$ is countable, we denote the cardinality of $S$ by $ℵ₀$ (where $ℵ$ is aleph, the first letter of the Hebrew alphabet). We write $|S| &#x3D; ℵ₀$ and say that $S$ has cardinality “aleph null.”</p>
+<p>The <strong>continuum hypothesis (连续统假设)</strong> claims that $ℵ₁ :≡ |R|$, the <strong>second transfinite cardinal</strong>.</p>
+<h2 id="2-6-Matrices-矩阵"><a href="#2-6-Matrices-矩阵" class="headerlink" title="2.6 Matrices 矩阵"></a>2.6 Matrices 矩阵</h2><table>
+<thead>
+<tr>
+<th align="center">Properties of Matrices</th>
+<th align="center">矩阵的性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Matrix Equality</td>
+<td align="center">矩阵相等</td>
+</tr>
+<tr>
+<td align="center">Matrix Sums</td>
+<td align="center">矩阵和</td>
+</tr>
+<tr>
+<td align="center">Matrix Products</td>
+<td align="center">矩阵积</td>
+</tr>
+<tr>
+<td align="center">Identity Matrices</td>
+<td align="center">单位矩阵</td>
+</tr>
+<tr>
+<td align="center">Matrix Inverses</td>
+<td align="center">矩阵的逆</td>
+</tr>
+<tr>
+<td align="center">Powers of Matrices</td>
+<td align="center">矩阵的幂</td>
+</tr>
+<tr>
+<td align="center">Matrix Transposition</td>
+<td align="center">转置矩阵</td>
+</tr>
+<tr>
+<td align="center">Symmetric Matrices</td>
+<td align="center">对称矩阵</td>
+</tr>
+<tr>
+<td align="center">Zero-One Matrices</td>
+<td align="center">0-1矩阵</td>
+</tr>
+</tbody></table>
+<h3 id="Zero-One-Matrices-0-1矩阵"><a href="#Zero-One-Matrices-0-1矩阵" class="headerlink" title="Zero-One Matrices 0-1矩阵"></a>Zero-One Matrices 0-1矩阵</h3><p>![[Pasted image 20230425201713.png]]</p>
+<h3 id="Boolean-Products-布尔积"><a href="#Boolean-Products-布尔积" class="headerlink" title="Boolean Products 布尔积"></a>Boolean Products 布尔积</h3><p>![[Pasted image 20230425202005.png]]<br>![[Pasted image 20230425202027.png]]</p>
+<h3 id="Basic-properties-基本性质"><a href="#Basic-properties-基本性质" class="headerlink" title="Basic properties 基本性质"></a>Basic properties 基本性质</h3><p>![[Pasted image 20230425202629.png]]</p>
+<hr>
+<h1 id="3-Algorithms-算法"><a href="#3-Algorithms-算法" class="headerlink" title="3. Algorithms 算法"></a>3. Algorithms 算法</h1><h2 id="3-1-Algorithms-算法"><a href="#3-1-Algorithms-算法" class="headerlink" title="3.1 Algorithms 算法"></a>3.1 Algorithms 算法</h2><h3 id="3-1-1-Algorithm-Characteristics-算法的性质"><a href="#3-1-1-Algorithm-Characteristics-算法的性质" class="headerlink" title="3.1.1 Algorithm Characteristics 算法的性质"></a>3.1.1 Algorithm Characteristics 算法的性质</h3><table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Input(输入).</td>
+<td align="center">Information or data that comes in.</td>
+</tr>
+<tr>
+<td align="center">Output (输出).</td>
+<td align="center">Information or data that goes out.</td>
+</tr>
+<tr>
+<td align="center">Definiteness(确定性).</td>
+<td align="center">Algorithm is precisely defined.</td>
+</tr>
+<tr>
+<td align="center">Correctness(正确性).</td>
+<td align="center">Outputs correctly relate to inputs.</td>
+</tr>
+<tr>
+<td align="center">Finiteness(有限性).</td>
+<td align="center">Won’t take forever to describe or run.</td>
+</tr>
+<tr>
+<td align="center">Effectiveness(有效性).</td>
+<td align="center">Individual steps are all do-able.</td>
+</tr>
+<tr>
+<td align="center">Generality(通用性).</td>
+<td align="center">Works for many possible inputs.</td>
+</tr>
+<tr>
+<td align="center">Efficiency(高效性).</td>
+<td align="center">Takes little time &amp; memory to run.</td>
+</tr>
+</tbody></table>
+<p><strong>Pseudocode Language 伪代码</strong><br>![[Pasted image 20230425211456.png]]<br>![[Pasted image 20230425211818.png]]<br>![[Pasted image 20230425211840.png]]<br>![[Pasted image 20230425211916.png]]</p>
+<h3 id="3-1-2-Searching-Algorithms-搜索算法"><a href="#3-1-2-Searching-Algorithms-搜索算法" class="headerlink" title="3.1.2 Searching Algorithms 搜索算法"></a>3.1.2 Searching Algorithms 搜索算法</h3><h4 id="Linear-Search-线性搜索"><a href="#Linear-Search-线性搜索" class="headerlink" title="Linear Search 线性搜索"></a>Linear Search 线性搜索</h4><p>![[Pasted image 20230425212155.png]]</p>
+<h4 id="Binary-Search-二分搜索"><a href="#Binary-Search-二分搜索" class="headerlink" title="Binary Search 二分搜索"></a>Binary Search 二分搜索</h4><p>![[Pasted image 20230425212223.png]]</p>
+<h3 id="3-1-3-Sorting-排序算法"><a href="#3-1-3-Sorting-排序算法" class="headerlink" title="3.1.3 Sorting 排序算法"></a>3.1.3 Sorting 排序算法</h3><h4 id="Bubble-sort-冒泡排序"><a href="#Bubble-sort-冒泡排序" class="headerlink" title="Bubble sort 冒泡排序"></a>Bubble sort 冒泡排序</h4><p><strong>procedure</strong> bubblesort($a₁,… , an$ : real numbers with $n ≥ 2$)<br>for i :&#x3D; 1 to $n − 1$<br>    for j :&#x3D; 1 to $n − i$<br>        if $aj &gt; aj₊₁$ then interchange $aj$ and $aj₊₁$<br>{$a₁,… , an$ is in increasing order}</p>
+<h4 id="Insertion-sort-插入排序"><a href="#Insertion-sort-插入排序" class="headerlink" title="Insertion sort 插入排序"></a>Insertion sort 插入排序</h4><p>![[Pasted image 20230425212646.png]]</p>
+<h3 id="3-1-5-Greedy-Algorithms-贪心算法"><a href="#3-1-5-Greedy-Algorithms-贪心算法" class="headerlink" title="3.1.5 Greedy Algorithms 贪心算法"></a>3.1.5 Greedy Algorithms 贪心算法</h3><p>![[Pasted image 20230425212732.png]]</p>
+<h2 id="3-2-Growth-of-functions-函数的增长"><a href="#3-2-Growth-of-functions-函数的增长" class="headerlink" title="3.2 Growth of functions 函数的增长"></a>3.2 Growth of functions 函数的增长</h2><h3 id="3-2-1-Orders-of-Growth-增长的阶"><a href="#3-2-1-Orders-of-Growth-增长的阶" class="headerlink" title="3.2.1 Orders of Growth 增长的阶"></a>3.2.1 Orders of Growth 增长的阶</h3><p>We say $f_A (n)&#x3D;30n+8$ is <em>(at most) order n</em>, or $O(n)$. It is at most roughly proportional to $n$<br>We say $f_B (n)&#x3D;n^2+1$ is <em>order $n^2$</em> , or $O(n^2)$. It is (at most) roughly proportional to $n^2$ .</p>
+<h3 id="3-2-2-The-Big-O-Notation-大O记号"><a href="#3-2-2-The-Big-O-Notation-大O记号" class="headerlink" title="3.2.2 The Big-O Notation 大O记号"></a>3.2.2 The Big-O Notation 大O记号</h3><h4 id="大O"><a href="#大O" class="headerlink" title="大O"></a>大O</h4><p>‘$f$ is $O(g)$’ or ‘$f$ is $big-O \ of\ g$’ <em><strong>iff</strong></em><br>$$∃k\exists c\forall n(n&gt;k → |f(n)| ≤ c|g(n)|)$$<br>‘$f$ is at most order $g$’, or ‘$f$ is $O(g)$’ or ‘$f &#x3D;O(g)$’ all just mean that $f\in O(g)$.<br><strong>实际上相当于给出函数的渐进上界</strong></p>
+<p><strong>Note:</strong><br>Choose $k$, choose $c$ which may depend on the choice of $k$.<br>Once you choose $k$ and $c$, you must prove the truth of the <em>implication</em> (often by induction).</p>
+<p><em><strong>$k, c$ : witnesses(凭证) to the relationship $f(x)$ is $O(g(x))$</strong></em></p>
+<h4 id="小o"><a href="#小o" class="headerlink" title="小o"></a>小o</h4><p>If<br>$$\lim_{n\to \infty}{\frac{f(n)}{g(n)}} &#x3D; 0 $$<br>Then $f$ is $o(g)$ (called little-o of g)<br>$$o(g) : \equiv { f |\forall c&gt;0 \exists k \forall x(x&gt;k → |f(x)| &lt; c|g(x)|}$$<br><strong>Theorem</strong><br>If $f$ is $o(g)$ then $f$ is $O(g)$.</p>
+<h3 id="3-2-3-Some-important-Big-O-results-一些重要函数的大O估算"><a href="#3-2-3-Some-important-Big-O-results-一些重要函数的大O估算" class="headerlink" title="3.2.3 Some important Big-O results 一些重要函数的大O估算"></a>3.2.3 Some important Big-O results 一些重要函数的大O估算</h3><p>$f(x) &#x3D; a_n x^n+a_{n-1} x^{n-1}+…+ a_1 x+a_0$ then $f(x)$ is $O(x^n )$</p>
+<p>$n!$ is $O(n^n )$<br>$log\  n!$ is $O(nlogn)$<br>$log\ n$ is $O(n)$</p>
+<p>![[Pasted image 20230510151119.png]]</p>
+<h3 id="3-2-4-Useful-Big-O-Estimates-有用的大O估计"><a href="#3-2-4-Useful-Big-O-Estimates-有用的大O估计" class="headerlink" title="3.2.4 Useful Big-O Estimates 有用的大O估计"></a>3.2.4 Useful Big-O Estimates 有用的大O估计</h3><ul>
+<li>If $d &gt; c &gt; 1$, then $n^c$ is $O(n^d )$, but $n^d$ is not $O(n^c )$.</li>
+<li>If $b &gt; 1$ and $c, d$ are positive, then $(log_b\ n) ^c$ is $O(n ^d )$, but $n ^d$ is not $O((log_b\ n)^ c )$.</li>
+<li>If $b &gt; 1$ and $d$ is positive, then $n ^d$ is $O(b ^n )$, but $b^ n$ is not $O(n ^d )$.</li>
+<li>If $c &gt; b &gt; 1$, then $b ^n$ is $O(c ^n )$, but $c ^n$ is not $O(b ^n )$.</li>
+<li>If $c &gt; 1$, then $c ^n$ is $O(n!)$, but $n!$ is not $O(c^n )$.</li>
+</ul>
+<h3 id="3-2-5-Growth-of-combinations-of-functions-函数组合的增长"><a href="#3-2-5-Growth-of-combinations-of-functions-函数组合的增长" class="headerlink" title="3.2.5 Growth of combinations of functions 函数组合的增长"></a>3.2.5 Growth of combinations of functions 函数组合的增长</h3><p>Suppose that $f_1$ is $O(g_1 )$ and $f_2$ is $O(g_2 )$ . Then $f_1 + f_2$ is $O(max{ g_1 , g_2 })$</p>
+<p>Suppose that $f_1$ is $O(g_1 )$ and $f_2$ is $O(g_2 )$ .Then $f_1f_2$ is $O(g_1g_2 )$</p>
+<h3 id="3-2-6-Big-omega-notation-Omega-大-Omega-记号"><a href="#3-2-6-Big-omega-notation-Omega-大-Omega-记号" class="headerlink" title="3.2.6 Big-omega notation:  $\Omega$ 大 $\Omega$ 记号"></a>3.2.6 Big-omega notation:  $\Omega$ 大 $\Omega$ 记号</h3><p>$$\exists k\exists c \forall n[n &gt; k → | f(n)| \ge c| g(n)| ]$$<br><strong>实际上相当于给出函数的渐进下界</strong></p>
+<h3 id="3-2-7-Big-Theta-notation-Theta-大-Theta-记号"><a href="#3-2-7-Big-Theta-notation-Theta-大-Theta-记号" class="headerlink" title="3.2.7 Big-Theta notation:  $\Theta$  大 $\Theta$  记号"></a>3.2.7 Big-Theta notation:  $\Theta$  大 $\Theta$  记号</h3><p>$$f\in \Omega (g)\ and\ f\in O(g)$$<br><strong>互为渐进上界</strong></p>
+<h2 id="3-3-Complexity-of-Algorithms-算法的复杂度"><a href="#3-3-Complexity-of-Algorithms-算法的复杂度" class="headerlink" title="3.3 Complexity of Algorithms 算法的复杂度"></a>3.3 Complexity of Algorithms 算法的复杂度</h2><h3 id="3-3-1-Algorithmic-Complexity-算法复杂度"><a href="#3-3-1-Algorithmic-Complexity-算法复杂度" class="headerlink" title="3.3.1 Algorithmic Complexity 算法复杂度"></a>3.3.1 Algorithmic Complexity 算法复杂度</h3><p>Time complexity: # of operations or steps required<br>Space complexity: # of memory bits required</p>
+<h3 id="3-3-2-Time-complexity-时间复杂度"><a href="#3-3-2-Time-complexity-时间复杂度" class="headerlink" title="3.3.2  Time complexity 时间复杂度"></a>3.3.2  Time complexity 时间复杂度</h3><h4 id="Max-algorithm-最大值算法"><a href="#Max-algorithm-最大值算法" class="headerlink" title="Max algorithm 最大值算法"></a>Max algorithm 最大值算法</h4><p>$$\Theta (n)$$</p>
+<h4 id="Linear-Search-线性搜索-1"><a href="#Linear-Search-线性搜索-1" class="headerlink" title="Linear Search 线性搜索"></a>Linear Search 线性搜索</h4><p>$$\Theta (n)$$</p>
+<h4 id="Binary-Search-二分搜索-1"><a href="#Binary-Search-二分搜索-1" class="headerlink" title="Binary Search 二分搜索"></a>Binary Search 二分搜索</h4><p>$$\Theta (log\ n)$$</p>
+<h3 id="3-3-3-Some-orders-of-growth-一些增长的顺序"><a href="#3-3-3-Some-orders-of-growth-一些增长的顺序" class="headerlink" title="3.3.3 Some orders of growth 一些增长的顺序"></a>3.3.3 Some orders of growth 一些增长的顺序</h3><p>$\Theta (1)$                        Constant 常量复杂度<br>$\Theta (log_c\ n)$                  Logarithmic (same order $\forall$c) 对数复杂度<br>$\Theta (log\ n^ c )$                  Polylogarithmic(With c a constant.)<br>$\Theta (n)$                        Linear  线性复杂度<br>$\Theta (nlog\ n)$                 Linear logarithmic          线性对数复杂度<br>$\Theta (n ^c )$                       Polynomial (for any c)   多项式复杂度<br>$\Theta (c ^n )$                       Exponential (for c&gt;1)     指数复杂度<br>$\Theta (n!)$                       Factoria                         阶乘复杂度<br>![[Pasted image 20230510154031.png]]</p>
+<h3 id="3-3-4-Problem-Complexity-问题复杂度"><a href="#3-3-4-Problem-Complexity-问题复杂度" class="headerlink" title="3.3.4 Problem Complexity 问题复杂度"></a>3.3.4 Problem Complexity 问题复杂度</h3><p>问题复杂度指解决该问题或执行该任务的复杂度增长最低阶的算法的复杂度</p>
+<h4 id="Tractable-vs-intractable-易解的vs-难解的"><a href="#Tractable-vs-intractable-易解的vs-难解的" class="headerlink" title="Tractable vs. intractable 易解的vs 难解的"></a>Tractable vs. intractable 易解的vs 难解的</h4><p><strong>Definition：</strong><br>A problem or algorithm with at most polynomial time complexity is considered <em><strong>tractable</strong></em> (or <em>feasible</em>).<br><strong>P</strong> (Polynomial) problem is the set of all tractable problems.<br>A problem or algorithm that has complexity greater than polynomial is considered <em><strong>intractable</strong></em> (or <em>infeasible</em>).</p>
+<h4 id="P-vs-NP"><a href="#P-vs-NP" class="headerlink" title="P vs. NP"></a>P vs. NP</h4><p><strong>Definition:</strong></p>
+<ul>
+<li><strong>NP</strong> (Nondeterministic Polynomial time) is the set of problems for which there exists a tractable algorithm for <em><strong>checking a proposed</strong></em> solution to tell if it is correct.</li>
+<li>We know that $P\subseteq NP$.</li>
+<li>the most famous unproven conjecture in computer science is that this inclusion is proper.<br>i.e., that $P\subset NP$ rather than $P&#x3D;NP$</li>
+</ul>
+<h4 id="NP-Complete-Problem"><a href="#NP-Complete-Problem" class="headerlink" title="NP-Complete Problem"></a>NP-Complete Problem</h4><p><strong>Definition:</strong><br>NPC满足两个条件：</p>
+<ul>
+<li>是一个NP问题。</li>
+<li>其他NP问题能够在多项式时间内<strong>规约</strong>（转化）为该问题（该问题的复杂度大于原NP问题）。<br>NPC示例：可满足性问题、旅行商问题TSP、汉密尔顿回路问题等。</li>
+</ul>
+<h4 id="NP-Hard-Problem"><a href="#NP-Hard-Problem" class="headerlink" title="NP-Hard Problem"></a>NP-Hard Problem</h4><ul>
+<li>NP问题能够在多项式时间内规约（转化）为某个问题X，X的复杂度一般大于原NP问题，若X是一个NP问题，则称X是NPC的，否则X是NP-Hard的。</li>
+<li>NPH问题满足NPC问题的第2个条件但不满足第1个条件，也就是说NPH不一定是NP问题，NPH问题比NPC问题范围广，更难以解决。</li>
+</ul>
+<p>![[Pasted image 20230510155146.png]]</p>
+<h4 id="Unsolvable-problems"><a href="#Unsolvable-problems" class="headerlink" title="Unsolvable problems"></a>Unsolvable problems</h4><p>problems unsolvable by any algorithm</p>
+<h3 id="3-3-5-Rules-for-determining-the-Theta-Class-确定-Theta-类的规则"><a href="#3-3-5-Rules-for-determining-the-Theta-Class-确定-Theta-类的规则" class="headerlink" title="3.3.5 Rules for determining the $\Theta$-Class 确定$\Theta$类的规则"></a>3.3.5 Rules for determining the $\Theta$-Class 确定$\Theta$类的规则</h3><ol>
+<li>$\Theta (1)$ functions are constant and have zero growth.</li>
+<li>$\Theta (log(n))$ is lower than $\Theta (n ^k )$ if $k&gt;0$.</li>
+<li>$\Theta (n ^a )$ is lower than $\Theta (n ^b )$ if and only if $0&lt;a&lt;b$.</li>
+<li>$\Theta (a ^n )$ is lower than $\Theta (b ^n )$ if and only if $0&lt;a&lt;b$.</li>
+<li>$\Theta (n ^k )$ is lower than $\Theta (a ^n )$ for any power of $n ^k$ and any $a&gt;1$.</li>
+<li>$\Theta (a ^n )$ is lower than $\Theta (n!)$ for any $a&gt;1$.</li>
+<li>$\Theta (n!)$ is lower than $\Theta (n ^n )$</li>
+<li>If $r$ is not zero, then $\Theta (rf) &#x3D; \Theta (f)$ for any function $f$.</li>
+<li>If $h$ is a non zero function and $\Theta (f)$ is lower than (or same order as) $\Theta (g)$, then $\Theta (fh)$ is lower than (or same order as) $\Theta (gh)$.</li>
+<li>If $\Theta (f)$ is lower than $\Theta (g)$, then $\Theta (f+g)&#x3D; \Theta (g)$</li>
+</ol>
+<hr>
+<h1 id="4-Number-Theory-and-Cryptography-数论和密码学"><a href="#4-Number-Theory-and-Cryptography-数论和密码学" class="headerlink" title="4. Number Theory and Cryptography 数论和密码学"></a>4. Number Theory and Cryptography 数论和密码学</h1><h2 id="4-1-Divisibility-and-Modular-Arithmetic-整除性和模算术"><a href="#4-1-Divisibility-and-Modular-Arithmetic-整除性和模算术" class="headerlink" title="4.1 Divisibility and Modular Arithmetic 整除性和模算术"></a>4.1 Divisibility and Modular Arithmetic 整除性和模算术</h2><h3 id="4-1-1-Divides-Factor-Multiple-整除，因子，倍数"><a href="#4-1-1-Divides-Factor-Multiple-整除，因子，倍数" class="headerlink" title="4.1.1 Divides, Factor, Multiple 整除，因子，倍数"></a>4.1.1 Divides, Factor, Multiple 整除，因子，倍数</h3><p><strong>Definition：</strong><br>$$a|b \equiv\  a\ divides\ b \equiv: (\exists c\in Z: b&#x3D;ac)$$<br>Iff a divides b, then we say a is a <em><strong>factor</strong></em> or a <em><strong>divisor</strong></em> of b, and b is a <em><strong>multiple</strong></em> of a.<br>![[Pasted image 20230516081138.png]]</p>
+<p>**Theorem 1: **<br>$\forall a,b,c \in Z, a \neq 0$</p>
+<ol>
+<li>$a|0$</li>
+<li>$(a|b \wedge a|c) → a | (b + c)$</li>
+<li>$a|b → a|bc$</li>
+<li>$(a|b \wedge b|c) → a|c$</li>
+</ol>
+<p><strong>Corollary 1：</strong><br>$$\forall a,b,c,m,n \in Z: (a|b \wedge a|c) → a | (mb +nc)$$</p>
+<h3 id="4-1-2-The-Division-“Algorithm”-除法算法"><a href="#4-1-2-The-Division-“Algorithm”-除法算法" class="headerlink" title="4.1.2 The Division “Algorithm” 除法算法"></a>4.1.2 The Division “Algorithm” 除法算法</h3><p>$$\forall a,d\in Z, d≠0: \exists !q,r\in Z:0\leq r&lt;|d|, a&#x3D;dq+r$$<br>$q&#x3D;a\ div\ d, r&#x3D;a\ mod\ d$</p>
+<h3 id="4-1-3-The-mod-operator-取模运算符"><a href="#4-1-3-The-mod-operator-取模运算符" class="headerlink" title="4.1.3 The mod operator 取模运算符"></a>4.1.3 The mod operator 取模运算符</h3><p>![[Pasted image 20230516082142.png]]</p>
+<h3 id="4-1-4-Arithmetic-Modulo-m-模算数"><a href="#4-1-4-Arithmetic-Modulo-m-模算数" class="headerlink" title="4.1.4 Arithmetic Modulo m 模算数"></a>4.1.4 Arithmetic Modulo m 模算数</h3><h4 id="4-1-4-1-Definition-定义"><a href="#4-1-4-1-Definition-定义" class="headerlink" title="4.1.4.1 Definition 定义"></a>4.1.4.1 Definition 定义</h4><p>![[Pasted image 20230516082251.png]]</p>
+<h4 id="4-1-4-2-Modular-Congruence-模同余"><a href="#4-1-4-2-Modular-Congruence-模同余" class="headerlink" title="4.1.4.2 Modular Congruence 模同余"></a>4.1.4.2 Modular Congruence 模同余</h4><p>![[Pasted image 20230516082337.png]]</p>
+<h4 id="4-1-4-3-Useful-Congruence-Theorems-常用的同余定理"><a href="#4-1-4-3-Useful-Congruence-Theorems-常用的同余定理" class="headerlink" title="4.1.4.3 Useful Congruence Theorems 常用的同余定理"></a>4.1.4.3 Useful Congruence Theorems 常用的同余定理</h4><p>![[Pasted image 20230516082426.png]]<br>![[Pasted image 20230516082439.png]]</p>
+<h2 id="4-2-Integers-Representations-Algorithms-整数表示和算法"><a href="#4-2-Integers-Representations-Algorithms-整数表示和算法" class="headerlink" title="4.2 Integers Representations &amp; Algorithms 整数表示和算法"></a>4.2 Integers Representations &amp; Algorithms 整数表示和算法</h2><p>![[Pasted image 20230516112547.png]]</p>
+<h3 id="4-2-1-Algorithms-for-Integer-Operations-整除运算算法"><a href="#4-2-1-Algorithms-for-Integer-Operations-整除运算算法" class="headerlink" title="4.2.1 Algorithms for Integer Operations 整除运算算法"></a>4.2.1 Algorithms for Integer Operations 整除运算算法</h3><h4 id="4-2-1-1-Addition-of-Binary-Numbers-二进制加法"><a href="#4-2-1-1-Addition-of-Binary-Numbers-二进制加法" class="headerlink" title="4.2.1.1 Addition of Binary Numbers 二进制加法"></a>4.2.1.1 Addition of Binary Numbers 二进制加法</h4><p>![[Pasted image 20230516082952.png]]</p>
+<h4 id="4-2-1-2-Multiplication-of-Binary-Numbers-二进制乘法"><a href="#4-2-1-2-Multiplication-of-Binary-Numbers-二进制乘法" class="headerlink" title="4.2.1.2 Multiplication of Binary Numbers 二进制乘法"></a>4.2.1.2 Multiplication of Binary Numbers 二进制乘法</h4><p>![[Pasted image 20230516083028.png]]</p>
+<h4 id="4-2-1-3-Binary-Division-with-Remainder-二进制除法与余数"><a href="#4-2-1-3-Binary-Division-with-Remainder-二进制除法与余数" class="headerlink" title="4.2.1.3 Binary Division with Remainder 二进制除法与余数"></a>4.2.1.3 Binary Division with Remainder 二进制除法与余数</h4><p>![[Pasted image 20230516083055.png]]</p>
+<h3 id="4-2-3-Modular-Exponentiation-模指数运算"><a href="#4-2-3-Modular-Exponentiation-模指数运算" class="headerlink" title="4.2.3 Modular Exponentiation 模指数运算"></a>4.2.3 Modular Exponentiation 模指数运算</h3><p>![[Pasted image 20230516083839.png]]</p>
+<p>![[Pasted image 20230516084411.png]]</p>
+<h2 id="4-3-Primes-and-GCD-素数和最大公约数"><a href="#4-3-Primes-and-GCD-素数和最大公约数" class="headerlink" title="4.3 Primes and GCD 素数和最大公约数"></a>4.3 Primes and GCD 素数和最大公约数</h2><h3 id="4-3-1-Prime-Numbers-素数"><a href="#4-3-1-Prime-Numbers-素数" class="headerlink" title="4.3.1 Prime Numbers 素数"></a>4.3.1 Prime Numbers 素数</h3><p>$p\ is\ prime \Leftrightarrow p&gt;1 \wedge \neg \exists a\in N: (1&lt;a&lt;p \wedge a|p)$</p>
+<h3 id="4-3-2-Theorems-about-Prime-素数的定理"><a href="#4-3-2-Theorems-about-Prime-素数的定理" class="headerlink" title="4.3.2 Theorems about Prime 素数的定理"></a>4.3.2 Theorems about Prime 素数的定理</h3><p><strong>Theorem 1: Fundamental Theorem of Arithmetic 算术基本定理<br>Prime Factorization (质因数分解):</strong><br>Every positive integer has a <em><strong>unique</strong></em> representation as the product of a non-decreasing series of <em><strong>zero or more primes</strong></em>.<br>(每个正整数都可唯一地表示为0个或多个非递减素数的乘积)</p>
+<p><strong>Theorem 2：Trial Division (试除定理)</strong><br>If $n$ is a composite integer, then $n$ has a prime divisor less than or equal to $\sqrt{n}$.</p>
+<p><strong>Theorem 3: There are infinitely many primes.</strong></p>
+<p><strong>Theorem 4: The prime number theorem</strong><br><strong>Distribution of Primes (素数分布)</strong><br>The ratio of the number of primes not exceeding $x$ and $x&#x2F;lnx$ approaches $1$ as $x$ grows without bound.<br>当x无约束增长时，不超过x的质数数与x&#x2F;lnx的比率趋于1。<br>The theorem tells us that the number of primes not exceeding $x$, can be approximated by $x&#x2F;ln x$. (不超过$x$的素数的个数近似为$x&#x2F;ln x$)<br>The odds that a randomly selected positive integer less than $n$ is prime are approximately $(n&#x2F;ln\ n)&#x2F;n &#x3D; 1&#x2F;ln\ n$. (随机选择一个小于$n$的正整数是素数的概率近似为$1&#x2F;ln\ n$)</p>
+<h3 id="4-3-2-Greatest-Common-Divisor-最大公约数"><a href="#4-3-2-Greatest-Common-Divisor-最大公约数" class="headerlink" title="4.3.2 Greatest Common Divisor 最大公约数"></a>4.3.2 Greatest Common Divisor 最大公约数</h3><p><strong>GCD Shortcut：</strong><br>![[Pasted image 20230516090730.png]]</p>
+<h3 id="4-3-3-Relative-Primality-互质"><a href="#4-3-3-Relative-Primality-互质" class="headerlink" title="4.3.3 Relative Primality 互质"></a>4.3.3 Relative Primality 互质</h3><p><strong>Definition：</strong></p>
+<ul>
+<li>Integers a and b are called <em><strong>relatively prime</strong></em> or <em><strong>coprime</strong></em>(互质) iff $gcd(a,b)\ &#x3D;\ 1$.</li>
+<li>A set of integers ${a_1 ,a_2 ,…}$ is <em><strong>pairwise relatively prime</strong></em>(两两互质) if all pairs $(a_i , a_j )$, for $i\neq j$, are relatively prime.</li>
+</ul>
+<h3 id="4-3-4-Least-Common-Multiple-最小公倍数"><a href="#4-3-4-Least-Common-Multiple-最小公倍数" class="headerlink" title="4.3.4 Least Common Multiple 最小公倍数"></a>4.3.4 Least Common Multiple 最小公倍数</h3><p><strong>LCM Shortcut：</strong><br>![[Pasted image 20230516090926.png]]</p>
+<p><strong>Theorem 5:</strong><br>Let a and b be positive Integers. Then $ab&#x3D;gcd(a,b) · lcm(a,b)$</p>
+<h3 id="4-3-5-Euclid’s-Algorithm-for-GCD-欧几里得算法"><a href="#4-3-5-Euclid’s-Algorithm-for-GCD-欧几里得算法" class="headerlink" title="4.3.5 Euclid’s Algorithm for GCD 欧几里得算法"></a>4.3.5 Euclid’s Algorithm for GCD 欧几里得算法</h3><p><strong>辗转相除法</strong></p>
+<p><strong>Lemma 1:</strong><br>Let $a &#x3D; bq + r$, where a, b, q, and r are integers.<br>Then $gcd(a,b) &#x3D; gcd(b,r)$.</p>
+<p>![[Pasted image 20230516091757.png]]</p>
+<h3 id="4-3-6-gcds-as-Linear-Combinations-gcd的线性组合表示"><a href="#4-3-6-gcds-as-Linear-Combinations-gcd的线性组合表示" class="headerlink" title="4.3.6 gcds as Linear Combinations gcd的线性组合表示"></a>4.3.6 gcds as Linear Combinations gcd的线性组合表示</h3><h4 id="4-3-6-1-Bezout’s-Theorem-贝祖定理"><a href="#4-3-6-1-Bezout’s-Theorem-贝祖定理" class="headerlink" title="4.3.6.1 Bézout’s Theorem 贝祖定理"></a>4.3.6.1 Bézout’s Theorem 贝祖定理</h4><p>If $a$ and $b$ are positive integers, then there exist integers $s$ and $t$ such that $gcd(a,b) &#x3D; sa + tb$.</p>
+<p>This method is a <strong>two pass method</strong>. It first uses the Euclidian algorithm to find the gcd and then works backwards to express the gcd as a linear combination of the original two integers.</p>
+<h4 id="4-3-6-2-Consequences-of-Bezout’s-Theorem-贝祖定理的推论"><a href="#4-3-6-2-Consequences-of-Bezout’s-Theorem-贝祖定理的推论" class="headerlink" title="4.3.6.2 Consequences of Bézout’s Theorem 贝祖定理的推论"></a>4.3.6.2 Consequences of Bézout’s Theorem 贝祖定理的推论</h4><p><strong>Lemma 2：</strong><br>If a, b, and c are positive integers such that $gcd(a, b) &#x3D; 1$ and $a | bc$, then $a | c$.</p>
+<p><strong>Theorem 7：</strong><br>Let $m$ be a positive integer and let $a, b$ and $c$ be integers.<br>If $ac ≡ bc (mod\ m)$ and $gcd(c, m) &#x3D;1$, then $a ≡ b (mod\ m）$</p>
+<p><strong>Lemma 3:</strong><br>If $p$ is prime and $p | a_1a_2 …a_n$ , then $p | a_i$ for some $i$</p>
+<p><strong>Uniqueness theorem：</strong><br>A prime factorization of a positive integer where the primes are in nondecreasing order is unique.</p>
+<h2 id="4-4-Solving-Congruences-求解线性同余方程"><a href="#4-4-Solving-Congruences-求解线性同余方程" class="headerlink" title="4.4 Solving Congruences 求解线性同余方程"></a>4.4 Solving Congruences 求解线性同余方程</h2><h3 id="4-4-1-Definition-引言"><a href="#4-4-1-Definition-引言" class="headerlink" title="4.4.1 Definition 引言"></a>4.4.1 Definition 引言</h3><p>A congruence of the form $ax ≡ b (mod m)$, where $m$ is a positive integer, $a$ and $b$ are integers, and $x$ is a variable, is called a <strong>linear congruence</strong>.</p>
+<h3 id="4-4-2-Linear-Congruences-线性同余方程"><a href="#4-4-2-Linear-Congruences-线性同余方程" class="headerlink" title="4.4.2 Linear Congruences 线性同余方程"></a>4.4.2 Linear Congruences 线性同余方程</h3><h4 id="4-4-2-1-Method-方法"><a href="#4-4-2-1-Method-方法" class="headerlink" title="4.4.2.1 Method 方法"></a>4.4.2.1 Method 方法</h4><p>One method that we will describe uses an integer if such an integer exists. Such an integer ā is said to be an <strong>inverse of a modulo m (a模m的逆元)</strong>.<br>$$āa ≡ 1 (mod\ m)$$</p>
+<h4 id="4-4-2-2-Theorem-1-定理1"><a href="#4-4-2-2-Theorem-1-定理1" class="headerlink" title="4.4.2.2 Theorem 1 定理1"></a>4.4.2.2 Theorem 1 定理1</h4><ul>
+<li>If a and m are relatively prime integers and $m &gt; 1$, then an inverse of a modulo $m$ exists.</li>
+<li>a模m的任何其他逆与该逆为模m的同余</li>
+</ul>
+<h4 id="4-4-2-3-Using-Inverses-to-Solve-Congruences-用逆元求解线性同余方程"><a href="#4-4-2-3-Using-Inverses-to-Solve-Congruences-用逆元求解线性同余方程" class="headerlink" title="4.4.2.3 Using Inverses to Solve Congruences 用逆元求解线性同余方程"></a>4.4.2.3 Using Inverses to Solve Congruences 用逆元求解线性同余方程</h4><p><strong>Definition：</strong><br>We can solve the congruence $ax ≡ b (mod\ m)$ by multiplying both sides by $ā$. $$x ≡ ā \cdot b (mod\ m)$$</p>
+<h3 id="4-4-3-The-Chinese-Remainder-Theorem-中国剩余定理"><a href="#4-4-3-The-Chinese-Remainder-Theorem-中国剩余定理" class="headerlink" title="4.4.3 The Chinese Remainder Theorem 中国剩余定理"></a>4.4.3 The Chinese Remainder Theorem 中国剩余定理</h3><p><em><strong>中国剩余定理需要互质，反向替代不需要</strong></em></p>
+<h4 id="4-4-3-1-Theorem-2-The-Chinese-Remainder-Theorem-CRT-定理2"><a href="#4-4-3-1-Theorem-2-The-Chinese-Remainder-Theorem-CRT-定理2" class="headerlink" title="4.4.3.1 Theorem 2: (The Chinese Remainder Theorem:CRT) 定理2"></a>4.4.3.1 Theorem 2: (The Chinese Remainder Theorem:CRT) 定理2</h4><ul>
+<li>Let $m_1 ,m_2 ,…,m_n$ be pairwise relatively prime positive integers greater than $1$ and $a_1 ,a_2 ,…,a_n$ be arbitrary integers. Then the system<br>$$x ≡ a_1 ( mod\ m_1 ) ,<br>x ≡ a_2 ( mod\ m_2 ),<br>…,<br>x ≡ a_n ( mod\ m_n )$$<br>has a unique solution modulo $m$ while $m &#x3D; m_1m_2 … m_n$ .</li>
+<li>That is, there is a solution $x$ with $0 ≤ x &lt;m$ and all other solutions are congruent modulo $m$ to this solution.<br>![[Pasted image 20230523085249.png]]</li>
+</ul>
+<h4 id="4-4-3-2-Back-Substitution-反向替代-后向代入法"><a href="#4-4-3-2-Back-Substitution-反向替代-后向代入法" class="headerlink" title="4.4.3.2 Back Substitution 反向替代&#x2F;后向代入法"></a>4.4.3.2 Back Substitution 反向替代&#x2F;后向代入法</h4><p>![[Pasted image 20230523084129.png]]</p>
+<h3 id="4-4-4-Computer-Arithmetic-with-large-Integers-大整数的计算机算术"><a href="#4-4-4-Computer-Arithmetic-with-large-Integers-大整数的计算机算术" class="headerlink" title="4.4.4 Computer Arithmetic with large Integers 大整数的计算机算术"></a>4.4.4 Computer Arithmetic with large Integers 大整数的计算机算术</h3><h3 id="4-4-5-Fermat’s-Little-Theorem-费马小定理"><a href="#4-4-5-Fermat’s-Little-Theorem-费马小定理" class="headerlink" title="4.4.5 Fermat’s Little Theorem 费马小定理"></a>4.4.5 Fermat’s Little Theorem 费马小定理</h3><p><strong>Theorem 3:</strong><br>If $p$ is prime and $a$ is an integer not divisible by $p$, then<br>$$a^{p-1} ≡ 1 (mod\ p)$$<br>Furthermore, for every integer a we have<br>$$a ^p ≡ a (mod\ p)$$</p>
+<h3 id="4-4-6-Pseudoprimes-伪素数"><a href="#4-4-6-Pseudoprimes-伪素数" class="headerlink" title="4.4.6 Pseudoprimes 伪素数"></a>4.4.6 Pseudoprimes 伪素数</h3><h4 id="Definition-1"><a href="#Definition-1" class="headerlink" title="Definition 1"></a>Definition 1</h4><p>If $n$ is a composite integer, and $$b ^{n-1} ≡ 1 (mod\ n)$$ then $n$ is called a <em><strong>pseudoprime to the base b</strong></em>（基数b的伪素数）</p>
+<h4 id="Definition-2-Carmichael-Numbers-卡迈克尔数"><a href="#Definition-2-Carmichael-Numbers-卡迈克尔数" class="headerlink" title="Definition 2: Carmichael Numbers 卡迈克尔数"></a>Definition 2: Carmichael Numbers 卡迈克尔数</h4><p>There are composite integers $n$ that pass all tests with bases $b$ such that $gcd(b,n) &#x3D; 1$.<br>A composite integer $n$ that satisfies the congruence $b^ {n-1} ≡ 1 (mod\ n)$ for all positive integers $b$ with $gcd(b,n) &#x3D; 1$ is called a Carmichael number.</p>
+<ol>
+<li>$n$ 是合数</li>
+<li>对于所有与$n$ 互质的数$b$ 而言，$n$ 都是伪素数</li>
+</ol>
+<h3 id="4-4-7-Primitive-Roots-and-Discrete-Logarithms-原根和离散对数"><a href="#4-4-7-Primitive-Roots-and-Discrete-Logarithms-原根和离散对数" class="headerlink" title="4.4.7 Primitive Roots and Discrete Logarithms 原根和离散对数"></a>4.4.7 Primitive Roots and Discrete Logarithms 原根和离散对数</h3><p><strong>Definition 3：</strong><br>A primitive root modulo a prime $p$ is an integer $r$ in $Z_p$ , such that every nonzero element of $Z_p$ is a power of $r$.<br>$p$ 为素数，若存在一个正整数$r$，使得 $r, r^2 , r ^3 , … , r ^{p−1}$ 模$p$ 互不同余，则称$r$ 为模$p$ 的一个原根<br>There is a primitive root modulo p for every prime number p.</p>
+<p><strong>Definition 4：</strong><br>Suppose that $p$ is a prime, $r$ is a primitive root modulo $p$, and $a$ is an integer between $1$ and $p−1$ inclusive ($Z_p$ ).<br>If $r ^e ≡ a (mod\ p)$ and $0 ≤e≤p−1$, we say that $e$ is the <strong>discrete logarithm</strong> of a modulo $p$ to the base $r$ and we write $log_r\ a &#x3D; e$ (where the prime $p$ is understood)</p>
+<hr>
+<h1 id="5-Induction-and-Recursion-归纳与递归"><a href="#5-Induction-and-Recursion-归纳与递归" class="headerlink" title="5. Induction and Recursion 归纳与递归"></a>5. Induction and Recursion 归纳与递归</h1><h2 id="5-1-Mathematical-Induction-数学归纳法"><a href="#5-1-Mathematical-Induction-数学归纳法" class="headerlink" title="5.1 Mathematical Induction 数学归纳法"></a>5.1 Mathematical Induction 数学归纳法</h2><p>![[Pasted image 20230530080817.png]]<br><em><strong>Outline of an Inductive Proof:</strong></em><br>Let us say we want to prove $\forall nP(n)$.<br>Do the base case (or basis step): Prove $P(1)$.<br>Do the inductive step: Prove $\forall k(P(k)→P(k+1))$.</p>
+<ul>
+<li>E.g. you could use a direct proof, as follows:<br>Let $k\in N$, assume $P(k)$. (inductive hypothesis)<br>Now, under this assumption, prove $P(k+1)$.<br>By mathematical induction, $\forall nP(n)$ is true.</li>
+</ul>
+<h2 id="5-2-Strong-Induction-强归纳法"><a href="#5-2-Strong-Induction-强归纳法" class="headerlink" title="5.2 Strong Induction 强归纳法"></a>5.2 Strong Induction 强归纳法</h2><p>![[Pasted image 20230530081801.png]]</p>
+<p><em><strong>example：</strong></em><br>![[Pasted image 20230530083544.png]]</p>
+<table>
+<thead>
+<tr>
+<th align="center">计算几何</th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Polygon</td>
+<td align="center">多边形</td>
+</tr>
+<tr>
+<td align="center">Vertex</td>
+<td align="center">多边形顶点</td>
+</tr>
+<tr>
+<td align="center">Simple</td>
+<td align="center">简单多边形</td>
+</tr>
+<tr>
+<td align="center">Interior</td>
+<td align="center">多边形内部</td>
+</tr>
+<tr>
+<td align="center">Exterior</td>
+<td align="center">多边形外部</td>
+</tr>
+<tr>
+<td align="center">Diagonal</td>
+<td align="center">对角线</td>
+</tr>
+<tr>
+<td align="center">Convex</td>
+<td align="center">凸多边形</td>
+</tr>
+<tr>
+<td align="center">Triangulation</td>
+<td align="center">三角化</td>
+</tr>
+</tbody></table>
+<h3 id="The-Method-of-Infinite-Descent-无限递降法-费马递降法"><a href="#The-Method-of-Infinite-Descent-无限递降法-费马递降法" class="headerlink" title="The Method of Infinite Descent 无限递降法&#x2F;费马递降法"></a>The Method of Infinite Descent 无限递降法&#x2F;费马递降法</h3><p>![[Pasted image 20230530090018.png]]</p>
+<h2 id="5-3-Recursive-Definitions-and-Structural-Induction-递归定义与结构归纳法"><a href="#5-3-Recursive-Definitions-and-Structural-Induction-递归定义与结构归纳法" class="headerlink" title="5.3 Recursive Definitions and Structural Induction 递归定义与结构归纳法"></a>5.3 Recursive Definitions and Structural Induction 递归定义与结构归纳法</h2><h3 id="5-3-1-definitions-定义"><a href="#5-3-1-definitions-定义" class="headerlink" title="5.3.1 definitions 定义"></a>5.3.1 definitions 定义</h3><p>In <em><strong>induction (归纳)</strong></em>, we prove all members of an infinite set satisfy some predicate P by:</p>
+<ul>
+<li>proving the truth of the predicate for larger members in terms of that of smaller members.<br>In <em><strong>recursive definitions (递归定义)</strong></em>, we similarly define a function, a predicate, a set, or a more complex structure over an infinite domain (universe of discourse) by:</li>
+<li>defining the function, predicate value, set membership, or structure of larger elements in terms of those of smaller ones.<br>In <em><strong>structural induction (结构归纳)</strong></em>, we inductively prove properties of recursively-defined objects in a way that parallels the objects’ own recursive definitions. (用对象自己的递归定义来归纳地证明递归定义对象的属性)<br><em><strong>Recursion（递归）</strong></em> is the general term for the practice of defining an object in terms of itself or of part of itself. (This may seem circular, but it isn’t necessarily.)</li>
+</ul>
+<h3 id="5-3-2-Lame’s-Theorem-拉梅定理"><a href="#5-3-2-Lame’s-Theorem-拉梅定理" class="headerlink" title="5.3.2 Lamé’s Theorem 拉梅定理"></a>5.3.2 Lamé’s Theorem 拉梅定理</h3><p>Theorem:<br>$\forall a,b\in N, a≥b&gt;0$, the number of steps in Euclid’s algorithm to find $gcd(a,b)$ is $≤ 5k$, where $k &#x3D; \lfloor {log_{10} b}\rfloor +1$ is the number of decimal digits in $b$.<br>Thus, Euclid’s algorithm is linear-time in the number of digits in $b$.</p>
+<h3 id="5-3-3-Recursively-Defined-Sets-递归地定义集合"><a href="#5-3-3-Recursively-Defined-Sets-递归地定义集合" class="headerlink" title="5.3.3 Recursively Defined Sets 递归地定义集合"></a>5.3.3 Recursively Defined Sets 递归地定义集合</h3><p><em><strong>Definition:</strong></em><br>An <em><strong>infinite set S</strong></em> may be defined recursively, by giving:</p>
+<ul>
+<li>A small finite set of <em><strong>base</strong></em> elements of S.</li>
+<li>A <em><strong>rule</strong></em> for constructing new elements of S from previously-established elements.</li>
+<li>Implicitly, S has no other elements but these.</li>
+</ul>
+<hr>
+<h1 id="6-Counting-计数"><a href="#6-Counting-计数" class="headerlink" title="6. Counting 计数"></a>6. Counting 计数</h1><h2 id="6-1-Basics-of-Counting-计数基础"><a href="#6-1-Basics-of-Counting-计数基础" class="headerlink" title="6.1 Basics of Counting 计数基础"></a>6.1 Basics of Counting 计数基础</h2><p>![[Pasted image 20230606082058.png]]<br>![[Pasted image 20230606082114.png]]<br>![[Pasted image 20230606082130.png]]<br>![[Pasted image 20230606082143.png]]</p>
+<h2 id="6-2-Pigeonhole-Principle-鸽巢原理"><a href="#6-2-Pigeonhole-Principle-鸽巢原理" class="headerlink" title="6.2 Pigeonhole Principle 鸽巢原理"></a>6.2 Pigeonhole Principle 鸽巢原理</h2><h3 id="6-2-1-Definition-定义"><a href="#6-2-1-Definition-定义" class="headerlink" title="6.2.1 Definition 定义"></a>6.2.1 Definition 定义</h3><ul>
+<li>If $≥k+1$ objects are assigned to $k$ places, then at least $1$ place must be assigned $≥2$ objects.</li>
+<li>In terms of the assignment function: If $f:A→B$ and $|A|≥|B|+1$, then some element of $B$ has $≥2$ preimages under $f$.</li>
+</ul>
+<h3 id="6-2-2-Generalized-Pigeonhole-Principle-广义鸽巢原理-G-P-P"><a href="#6-2-2-Generalized-Pigeonhole-Principle-广义鸽巢原理-G-P-P" class="headerlink" title="6.2.2 Generalized Pigeonhole Principle 广义鸽巢原理(G.P,P)"></a>6.2.2 Generalized Pigeonhole Principle 广义鸽巢原理(G.P,P)</h3><p>If $N$ objects are assigned to $k$ places, then at least one place must be assigned at least $\lceil N&#x2F;k\rceil$ objects.</p>
+<h3 id="6-2-3-Ramsey-theory-拉姆齐理论"><a href="#6-2-3-Ramsey-theory-拉姆齐理论" class="headerlink" title="6.2.3 Ramsey theory 拉姆齐理论"></a>6.2.3 Ramsey theory 拉姆齐理论</h3><p>![[Pasted image 20230606085806.png]]</p>
+<h2 id="6-3-Permutations-and-Combinations-排列与组合"><a href="#6-3-Permutations-and-Combinations-排列与组合" class="headerlink" title="6.3 Permutations and Combinations 排列与组合"></a>6.3 Permutations and Combinations 排列与组合</h2><h3 id="6-3-1-Permutations-排列"><a href="#6-3-1-Permutations-排列" class="headerlink" title="6.3.1 Permutations 排列"></a>6.3.1 Permutations 排列</h3><p><strong>Definition:</strong></p>
+<ul>
+<li>A <em>permutation</em> of a set $S$ of objects is a sequence that contains each object in $S$ exactly once.</li>
+<li>An ordered arrangement of r <strong>distinct</strong> elements of S is called an <em>r-permutation of S</em>.</li>
+</ul>
+<p><strong>Theorem 1:</strong><br>The number of r-permutations of a set with $|S|&#x3D;n$ elements is $$P(n,r) &#x3D; n(n−1)…(n−r+1) &#x3D; \frac {n!}{(n−r)!}$$</p>
+<h3 id="6-3-2-Combinations-组合"><a href="#6-3-2-Combinations-组合" class="headerlink" title="6.3.2 Combinations 组合"></a>6.3.2 Combinations 组合</h3><p><strong>Definition:</strong></p>
+<ul>
+<li>An r-combination of elements of a set $S$ is simply a subset $T\subseteq S$ with $r$ members, $|T|&#x3D;r$.</li>
+</ul>
+<p><strong>Theorem 2:</strong></p>
+<ul>
+<li>The number of r-combinations of a set with $|S|&#x3D;n$ elements is<br>$$C(n,r)&#x3D;\frac {P(n,r)}{P(r,r)}&#x3D;\frac{n!&#x2F;(n-r)!}{r!}&#x3D;\frac{n!}{r!(n-r)!}$$</li>
+<li><strong>Corollary:</strong> C(n,r) &#x3D; C(n, n−r)</li>
+</ul>
+<h2 id="6-5-Generalized-Permutations-and-Combinations-排列与组合的推广"><a href="#6-5-Generalized-Permutations-and-Combinations-排列与组合的推广" class="headerlink" title="6.5 Generalized Permutations and Combinations 排列与组合的推广"></a>6.5 Generalized Permutations and Combinations 排列与组合的推广</h2><h3 id="6-5-1-Permutation-with-repetition-有重复的排列"><a href="#6-5-1-Permutation-with-repetition-有重复的排列" class="headerlink" title="6.5.1 Permutation with repetition 有重复的排列"></a>6.5.1 Permutation with repetition 有重复的排列</h3><p><strong>Theorem 1:</strong><br>The number of r-permutations of a set of $n$ objects with repetition allowed is $n^r$.</p>
+<h3 id="6-5-2-Combinations-with-Repetition-有重复的组合"><a href="#6-5-2-Combinations-with-Repetition-有重复的组合" class="headerlink" title="6.5.2 Combinations with Repetition 有重复的组合"></a>6.5.2 Combinations with Repetition 有重复的组合</h3><p><strong>Theorem 2:</strong><br>The number of r-combinations from a set with $n$ elements when repetition of elements is allowed is $C(n + r – 1,r) &#x3D; C(n + r – 1, n –1)$.</p>
+<h3 id="6-5-3-Summarizing-the-Formulas-公式总结"><a href="#6-5-3-Summarizing-the-Formulas-公式总结" class="headerlink" title="6.5.3 Summarizing the Formulas 公式总结"></a>6.5.3 Summarizing the Formulas 公式总结</h3><p>![[Pasted image 20230606102854.png]]</p>
+<h3 id="6-5-4-Permutations-with-Indistinguishable-Objects-无区别物体集合的排列"><a href="#6-5-4-Permutations-with-Indistinguishable-Objects-无区别物体集合的排列" class="headerlink" title="6.5.4 Permutations with Indistinguishable Objects 无区别物体集合的排列"></a>6.5.4 Permutations with Indistinguishable Objects 无区别物体集合的排列</h3><p><strong>Theorem 3</strong><br>The number of different permutations of $n$ objects, where there are $n_1$ indistinguishable objects of type $1$, $n_2$ indistinguishable objects of type $2$,…and $n_k$ indistinguishable objects of type $k$, is$$\frac{n!}{n_1!n_2!…n_k!}$$</p>
+<h3 id="6-5-5-Distributing-Objects-into-Boxes-把物体放入盒子"><a href="#6-5-5-Distributing-Objects-into-Boxes-把物体放入盒子" class="headerlink" title="6.5.5 Distributing Objects into Boxes 把物体放入盒子"></a>6.5.5 Distributing Objects into Boxes 把物体放入盒子</h3><p><strong>Distinguishable objects and distinguishable boxes</strong><br><strong>Theorem 4</strong><br>The number of ways to distribute $n$ distinguishable objects into $k$ distinguishable boxes so that $n_i$ objects are placed into box $i, i&#x3D;1,2,…k$, equals$$\frac{n!}{n_1!n_2!…n_k!}$$<br><strong>Indistinguishable objects and distinguishable boxes</strong><br>There are $C(n + r−1, r)$ ways to place r indistinguishable objects into $n$ distinguishable boxes.</p>
+<hr>
+<p><em><strong>Discrete Mathematics下</strong></em></p>
+<h1 id="8-Advanced-Counting-Techniques-高级计数技术"><a href="#8-Advanced-Counting-Techniques-高级计数技术" class="headerlink" title="8. Advanced Counting Techniques 高级计数技术"></a>8. Advanced Counting Techniques 高级计数技术</h1><h2 id="8-1-Recurrence-Relations-递推关系"><a href="#8-1-Recurrence-Relations-递推关系" class="headerlink" title="8.1 Recurrence Relations 递推关系"></a>8.1 Recurrence Relations 递推关系</h2><p><strong>参考：</strong> PPT+教材<br>答题格式：初始条件+递归公式+成立范围（e.g. $n\geq 3$）</p>
+<ul>
+<li><em><strong>EXAMPLES</strong></em><blockquote>
+<p>兔子和斐波那契数列<br>汉诺塔<br>编码字的枚举<br><em>Catalan Numbers 卡塔兰数</em><br>书上各例</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="8-2-Solving-Recurrence-Relations-求解递推关系"><a href="#8-2-Solving-Recurrence-Relations-求解递推关系" class="headerlink" title="8.2 Solving Recurrence Relations 求解递推关系"></a>8.2 Solving Recurrence Relations 求解递推关系</h2><p><strong>参考：</strong> PPT+教材+ <a target="_blank" rel="noopener" href="https://www.cnblogs.com/SpicyArticle/p/12153683.html">8.2解决递推式(Solving Recurrences) - 进击の辣条 - 博客园 (cnblogs.com)</a></p>
+<ul>
+<li><p><em><strong>A linear homogeneous recurrence of degree k with constant coefficients (“k-LiHoReCoCo”）k 阶定常系数线性齐次递推关系</strong></em></p>
+<blockquote>
+<p>![[Pasted image 20231116102222.png|350]]</p>
+</blockquote>
+</li>
+<li><p><em><strong>Characteristic equation 特征方程</strong></em></p>
+<blockquote>
+<p>![[Pasted image 20231116102704.png#center|定义|300]]<br>方程的解叫做该递推关系的特征根 <strong>characteristic roots</strong></p>
+</blockquote>
+</li>
+<li><p><em><strong>利用特征方程和特征根解决递推关系</strong></em></p>
+<ul>
+<li>一些定理<blockquote>
+<p>以 2 阶定常系数线性齐次递推关系 $a_n&#x3D;c_1a_{n-1}+c_2a_{n-2}$ 为基础<br><strong>情况 1:</strong> 有两个不等的根 $r_1\neq r_2$ ![[Pasted image 20231116103053.png|500]] $a_1,a_1$ 通过初始条件求得<br><strong>情况 2:</strong> 有两个相等的根 $r_1&#x3D;r_2&#x3D;r_0$ ![[Pasted image 20231116103116.png|500]] <strong>情况 3:</strong> 有 $k$ 个不等的根 ![[Pasted image 20231116103152.png|500]] <strong>情况 4:</strong> 有 $k$ 个根，其中有 $m$ 个相等的根 ![[Pasted image 20231116103209.png|500]]<br>举例计算见教材</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p><em>*<em>推广到 $k$ 阶定常系数线性</em>非*齐次递推关系 LiNoReCoCos</em>**</p>
+<blockquote>
+<p>形如：$a_n&#x3D;c_1a_{n-1}+c_2a_{n-2}+\cdots+c_ka_{n-k}+F(n)$<br><em>相伴的齐次递推关系</em> $a_n&#x3D;c_1 a_{n-1}+c_2 a_{n-2}+\cdots+c_ka_{n-k}$<br>The associated homogeneous recurrence relation (associated LiHoReCoCo)</p>
+<blockquote>
+<p>求解非齐次递推关系的<strong>一些定理</strong><br>![[Pasted image 20231116105642.png|600]] 先求通解，然后求特解，最后求通解的系数<br><strong>example</strong><br>![[Pasted image 20231116110612.png|500]] ![[Pasted image 20231116110631.png|500]]</p>
+</blockquote>
+<p>![[Pasted image 20231116110926.png|600]]</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="8-3-Divide-and-Conquer-Algorithms-and-Recurrence-Relations-分治算法和递推关系"><a href="#8-3-Divide-and-Conquer-Algorithms-and-Recurrence-Relations-分治算法和递推关系" class="headerlink" title="8.3 Divide-and-Conquer Algorithms and Recurrence Relations 分治算法和递推关系"></a>8.3 Divide-and-Conquer Algorithms and Recurrence Relations 分治算法和递推关系</h2><p><strong>参考：</strong> PPT+教材</p>
+<ul>
+<li><p><em><strong>分治递推关系</strong></em></p>
+<blockquote>
+<p>一个递归算法将一个规模为 $n$ 的问题分成 $a$ 个子问题，每个子问题的规模是 $\frac{n}{b}$.<br>假设把子问题的解组合成原来问题的解的算法处理步骤中需要总量为 $g(n)$ 的额外运算<br>那么, 若 $f(n)$ 表示求解原问题所需的运算数，则</p>
+<blockquote>
+<p>$f(n)&#x3D;af(\frac{n}{b})+g(n)$</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p><em><strong>Example</strong></em><br>Binary search 二分搜索 ![[Pasted image 20231123100715.png|inl|100]]<br>Merge sort 归并排序 ![[Pasted image 20231123101119.png|inl|100]]<br>Fast Multiplication Example 整数的快速乘法 ![[Pasted image 20231123101512.png|inl|100]]<br>![[Pasted image 20231123101429.png|L|400]]<br>![[Pasted image 20231123101738.png#L|恒等式推导过程|300]]</p>
+</li>
+<li><p><em><strong>定理 1</strong></em></p>
+<blockquote>
+<p>![[Pasted image 20231123102019.png|600]]<br><em><strong>example</strong></em></p>
+<blockquote>
+<p>![[Pasted image 20231123102412.png|500]]</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p><em><strong>定理 2 The Master Theorem 主定理</strong></em></p>
+<blockquote>
+<p>![[Pasted image 20231123102542.png]]<br><em><strong>example</strong></em></p>
+<blockquote>
+<p>![[Pasted image 20231123102745.png|500]]</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p><em><strong>Backtracking 回溯法</strong></em></p>
+<blockquote>
+<p>![[Pasted image 20231123103231.png|inl|250]] ![[Pasted image 20231123103313.png|inl|250]]</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="8-4-Generating-Functions-生成函数"><a href="#8-4-Generating-Functions-生成函数" class="headerlink" title="8.4 Generating Functions 生成函数"></a>8.4 Generating Functions 生成函数</h2><p><strong>参考：</strong> PPT+教材</p>
+<h3 id="8-4-1-定义-1"><a href="#8-4-1-定义-1" class="headerlink" title="8.4.1 定义 1"></a>8.4.1 定义 1</h3><blockquote>
+<p>![[Pasted image 20231123103509.png]]<br>![[Pasted image 20231123103526.png]]<br>有时该函数叫做 <strong>ordinary generating function 普通生成函数</strong><br><em><strong>example</strong></em></p>
+<blockquote>
+<p>![[Pasted image 20231123104058.png]]<br><strong>要记住：</strong>![[Pasted image 20231123104138.png|inl|300]]</p>
+</blockquote>
+</blockquote>
+<h3 id="8-4-2-Useful-Facts-About-Power-Series-幂级数的有用事实"><a href="#8-4-2-Useful-Facts-About-Power-Series-幂级数的有用事实" class="headerlink" title="8.4.2 Useful Facts About Power Series 幂级数的有用事实"></a>8.4.2 Useful Facts About Power Series 幂级数的有用事实</h3><ul>
+<li><p><em><strong>example</strong></em></p>
+<blockquote>
+<p>![[Pasted image 20231123104425.png|400]]</p>
+</blockquote>
+</li>
+<li><p><em><strong>定理 1</strong></em></p>
+<blockquote>
+<p>![[Pasted image 20231123104512.png|450]]</p>
+</blockquote>
+</li>
+<li><p><em><strong>定义 2 extended binomial coefficient 广义二项式系数</strong></em></p>
+<blockquote>
+<p>![[Pasted image 20231123104837.png|470]]<br>当上面的参数 $u$ 为负整数时，广义二项式系数可以用通常的二项式系数的项表示：</p>
+<blockquote>
+<p>![[Pasted image 20231123105131.png|450]]</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p><em><strong>定理 2 The extended binomial theorem 广义二项式定理</strong></em></p>
+<blockquote>
+<p>设 $x$ 是实数，$\left |x\right |&lt;1$, $u$ 是实数，则<br>![[Pasted image 20231123105350.png|200]]</p>
+</blockquote>
+</li>
+<li><p><em><strong>Useful Generating Functions 常用的生成函数</strong></em></p>
+<blockquote>
+<p>![[Pasted image 20231123105646.png|600]] <strong>5-8 需要记得</strong></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="8-4-3-Counting-problems-and-Generating-Functions-计数问题和生成函数"><a href="#8-4-3-Counting-problems-and-Generating-Functions-计数问题和生成函数" class="headerlink" title="8.4.3 Counting problems and Generating Functions 计数问题和生成函数"></a>8.4.3 Counting problems and Generating Functions 计数问题和生成函数</h3><p><strong>书上例题</strong><br>![[Pasted image 20231123110230.png|500]]<br>例题 14、15 解题过程看懂就能理解生成函数的应用</p>
+<h3 id="8-4-4-Using-Generating-Functions-to-Solve-Recurrence-Relations-使用生成函数求解递推关系"><a href="#8-4-4-Using-Generating-Functions-to-Solve-Recurrence-Relations-使用生成函数求解递推关系" class="headerlink" title="8.4.4 Using Generating Functions to Solve Recurrence Relations 使用生成函数求解递推关系"></a>8.4.4 Using Generating Functions to Solve Recurrence Relations 使用生成函数求解递推关系</h3><p><strong>同 8.4.3</strong></p>
+<h3 id="8-4-5-Proving-Identities-via-Generating-Functions-使用生成函数证明恒等式"><a href="#8-4-5-Proving-Identities-via-Generating-Functions-使用生成函数证明恒等式" class="headerlink" title="8.4.5 Proving Identities via Generating Functions 使用生成函数证明恒等式"></a>8.4.5 Proving Identities via Generating Functions 使用生成函数证明恒等式</h3><p><strong>同上</strong></p>
+<hr>
+<h1 id="9-Relations-关系"><a href="#9-Relations-关系" class="headerlink" title="9. Relations 关系"></a>9. Relations 关系</h1><h2 id="9-1-Relations-and-Their-Properties-关系及其性质"><a href="#9-1-Relations-and-Their-Properties-关系及其性质" class="headerlink" title="9.1 Relations and Their Properties 关系及其性质"></a>9.1 Relations and Their Properties 关系及其性质</h2><p><em><strong>参考：</strong></em> PPT+<a target="_blank" rel="noopener" href="https://www.cnblogs.com/SpicyArticle/p/11868593.html">9.1 关系及关系性质 - 进击の辣条 - 博客园 (cnblogs.com)</a></p>
+<h3 id="9-1-1-基本概念，前提须知"><a href="#9-1-1-基本概念，前提须知" class="headerlink" title="9.1.1 基本概念，前提须知"></a>9.1.1 基本概念，前提须知</h3><ul>
+<li><p><em><strong>Ordered pair (序偶)</strong></em><br>An ordered pair (a, b) is a listing of the objects a and b in a prescribed order, with a appearing first and b appearing second.<br>The ordered pairs $(a_1, b_1) &#x3D; (a_2, b_2)$ 当且仅当 $a_1 &#x3D; a_2\ and\ b_1 &#x3D; b_2$</p>
+</li>
+<li><p><em><strong>Cartesian product (笛卡尔积)</strong></em><br>![[Pasted image 20231108215615.png#center|笛卡尔积|300]]</p>
+</li>
+<li><p><em><strong>m 元笛卡尔积</strong></em><br>![[Pasted image 20231108215751.png#center|m元笛卡尔积|300]]</p>
+</li>
+<li><p><em><strong>Partitions (划分)</strong></em><br>![[Pasted image 20231108215959.png#center|划分定义]]<br>非空集 A 的划分（或称为商集）的集合 P 具有以下性质：</p>
+<ul>
+<li>A 的每个元素属于 P 中的一个集合</li>
+<li>如果 $A_1$ 和 $A_2$ 是 P 的不同元素，那么 $A_1∩A_2&#x3D;∅$</li>
+</ul>
+</li>
+</ul>
+<h3 id="9-1-2-Relations-关系"><a href="#9-1-2-Relations-关系" class="headerlink" title="9.1.2 Relations 关系"></a>9.1.2 Relations 关系</h3><ul>
+<li><em><strong>定义</strong></em><br>设 A 和 B 是非空集，那么从 A 到 B 的一个关系 R 就是 $A×B$ 的一个子集，并且有以下性质：<ul>
+<li>如果 R 属于 $A×B$ 并且 $(a，b)\in R$，我们就说 a 与 b 有关，写作：a R b。如果 a 与 b 无关，写作：a <del>R</del> b。</li>
+<li>通常，A 和 B 是相等的。在这种情况下，我们经常说 R 属于 A×A 是 A 上的关系. ![[Pasted image 20231108220703.png#center|定义]]<br>![[Pasted image 20231108221222.png#center|集合A的关系个数]]</li>
+</ul>
+</li>
+<li><em><strong>Sets Arising from Relations 由关系产生的集合</strong></em><br>![[Pasted image 20231108221847.png#inl|由关系产生的集合|300]] ![[Pasted image 20231108222201.png#inl||300]]</li>
+<li><em><strong>定理</strong></em><br>![[Pasted image 20231108222314.png#inl|定理1|300]] ![[Pasted image 20231108222520.png#inl|定理2|300]]</li>
+</ul>
+<h3 id="9-1-3-二元关系的特殊性质"><a href="#9-1-3-二元关系的特殊性质" class="headerlink" title="9.1.3 二元关系的特殊性质"></a>9.1.3 二元关系的特殊性质</h3><ul>
+<li><p><em><strong>Reflexive (自反) and Irreflexive (反自反)</strong></em><br> ![[Pasted image 20231108222703.png#center|自反定义|200]]<br> Note:</p>
+<ul>
+<li>若 A &#x3D; ∅，那么其也符合定义</li>
+<li>The void relation on a void Universe is reflexive!  (全集 U 为∅时，空关系也是自反的)</li>
+<li>如果 U 不是空的，那么自反关系中的<strong>所有</strong>顶点 (vertices)都必须有环！<br> ![[Pasted image 20231108222921.png#center|反自反定义|200]]<br> Note:</li>
+<li>若 A &#x3D; ∅，那么其也符合定义</li>
+<li>任何空关系都是反自反的</li>
+</ul>
+</li>
+<li><p><em><strong>Symmetric (对称), Asymmetric (非对称), and Antisymmetric (反对称)</strong></em><br>![[Pasted image 20231108223506.png#inl|对称定义|200]] ![[Pasted image 20231108223549.png#inl|非对称定义|200]]<br>![[Pasted image 20231108223612.png#center|反对称定义|300]]<br>Note:</p>
+<ul>
+<li>如果从 x 到 y 存在 arc，则从 y 到 x 不能有一个弧 arc</li>
+<li>如果（x，y）在 R 中并且 x≠y，则（y，x）一定不在 R 中 (anti反对称)</li>
+</ul>
+<p>Note:</p>
+<ol>
+<li>对称和非对称不是矛盾对立关系 (即存在既不是对称也不是非对称的关系) ；对称和反对称也不是矛盾对立关系。</li>
+<li>形式逻辑的定义：<ul>
+<li>【对称关系】：当 aRb 为真时, bRa 必为真；</li>
+<li>【非对称关系】；当 aRb 为真时, bRa 必为假；</li>
+<li>【反对称关系】；当 aRb 为真时,bRa 有时真、有时假。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p><em><strong>Transitive (传递)</strong></em><br>![[Pasted image 20231108223925.png#center|传递定义|300]]<br>Note:</p>
+<ul>
+<li>如果有一个从 x 到 y 的 arc 和一个从 y 到 z 的 arc，则必须有一个从 x 到 z 的 arc</li>
+</ul>
+</li>
+</ul>
+<h3 id="9-1-4-Combing-relations-关系的组合"><a href="#9-1-4-Combing-relations-关系的组合" class="headerlink" title="9.1.4 Combing relations 关系的组合"></a>9.1.4 Combing relations 关系的组合</h3><p>![[Pasted image 20231108224239.png|200]]</p>
+<ul>
+<li><em><strong>Composition 合成</strong></em><br>![[Pasted image 20231108224652.png#center|关系的合成|400]]<br>The composition of R and S(R 和 S 的复合关系)，记作 SoR，定义为：<blockquote>
+<p>如果a∈A并且c∈C，那么有：a SoR c 当且仅当 存在b∈B，使得a R b and b S c.</p>
+</blockquote>
+<strong>定理：</strong> 设 R 是从 A 到 B 的关系，S 是从 B 到 C 的关系。那么，如果 $A_1$ 是 A 的子集，我们有:  $(S\circ R)(A_1) &#x3D; S(R(A_1))$</li>
+<li><em><strong>power 关系的幂</strong></em><br>令 R 为 A 到 A 的关系，则 $R^n,n&#x3D;1,2,3…$ 定义有：$R^1&#x3D;R\ and\ R^{n+1}&#x3D;R^n\circ R$<br><strong>定理：</strong> A 到 A 的关系 R 是 transitive (传递的) &lt;&#x3D;&#x3D;&gt; $R^n⊆R,n&#x3D;1,2,3…$</li>
+</ul>
+<h3 id="9-1-5-补充"><a href="#9-1-5-补充" class="headerlink" title="9.1.5 补充"></a>9.1.5 补充</h3><ul>
+<li><p><em><strong>等价关系</strong></em><br>一个「等价关系」需要满足：自反性，对称性和传递性，缺一不可</p>
+</li>
+<li><p>如果一个二元关系集合 P 定义在一个 n 元素集合 (设 A&#x3D;{1，2，3…… n})上，那么：</p>
+<ul>
+<li>满足 symmetric (对称)的集合个数为: $2^{\frac{n(n+1)}{2}}$ 个<br>![[Pasted image 20231109095738.png#center|示例|300]]<br>满足对称性定义的最小元素组: ${(1,1)}, {(2,2)}, ……{(n,n)}$ 这 n 个单元素集合和 ${(1,2), (2,1)}, ……{(n-1,n), (n, n-1)}$ 这 $\frac{(n^2-n)}{2}$ 个元素组<br>故：$sum&#x3D;2^{n+\frac{(n^2-n)}{2}}&#x3D;2^{\frac{n(n+1)}{2}}$ 个</li>
+<li>满足 antisymmetric (反对称)的集合个数为: $2^n*3^{\frac{n(n-1)}{2}}$ 个</li>
+<li>满足 asymmetric (非对称)的集合个数为: $3^{\frac{n(n-1)}{2}}$ 个</li>
+<li>满足 irreflexive (反自反)的集合个数为: $2^{n(n-1)}$ 个</li>
+<li>满足 reflexive (自反)同时 symmetric (对称)的集合个数为: $2^{\frac{n(n-1)}{2}}$ 个</li>
+<li>既不满足 reflexive (自反)又不 irreflexive (反自反)的集合个数为: $2^{n^2}-2\times 2^{n(n-1)}$ 个</li>
+</ul>
+</li>
+</ul>
+<h2 id="9-2-n-ary-Relations-and-Their-Applications-n-元关系及其应用"><a href="#9-2-n-ary-Relations-and-Their-Applications-n-元关系及其应用" class="headerlink" title="9.2 n-ary Relations and Their Applications n 元关系及其应用"></a>9.2 n-ary Relations and Their Applications n 元关系及其应用</h2><p>![[Pasted image 20231109101726.png#center|定义]]<br>![[Pasted image 20231109101756.png]]</p>
+<p>![[Pasted image 20231109101956.png]]</p>
+<p>![[Pasted image 20231109102008.png]]</p>
+<p>![[Pasted image 20231109102017.png]]</p>
+<h2 id="9-3-Representing-Relations-关系的表示"><a href="#9-3-Representing-Relations-关系的表示" class="headerlink" title="9.3 Representing Relations 关系的表示"></a>9.3 Representing Relations 关系的表示</h2><p><em><strong>参考：</strong></em> PPT+ <a target="_blank" rel="noopener" href="https://www.cnblogs.com/SpicyArticle/p/11868611.html">9.3 关系的表示 - 进击の辣条 - 博客园 (cnblogs.com)</a></p>
+<h3 id="9-3-1-关系的一般表示方法"><a href="#9-3-1-关系的一般表示方法" class="headerlink" title="9.3.1 关系的一般表示方法"></a>9.3.1 关系的一般表示方法</h3><ul>
+<li>将所有关系列出；</li>
+<li>用一个到{T, F}的映射</li>
+</ul>
+<h3 id="9-3-2-用矩阵表示关系"><a href="#9-3-2-用矩阵表示关系" class="headerlink" title="9.3.2 用矩阵表示关系"></a>9.3.2 用矩阵表示关系</h3><ul>
+<li><em><strong>connection matrix of R 邻接矩阵</strong></em><br>![[Pasted image 20231109102630.png#center|邻接矩阵定义|300]]</li>
+<li><em><strong>0-1 矩阵性质</strong></em><ul>
+<li>拥有自反性 (reflexive)的 0-1 矩阵主对角线全为“1”</li>
+<li>拥有非自反性 (irreflexive)的 0-1 矩阵主对角线全为“0”</li>
+<li>拥有对称性 (symmetric)的 0-1 矩阵主对角线任意，关于主对角线对称的元素相等</li>
+<li>拥有反对称性(antisymmetric)的0-1矩阵主对角线任意，关于主对角线对称的元素不能同时为“1”<br>![[Pasted image 20231109102914.png#inl|自反性质|100]] ![[Pasted image 20231109103000.png#inl|非自反性质|100]] ![[Pasted image 20231109103102.png#inl|对称性质|100]] ![[Pasted image 20231109103126.png#inl|反对称性质|100]]</li>
+</ul>
+</li>
+<li><em><strong>Composite of relations</strong></em><ul>
+<li>定义两个邻接矩阵的 join 为这两个矩阵的布尔或运算 (boolean ‘or’)</li>
+<li>定义两个邻接矩阵的 meet 为这两个矩阵的布尔与运算 (boolean ‘and’)</li>
+<li>令 $M_{S\circ R}&#x3D;[t_{ij}],M_R&#x3D;[r_{ij}],M_S&#x3D;[s_{ij}]$ 则 $M_{S\circ R}&#x3D;M_R⊙M_S$  其中，⊙表示两个矩阵进行布尔乘运算 (boolean product)<br>$M_{S\circ R}$ 的每个 $t_{ij}$ 由 $M_R$ 的第 i 行与 $M_S$ 的第 j 列进行布尔乘运算</li>
+</ul>
+</li>
+</ul>
+<h3 id="9-3-3-用图表示关系"><a href="#9-3-3-用图表示关系" class="headerlink" title="9.3.3 用图表示关系"></a>9.3.3 用图表示关系</h3><ul>
+<li>顶点(vertex)</li>
+<li>边(arc or edge)</li>
+<li>有向图 (directed graph or digraph)</li>
+</ul>
+<ul>
+<li><em><strong>in-degree and out-degree 入度和出度</strong></em><ul>
+<li>顶点 a 的入度: 以顶点 a 为终点的箭头的个数<br>![[Pasted image 20231109104639.png]]</li>
+<li>顶点 a 的出度: 以顶点 a 为起点的箭头的个数<br>![[Pasted image 20231109104654.png]]</li>
+</ul>
+</li>
+<li><em><strong>restriction 限制</strong></em><br>![[Pasted image 20231109104829.png]]</li>
+<li><em><strong>有特殊性质的图</strong></em><ul>
+<li>具有自反性的图：每个节点都有自环</li>
+<li>具有反自反性的图：无自环节点</li>
+<li>具有对称性的图：所有箭头都是双向的</li>
+<li>具有反对称性的图：无双向箭头</li>
+</ul>
+</li>
+</ul>
+<h2 id="9-4-Closures-of-Relations-关系闭包"><a href="#9-4-Closures-of-Relations-关系闭包" class="headerlink" title="9.4 Closures of Relations 关系闭包"></a>9.4 Closures of Relations 关系闭包</h2><p><em><strong>参考：</strong></em> PPT+ <a target="_blank" rel="noopener" href="https://www.cnblogs.com/SpicyArticle/p/11868619.html">9.4 关系的闭包 - 进击の辣条 - 博客园 (cnblogs.com)</a></p>
+<h3 id="9-4-1-定义"><a href="#9-4-1-定义" class="headerlink" title="9.4.1 定义"></a>9.4.1 定义</h3><blockquote>
+<p>关系 R 对于性质 P 的闭包，是加入最小数量的序偶，使得 R 恰好符合性质 P 所得到的集合<br>R 的闭包 $R_1$ 具有如下 3 个特点: </p>
+<blockquote>
+<p>①. $R_1$ 包含 R<br>②. $R_1$ 具有性质 P<br>③. 如果 $R_2$ 具有性质 P 且 $R_2$ 包含 R，那么 $R_2$ 包含 $R_1$</p>
+</blockquote>
+</blockquote>
+<h3 id="9-4-2-不同类型的闭包"><a href="#9-4-2-不同类型的闭包" class="headerlink" title="9.4.2 不同类型的闭包"></a>9.4.2 不同类型的闭包</h3><ul>
+<li><em><strong>自反闭包 (reflexive closure)</strong></em><blockquote>
+<ol>
+<li>在 R 的有向图的所有顶点上添加闭环</li>
+<li>令 R 的邻接矩阵的对角线上全为1</li>
+</ol>
+</blockquote>
+</li>
+<li><em><strong>对称闭包 (symmetric closure)</strong></em><blockquote>
+<p>沿相反方向添加弧线(箭头)</p>
+</blockquote>
+</li>
+<li><em><strong>传递闭包 (transitive closure)</strong></em><blockquote>
+<p>如果 a 到 b 连通，那么就添加从 a 到 b 的弧线(箭头)</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="9-4-3-Paths-路径"><a href="#9-4-3-Paths-路径" class="headerlink" title="9.4.3 Paths 路径"></a>9.4.3 Paths 路径</h3><ul>
+<li><em><strong>定义</strong></em><br>假设 R 为定义在 A 上的关系，则 R 从 a 到 b，长度为 n 的路径可表示为以 a 为起始点，b 为终点的一个有限序列π:  $a, x_1, x_2, …, x_{n-1}, b$;  其中, 满足: $a\ R\ x_1, x_1\ R\ x_2, …, x_{n-1}\ R\ b$</li>
+</ul>
+<h3 id="9-4-4-一些重要定义"><a href="#9-4-4-一些重要定义" class="headerlink" title="9.4.4 一些重要定义"></a>9.4.4 一些重要定义</h3><ul>
+<li><p><em><strong>环(cycle):</strong></em></p>
+<blockquote>
+<p>一条起始点和终点为相同顶点的路径称为:环(cycle)</p>
+</blockquote>
+</li>
+<li><p>$R^n$:</p>
+<blockquote>
+<p>$x\ R^n\ y$ 表示，在 R 中存在一条或多条从 x 到 y 的路径</p>
+</blockquote>
+</li>
+<li><p><em><strong>连通关系(connectivity relation)</strong></em> $R*$</p>
+<blockquote>
+<p>$R*$ 包含的序偶对 (a, b)，其中在 R 中至少存在一条从 a 到 b 的路径</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="9-4-5-一些重要定理"><a href="#9-4-5-一些重要定理" class="headerlink" title="9.4.5 一些重要定理"></a>9.4.5 一些重要定理</h3><p>![[Pasted image 20231109111444.png|300]]<br>n≥2 时 ![[Pasted image 20231109111527.png#inl||300]]</p>
+<h3 id="9-4-6-The-connectivity-relation-连通关系"><a href="#9-4-6-The-connectivity-relation-连通关系" class="headerlink" title="9.4.6 The connectivity relation 连通关系"></a>9.4.6 The connectivity relation 连通关系</h3><p>![[Pasted image 20231109111834.png]]</p>
+<h3 id="9-4-7-Composition-of-paths-路径的合成"><a href="#9-4-7-Composition-of-paths-路径的合成" class="headerlink" title="9.4.7 Composition of paths 路径的合成"></a>9.4.7 Composition of paths 路径的合成</h3><blockquote>
+<p>令:<br>$π_1: a, x_1, x_2, … , x_{n-1}, b$<br>$π_2: b, y_1, y_2, … , y_{m-1}, c$<br>则 $π_1$ 与 $π_2$ 合成后的路径为:  </p>
+<blockquote>
+<p>$π_2\circ π_1:a,x_1,x_2,…,x_{n-1},b,y_1,y_2,…,y_{m-1},c$<br><em><strong>NOTE THE ORDER!!!(注意顺序)</strong></em></p>
+</blockquote>
+</blockquote>
+<h3 id="9-4-8-Transitive-closure-传递闭包"><a href="#9-4-8-Transitive-closure-传递闭包" class="headerlink" title="9.4.8 Transitive closure 传递闭包"></a>9.4.8 Transitive closure 传递闭包</h3><blockquote>
+<p>①. 关系 R 的传递闭包是包含 R 的最小的传递关系。<br>②. R 是传递的，当且仅当，对于任何的 n，均有 Rn ⊆ R(结论来自9.1)<br>③. 如果传递闭包存在一条从 x 到 y 的路径，那么一定有从 x 直接到 y 的弧线 (箭头)</p>
+</blockquote>
+<ul>
+<li><p><em><strong>传递闭包里有用的一些结论：</strong></em></p>
+<blockquote>
+<p>①. If A ⊆ B and C ⊆ B, then (A∪C) ⊆ B.<br>②. If R ⊆ S and T ⊆ U then $(R\circ T) ⊆ (S\circ U)$.<br>推论: If R ⊆ S then $R^n⊆S^n$<br>③. 如果 R 是传递的，那么 $R^n$ 也是传递的  </p>
+<blockquote>
+<p>只需证明: $(R^n)^2&#x3D;(R^2)^n⊂R^n$<br>④. 如果对于 $j&gt;k$, 有 $R^k&#x3D;R^j$，那么对于某些 $n&gt;&#x3D;j$, 有 $R^{j+m}&#x3D;R^n$<br>除了 $R^j$ 之外，我们无法得到任何新的关系</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p><em><strong>定理</strong></em><br>R 为定义在 A 上的一个关系，那么 R 的传递闭包就等于 R*<br>![[Pasted image 20231109113119.png]]<br>![[Pasted image 20231109113521.png]]</p>
+</li>
+</ul>
+<p>![[Pasted image 20231109113642.png]]</p>
+<h3 id="9-4-9-Warshall’s-Algorithm-沃舍尔算法"><a href="#9-4-9-Warshall’s-Algorithm-沃舍尔算法" class="headerlink" title="9.4.9 Warshall’s Algorithm 沃舍尔算法"></a>9.4.9 Warshall’s Algorithm 沃舍尔算法</h3><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1uM411v7kE?vd_source=dbd67c6676f59c6eb87be4a08bf448c3">5 分钟快速搞懂沃舍尔算法！我三岁的弟弟都学会了！</a></p>
+<p>![[Pasted image 20231109113814.png|400]]</p>
+<p>![[Pasted image 20231109113829.png|400]]<br><em><strong>例子</strong></em><br>![[Pasted image 20231109113930.png|inl|200]] ![[Pasted image 20231109113947.png|inl|300]]</p>
+<h2 id="9-5-Equivalence-Relations-等价关系"><a href="#9-5-Equivalence-Relations-等价关系" class="headerlink" title="9.5 Equivalence Relations 等价关系"></a>9.5 Equivalence Relations 等价关系</h2><p><em><strong>参考：</strong></em> PPT+ <a target="_blank" rel="noopener" href="https://www.cnblogs.com/SpicyArticle/p/11868626.html">9.5 等价关系 - 进击の辣条 - 博客园 (cnblogs.com)</a></p>
+<h3 id="9-5-1-定义"><a href="#9-5-1-定义" class="headerlink" title="9.5.1 定义"></a>9.5.1 定义</h3><p>定义在集合 A 上的关系 R 是<strong>等价关系</strong> iff(当且仅当)R 具有</p>
+<blockquote>
+<ol>
+<li>自反性(reflexive)</li>
+<li>对称性(symmetric)</li>
+<li>传递性 (transitive)</li>
+</ol>
+</blockquote>
+<ul>
+<li><em><strong>证明等价关系步骤</strong></em><br>![[Pasted image 20231109115128.png|500]]</li>
+</ul>
+<h3 id="9-5-2-Equivalence-class-and-Partition-等价类与划分"><a href="#9-5-2-Equivalence-class-and-Partition-等价类与划分" class="headerlink" title="9.5.2 Equivalence class and Partition 等价类与划分"></a>9.5.2 Equivalence class and Partition 等价类与划分</h3><blockquote>
+<p>设 R 是定义在集合 A 上的等价关系。与 A 中的一个元素 a 有关系的所有元素的集合叫做 a 的等价类，记作: $[a]_R$.<br>如果 $b∈[a]_R$，那么 b 叫做这个等价类的代表元.<br>容易知道，一个等价类的任何元素都可以作为这个类的代表元.</p>
+</blockquote>
+<ul>
+<li><em><strong>定理</strong></em><br>![[Pasted image 20231109115336.png]]<br>![[Pasted image 20231109115449.png]]</li>
+</ul>
+<h2 id="9-6-Partial-Orderings-偏序"><a href="#9-6-Partial-Orderings-偏序" class="headerlink" title="9.6 Partial Orderings 偏序"></a>9.6 Partial Orderings 偏序</h2><p><em><strong>参考：</strong></em> PPT+<a target="_blank" rel="noopener" href="https://www.cnblogs.com/SpicyArticle/p/11868629.html">9.6偏序关系 - 进击の辣条 - 博客园 (cnblogs.com)</a></p>
+<h3 id="9-6-1-定义"><a href="#9-6-1-定义" class="headerlink" title="9.6.1 定义"></a>9.6.1 定义</h3><ul>
+<li><p>***偏序(Partial order)***：定义在 A 上的集合 R 是偏序关系 iff(当且仅当)其具有以下性质:</p>
+<blockquote>
+<ol>
+<li>自反性(reflexive)</li>
+<li>反对称性(antisymmetric)</li>
+<li>传递性 (transtive)</li>
+</ol>
+</blockquote>
+</li>
+<li><p><em><strong>偏序集(Partially ordered set)&#x2F;(或简写为 poset)</strong></em>: 集合 A 及定义在其上的偏序关系 R 一起称为偏序集，记作$(A, R)$，A 中的元素也称为偏序集中的元素.</p>
+</li>
+<li><p>如果(A, ≤)是一个偏序集(poset)，那么对于其中的元素 a 和 b,  </p>
+<ol>
+<li>a≤b 或者 b≤a,那么称为可比的 <strong>(Comparable)</strong>  </li>
+<li>即不存在 a≤b，也不存在 b≤a, 那么称为不可比的 <strong>(Imcomparable)</strong></li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p><em><strong>线序&#x2F;全序 (Linear Order)</strong></em></p>
+<blockquote>
+<p>如果偏序集 A 中每对元素 (every pair of elements)都是可比的，那么我们就称 A 是<strong>线序集合 (linearly ordered set)或全序集合 (totally ordered set)</strong>, 称偏序关系 R 为<strong>线序或全序</strong>关系 (linear order). 我们也称 A 为链(chain)</p>
+</blockquote>
+</li>
+<li><p><em><strong>良序集 (Well-ordered set)</strong></em></p>
+<blockquote>
+<p>设集合 $(S,≤)$ 为一全序集，≤是其全序关系，若对任意的 S 的非空子集，在其序下都<strong>有最小元素</strong>，则称≤为良序关系，(S,≤)为良序集。</p>
+<blockquote>
+<p><em><strong>良序归纳原理  The principle of well-ordered induction：</strong></em><br>![[Pasted image 20231109215030.png]]</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p><em><strong>拟序 (Quasiorder)</strong></em></p>
+<blockquote>
+<p>定义在 A 上的关系 R 是拟序关系 iff 其具有以下关系</p>
+<ol>
+<li>反自反性 (irreflexive)</li>
+<li>传递性(transitive)<br><strong>NOTE:</strong> 满足反对称性的拟序关系就称为偏序关系</li>
+</ol>
+</blockquote>
+</li>
+<li><p><em><strong>乘积偏序 (Product Partial Order)</strong></em></p>
+<blockquote>
+<p>如果 (A, ≤)和 (B, ≤)都是偏序集，那么他们的笛卡尔积也是个偏序集，其偏序关系≤被定义为:</p>
+<blockquote>
+<p>如果在A中有a ≤ a’，在B中有b ≤ b’，那么(a, b) ≤ (a’, b’)</p>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<h3 id="9-6-2-Lexicographic-Order-词典顺序"><a href="#9-6-2-Lexicographic-Order-词典顺序" class="headerlink" title="9.6.2 Lexicographic Order 词典顺序"></a>9.6.2 Lexicographic Order 词典顺序</h3><p>对于一个乘积偏序，<br>(a, b) ＜ (a’, b’)在a ＜ a’(或a &#x3D;&#x3D; a’并且b ＜ b’)时成立<br>那么我们称其为词典顺序(Lexicographic Order)或字典序(“dictionary” order)</p>
+<h3 id="9-6-3-Hasse-Diagram-哈斯图"><a href="#9-6-3-Hasse-Diagram-哈斯图" class="headerlink" title="9.6.3 Hasse Diagram 哈斯图"></a>9.6.3 Hasse Diagram 哈斯图</h3><ul>
+<li>哈斯图是有限集 A 上的<strong>偏序图</strong>，并且:<blockquote>
+<p>删除了所有的自环 (self-cycles)<br>消除了由传递性生成的边<br>自底向上的制图</p>
+</blockquote>
+</li>
+</ul>
+<p>![[Pasted image 20231109215518.png#center|流程|300]]</p>
+<blockquote>
+<p>设 (S, ≤)是一个 poset. 若 x＜y 且不存在元素 z∈S，使得 x＜z＜y，则称 y∈S 覆盖 x∈S.而 y 覆盖 x 的有序对 (x, y)的集合也称为 (S, ≤)的<strong>覆盖关系</strong>. 可以看出，(S, ≤)的哈斯图的边与其覆盖关系是一一对应的.</p>
+</blockquote>
+<ul>
+<li><em><strong>Isomorphism 同构</strong></em><br>![[Pasted image 20231109215748.png#inl|定义|300]] ![[Pasted image 20231109215800.png#inl|示例|300]]</li>
+<li><em><strong>Principle of correspondence 对应原理</strong></em><blockquote>
+<p>两个有限同构偏序集必定具有相同的 Hasse 图.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="9-6-4-maximal-element-and-minimal-element-极大元和极小元"><a href="#9-6-4-maximal-element-and-minimal-element-极大元和极小元" class="headerlink" title="9.6.4 maximal element and minimal element 极大元和极小元"></a>9.6.4 maximal element and minimal element 极大元和极小元</h3><ul>
+<li><p><em><strong>极大元 (maximal element)和极小元 (minimal element)</strong></em></p>
+<blockquote>
+<p>偏序集中的一个元素称为极大 (小)元，当它不小 (大)于这个偏序集中的任何其他元素, 利用哈斯图很容易判别它们就是图中的”顶” (“底”)元素<br>极大 (小)元一定存在，且可能是不唯一的</p>
+</blockquote>
+</li>
+<li><p><em><strong>最大元 (greatest element)和最小元 (least element)</strong></em></p>
+<blockquote>
+<p>如果在偏序集中存在一个元素大(小)于<strong>任何其他的元素</strong>，那么称这样的元素为最大(小)元<br>最大 (小)元可能不存在，若存在则唯一</p>
+</blockquote>
+</li>
+<li><p><em><strong>最小上界 (least upper bound)和最大上界 (greatest lower bound)</strong></em></p>
+<blockquote>
+<p>如果存在一个元素 $u\ or\ l\in S$，使得对于偏序集 (S, ≤)的子集 A 中的所有元素 a，有 $a≼u (l≼a)$，那么称 $u(l)$ 为 A 的一个上 (下)界，如果 $u(l)$ 是所有上 (下)界中最小 (大)的，就叫最小上界 (LUB)(最大下界 (GLB))</p>
+<p>上界的最小元就叫最小上界；下界的最大元叫最大下界</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>上述结合书上例子理解</strong></p>
+<ul>
+<li><p><em><strong>定理</strong></em><br>![[Pasted image 20231109221658.png|300]]</p>
+</li>
+<li><p><em><strong>Topological Sorting（拓扑排序）</strong></em><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/34871092">拓扑排序的实现方法以及环路检测 - 知乎 (zhihu.com)</a></p>
+</li>
+</ul>
+<h3 id="9-6-5-Lattice-格"><a href="#9-6-5-Lattice-格" class="headerlink" title="9.6.5 Lattice 格"></a>9.6.5 Lattice 格</h3><ul>
+<li><p><em><strong>定义</strong></em></p>
+<blockquote>
+<p>如果一个偏序集的<strong>每对元素</strong>都有最小上界和最大上界，那么就称这个偏序集为<strong>格</strong><br>![[Pasted image 20231109222100.png#center|300]]</p>
+</blockquote>
+</li>
+<li><p><em><strong>定理</strong></em></p>
+<blockquote>
+<ol>
+<li>两个格的笛卡尔乘积也是格<br>  ![[Pasted image 20231109222445.png|inl|250]] ![[Pasted image 20231109222520.png|inl|259]]</li>
+<li>格 L 的子集，如果还是格，就称为 L 的子格 (Sublattice)</li>
+<li>两个格同构，我们称它们为同构格 (哈斯图相同)  </li>
+<li>如果一个格既有最大元，也有最小元，我们就称其为有界格  </li>
+<li>满足分配律: ![[Pasted image 20231109222754.png|inl|200]]<br>  这样的格我们称为分配格 (Distributive lattice)，否则称为非分配格 (Nondistributive lattice)</li>
+<li>补元 (Complement): ![[Pasted image 20231109222833.png|inl|200]]<blockquote>
+<p> 特别地: 0’ &#x3D; I, I’ &#x3D; 0<br>  Note: 补元若存在，可能不唯一<br>  如果一个格的所有元素均有补元在格中，我们就说它是补格(Complemented)，否则不是补格</p>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+</li>
+<li><p><em><strong>定理</strong></em></p>
+<blockquote>
+<p>![[Pasted image 20231109223020.png|300]]</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h1 id="（补）-Semigroups-and-Groups-半群和群"><a href="#（补）-Semigroups-and-Groups-半群和群" class="headerlink" title="（补） Semigroups and Groups 半群和群"></a>（补） Semigroups and Groups 半群和群</h1><h2 id="10-1-本章基础知识及前提"><a href="#10-1-本章基础知识及前提" class="headerlink" title="10.1 本章基础知识及前提"></a>10.1 本章基础知识及前提</h2><p><em><strong>参考：</strong></em> PPT+教材+ <a target="_blank" rel="noopener" href="https://www.cnblogs.com/SpicyArticle/p/11868632.html">10.1代数结构 - 进击の辣条 - 博客园 (cnblogs.com)</a></p>
+<ul>
+<li><p><em><strong>二元运算 (Binary operation)</strong></em></p>
+<blockquote>
+<p>定义:对两个对象进行操作的运算称为二元运算</p>
+</blockquote>
+</li>
+<li><p><em><strong>封闭律 (Closure)</strong></em></p>
+<blockquote>
+<p>设集合 S 有二元运算∗,若对 S 中的任意两个元素 $a_1$、$a_2$,都有: $a_1∗a_2∈S$,则称运算∗对集合 S 封闭</p>
+</blockquote>
+</li>
+<li><p><em><strong>交换律 (Commutative)</strong></em></p>
+<blockquote>
+<p>交换律也称为阿贝尔律 (Abel 律), 设有代数 $(S,∗)$，若对任意 $a_1,a_2∈S$,都符合等式: $a_1∗a_2&#x3D;a_2∗a_1$,那么称代数 $(S,∗)$ 运算符合交换律<br>容易得到: 若 $(S,∗)$ 运算符合交换律，那么对于运算序列 $a_1∗a_2∗…∗a_n$，设 $θ(12…n)$ 为任意重排列，那么有:  </p>
+<blockquote>
+<p>$a_θ(1)∗a_θ(2)∗…∗a_θ(n)&#x3D;a_1∗a_2∗…∗a_n$</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p><em><strong>结合律 (Associative)</strong></em></p>
+</li>
+<li><p><em><strong>分配律(Distributive)</strong></em></p>
+</li>
+<li><p><em><strong>德·摩根律(De Morgan‘s laws)</strong></em></p>
+</li>
+<li><p><em><strong>单位元 (Identity)</strong></em></p>
+<blockquote>
+<p>单位元也称幺元，如果对于代数结构 (S,∗)中任意元素 x∈S, 均有 $e∗x&#x3D;x∗e&#x3D;x$,我们就称 e 为单位元<br><strong>定理一：</strong> 单位元唯一</p>
+</blockquote>
+</li>
+<li><p><em><strong>逆元 (Inverse)</strong></em></p>
+<blockquote>
+<p>如果运算符 $<em>$ 有单位元 e，如果存在 x $</em>$ y &#x3D; y $<em>$ x &#x3D; e, 那么我们称 x 是关于操作符 $</em>$ 的 y 的一个逆元，y 也是关于操作符 $<em>$ 的 x 的一个逆元 (<strong>互为逆元</strong>)<br><strong>定理二：</strong> 如果操作符 $</em>$ 具有结合律，并且 x 的关于 $*$ 的一个逆元为 y，那么 y 是唯一的</p>
+</blockquote>
+</li>
+</ul>
+<p><em>example 见书，便于理解</em></p>
+<ul>
+<li><p><em><strong>集合上的二元运算</strong></em></p>
+<blockquote>
+<p>定义在集合上的二元运算是一个处处定义的函数 $f:A×A\rightarrow A$<br>且需满足:</p>
+<blockquote>
+<ol>
+<li>$f(a, b)$ 的结果还在 A 中 (即具有封闭性)；</li>
+<li>每个序偶仅对应一个A中的元素</li>
+</ol>
+</blockquote>
+</blockquote>
+</li>
+<li><p><em><strong>运算表(Tables)</strong></em></p>
+<blockquote>
+<p>A 是一个有限集(设有 n 个元素)，$*$ 是定义在集合 A 上的二元运算，那么我们可以得到 $n^{n^2}$ 个运算表</p>
+</blockquote>
+</li>
+<li><p><em><strong>定义在集合上的二元运算的性质</strong></em></p>
+<blockquote>
+<p>对于集合A中的元素a,b,c和二元运算*</p>
+<blockquote>
+<p>可交换律(Commutative)<br>可结合律(Associative)<br>幂等律(Idempotent)</p>
+<blockquote>
+<p>a∗a&#x3D;a</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<h2 id="10-2-Semigroup-半群"><a href="#10-2-Semigroup-半群" class="headerlink" title="10.2 Semigroup 半群"></a>10.2 Semigroup 半群</h2><p><em><strong>参考：</strong></em> PPT+教材+ <a target="_blank" rel="noopener" href="https://www.cnblogs.com/SpicyArticle/p/11868642.html">10.2半群，同余关系，半群直积，商半群 - 进击の辣条 - 博客园 (cnblogs.com)</a></p>
+<h3 id="10-2-1-半群基础概念"><a href="#10-2-1-半群基础概念" class="headerlink" title="10.2.1 半群基础概念"></a>10.2.1 半群基础概念</h3><ul>
+<li><p><em><strong>半群 (Semigroup)</strong></em></p>
+<blockquote>
+<p>非空集合 S 和定义在集合 S 上的具有结合律 (封闭性显然)的二元运算∗组成了一个半群 (S, *);<br>通常记为 (S, *)或者 S<br>a*b 称为 a 和 b 的积<br><strong>如果</strong>∗具有<strong>交换律</strong>，那么 (S, *)称为<strong>交换半群</strong> (阿贝尔半群)</p>
+<blockquote>
+<p>如: (Z, +); (P (S), ∪)； (Z, -)…<br>Note: P (S)指的是 S 的全集，如 S&#x3D;{1, 2, 3}, 那么 P (S) &#x3D; {∅, {1}, {2}, {3}, {1, 2}, {1, 3}, {2, 3}, {1, 2, 3}}</p>
+</blockquote>
+<p><em><strong>自由半群</strong></em><br>![[Pasted image 20231110135808.png#center|自由半群例子]]<br>操作符·是指连接运算，显然其具有结合律<br>称 $(A^∗,·)$ 为由 A 生成的自由半群 (free semigroup generated by A)</p>
+</blockquote>
+</li>
+<li><p><em><strong>定理 1</strong></em></p>
+<blockquote>
+<p>如果 $a_1,\ a_2,\ …,\ a_n$ 是半群的任意元素（其中 $n ≥ 3$），那么在任意元素的乘积中插入有意义的括号形成的乘积是相等的。</p>
+</blockquote>
+</li>
+<li><p><em><strong>Identity 单位元，幺元</strong></em></p>
+<blockquote>
+<p>![[Pasted image 20231110140408.png|250]]</p>
+<blockquote>
+<p>单位元若存在必唯一</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p><em><strong>Monoid——独异点，幺半群</strong></em></p>
+<blockquote>
+<p>半群 $(S, *)$ 中存在单位元，则称为独异点</p>
+</blockquote>
+</li>
+<li><p><em><strong>子半群 (Subsemigroup)</strong></em></p>
+<blockquote>
+<p>![[Pasted image 20231110141142.png#center|定义]]</p>
+</blockquote>
+</li>
+<li><p><em><strong>子独异点、子幺半群 (Submonoid)</strong></em></p>
+<blockquote>
+<p>T 是 S 的子集，并且 $(T, *)$ 同样满足独异点定义，同时 $e∈T$</p>
+<blockquote>
+<p>显然，半群(S,∗)本身也是S的子半群；独异点(S,∗)本身也是S的子独异点；<br>T &#x3D; {e} 一定是群(S,∗)的子独异点</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p><em><strong>Powers（幂） of A</strong></em></p>
+<blockquote>
+<p><strong>定义：</strong>![[Pasted image 20231110141621.png]]</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="10-2-2-Isomorphism-同构映射"><a href="#10-2-2-Isomorphism-同构映射" class="headerlink" title="10.2.2 Isomorphism 同构映射"></a>10.2.2 Isomorphism 同构映射</h3><ul>
+<li><p><em><strong>定义</strong></em><br>![[Pasted image 20231110143246.png]]</p>
+<blockquote>
+<p><strong>Note:</strong> 如果 $f$ 是从 $S\rightarrow T$ 的同构，即 $f$ 是从 $S\rightarrow T$ 的<strong>一一对应</strong>的函数，那么 $f^{−1}$ 必定存在，并且 $f^{−1}$ 是从 $S\rightarrow T$ 的一一对应的函数, 且一定是同构</p>
+</blockquote>
+</li>
+<li><p><em><strong>构造同构&#x2F;证明是否为同构的一般步骤:</strong></em></p>
+<blockquote>
+<ol>
+<li>(构造或直接给出)构造一个函数 $f: S\rightarrow T$ , 使得 $f$ 的定义域 $Dom (f) &#x3D; S$;</li>
+<li>证明 $f$ 是单射 (one-to-one)的，可用反证法</li>
+<li>证明 $f$ 是满射 (onto)的 $\rightarrow$ 故而是双射的</li>
+<li>证明 $f(a∗b)&#x3D;f(a)∗′f(b)$</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<p><em>例子步骤见书</em></p>
+<ul>
+<li><em><strong>定理 2</strong></em><blockquote>
+<p>如果 S 和 T 是独异点，且幺元分别为 $e，e′$ , 并且存在 $f:S\rightarrow T$ 是从 S 到 T 的同构映射，那么:</p>
+<blockquote>
+<p>$f(e)&#x3D;e′$<br><strong>Note:</strong> 显然，如果(S,∗)有独异点，但(T,∗)没有独异点，那么必定不存在从 $S\rightarrow T$ 的同构<u>(常用于证明不存在同构)</u></p>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<h3 id="10-2-3-Homomorphism-同态"><a href="#10-2-3-Homomorphism-同态" class="headerlink" title="10.2.3 Homomorphism 同态"></a>10.2.3 Homomorphism 同态</h3><ul>
+<li><em><strong>定义</strong></em><blockquote>
+<p>![[Pasted image 20231110144429.png]]<br><strong>homomorphic image</strong> (同态像)</p>
+</blockquote>
+</li>
+</ul>
+<p><em>Note:同构和同态均满足：像点的乘积等于乘积的像点</em></p>
+<ul>
+<li><p><em><strong>定理 3</strong></em></p>
+<blockquote>
+<p>![[Pasted image 20231110145624.png]]</p>
+</blockquote>
+</li>
+<li><p><em><strong>定理 4</strong></em></p>
+<blockquote>
+<p>![[Pasted image 20231110145839.png]]</p>
+</blockquote>
+</li>
+<li><p><em><strong>定理 5</strong></em></p>
+<blockquote>
+<p>![[Pasted image 20231110150017.png]]</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="10-3-Products-and-Quotients-of-Semigroups-乘积半群、商半群"><a href="#10-3-Products-and-Quotients-of-Semigroups-乘积半群、商半群" class="headerlink" title="10.3 Products and Quotients of Semigroups 乘积半群、商半群"></a>10.3 Products and Quotients of Semigroups 乘积半群、商半群</h2><h3 id="10-3-1-半群的笛卡尔乘积"><a href="#10-3-1-半群的笛卡尔乘积" class="headerlink" title="10.3.1 半群的笛卡尔乘积"></a>10.3.1 半群的笛卡尔乘积</h3><ul>
+<li><em><strong>定理 1</strong></em><br>![[Pasted image 20231110150158.png]]</li>
+</ul>
+<h3 id="10-3-2-Congruence-relation-同余关系"><a href="#10-3-2-Congruence-relation-同余关系" class="headerlink" title="10.3.2 Congruence relation 同余关系"></a>10.3.2 Congruence relation 同余关系</h3><ul>
+<li><p><em><strong>定义</strong></em></p>
+<blockquote>
+<p>定义在半群 (S,∗)上的<strong>等价关系</strong>R，如果满足:‘’</p>
+<blockquote>
+<p>任意 a R a’ 并且 b R b’ $\Rightarrow$ (a∗b) R (a′∗b′)<br>那么我们说 R 是<strong>同余关系</strong><br>![[Pasted image 20231110150657.png]]<br>一个 $[a]$ 称为代表元</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p><em><strong>定理 2</strong></em></p>
+<blockquote>
+<p>![[Pasted image 20231110150904.png]]<br>S&#x2F;R 称为<strong>商半群</strong>(quotient semigroup 或者 factor semigroup)</p>
+</blockquote>
+</li>
+<li><p><em><strong>推论</strong></em></p>
+<blockquote>
+<p>![[Pasted image 20231110151045.png]]</p>
+</blockquote>
+</li>
+<li><p><em><strong>定理 3</strong></em></p>
+<blockquote>
+<p>![[Pasted image 20231110151321.png]]</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="10-3-3-Fundamental-Homomorphism-Theorem-同态基本定理"><a href="#10-3-3-Fundamental-Homomorphism-Theorem-同态基本定理" class="headerlink" title="10.3.3 Fundamental Homomorphism Theorem 同态基本定理"></a>10.3.3 Fundamental Homomorphism Theorem 同态基本定理</h3><p>![[Pasted image 20231110151445.png]]</p>
+<h2 id="10-4-Groups-群"><a href="#10-4-Groups-群" class="headerlink" title="10.4 Groups 群"></a>10.4 Groups 群</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/SpicyArticle/p/11868785.html">10.3群，群直积，商群 - 进击の辣条 - 博客园 (cnblogs.com)</a><br>因为太懒了，所以不想整理了（</p>
+<h2 id="10-5-Products-and-Quotients-of-Groups"><a href="#10-5-Products-and-Quotients-of-Groups" class="headerlink" title="10.5 Products and Quotients of Groups"></a>10.5 Products and Quotients of Groups</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/SpicyArticle/p/11868785.html">10.3群，群直积，商群 - 进击の辣条 - 博客园 (cnblogs.com)</a><br>同上</p>
+<hr>
+<h1 id="10-Graphs-图"><a href="#10-Graphs-图" class="headerlink" title="10. Graphs 图"></a>10. Graphs 图</h1><h2 id="10-1-Graphs-and-Graph-Models-图和一些图模型"><a href="#10-1-Graphs-and-Graph-Models-图和一些图模型" class="headerlink" title="10.1 Graphs and Graph Models 图和一些图模型"></a>10.1 Graphs and Graph Models 图和一些图模型</h2><p><strong>参考：</strong> <a target="_blank" rel="noopener" href="https://www.cnblogs.com/SpicyArticle/p/12052258.html">10.1图和一些图模型 - 进击の辣条 - 博客园 (cnblogs.com)</a> +PPT+教材</p>
+<ul>
+<li><p><em><strong>定义 1</strong></em></p>
+<blockquote>
+<p>![[Pasted image 20231123113945.png]]<br>端点 endpoint<br><strong>无限图 infinite graph：</strong> 顶点（vertices）集为无限集或有无限条边（edges）的图<br><strong>有限图 finite graph：</strong> 顶点集和边集为有限集</p>
+</blockquote>
+</li>
+<li><p><em><strong>Types of Graphs 图的种类</strong></em></p>
+<blockquote>
+<p><strong>Simple graph 简单图：</strong> 无重边，无自环的无向图<br><strong>Multigraph 多重图：</strong> 有重边的无向图<br><strong>Pseudograph 伪图&#x2F;自环图：</strong> 带有自环的无向图<br><strong>Simple directed graph 简单有向图：</strong> 无重边，无自环的有向图<br><strong>Directed multigraph 有向多重图：</strong> 有重边的有向图<br><strong>Mixed graph 复杂图：</strong> 既有有向边，又有无向边的图</p>
+<blockquote>
+<p>![[Pasted image 20231123115110.png|500]]</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p><em><strong>Graph models 图的模型</strong></em></p>
+<blockquote>
+<p>了解即可</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="10-2-Graph-Terminology-and-Special-Types-of-graphs-图的术语和几种特殊的图"><a href="#10-2-Graph-Terminology-and-Special-Types-of-graphs-图的术语和几种特殊的图" class="headerlink" title="10.2 Graph Terminology and Special Types of graphs 图的术语和几种特殊的图"></a>10.2 Graph Terminology and Special Types of graphs 图的术语和几种特殊的图</h2><p><strong>参考：</strong> <a target="_blank" rel="noopener" href="https://www.cnblogs.com/SpicyArticle/p/12150972.html">10.2图的一些术语(Graph Terminology) - 进击の辣条 - 博客园 (cnblogs.com)</a> +PPT+教材</p>
+<h3 id="10-2-1-Graph-Terminology-图的基本术语"><a href="#10-2-1-Graph-Terminology-图的基本术语" class="headerlink" title="10.2.1 Graph Terminology 图的基本术语"></a>10.2.1 Graph Terminology 图的基本术语</h3><ol>
+<li><p><strong>相邻(Adjacency):</strong></p>
+<blockquote>
+<p>无向图G中的一边e连接u，v，那么我们称u和v是相邻&#x2F;连通(adjacent &#x2F; neighbors &#x2F; connected)的;其中也称u和v是边e的端点(endpoints)</p>
+</blockquote>
+</li>
+<li><p><strong>领域(Neighborhood)</strong></p>
+<blockquote>
+<p>与顶点v相邻的所有点的集合N(v)称为v的领域(neighborhood of v);顶点集合A的领域指的是其内所有点领域的交集  <img src="https://img2018.cnblogs.com/blog/1803261/202001/1803261-20200104235946402-2074052543.png" alt="inl"></p>
+</blockquote>
+</li>
+<li><p><strong>度(degree)</strong></p>
+<blockquote>
+<p>顶点 v 的度，记作 deg (v)，等于入度 (in-degree)和出度 (out-degree)的和；度为 0 的点称为孤立点；度为 1 的点称为悬挂点 (pendant)</p>
+</blockquote>
+</li>
+<li><p><strong>握手定理(Handshaking Theorem)</strong></p>
+<blockquote>
+<p><img src="/blog/Pasted%20image%2020231130095820.png" alt="200"><br>无向图中，如果有度为奇数的点，那么这些点的个数必为偶数个</p>
+</blockquote>
+</li>
+<li><p><strong>有向图中的相邻</strong></p>
+<blockquote>
+<p>e映射到(u, v)，称之为u通过e邻接到v；u是e的初始点(initial vertex)，v是e的终点(terminal vertex )<br>用 $\deg^−(v)$ 表示 v 的入度, $\deg^+(v)$ 表示 v 的出度<br><strong>NOTE:</strong> 顶点上的环对该点的入度和出度贡献都为 1<br><strong>有向图握手定理 Directed Handshaking Theorem</strong><br><img src="/blog/Pasted%20image%2020231130100407.png" alt="400"></p>
+</blockquote>
+</li>
+<li><p><strong>基本无向图 Underlying undirected graph</strong></p>
+<blockquote>
+<p>The undirected graph that results from ignoring directions of edges</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="10-2-2-Special-Graph-Structures-一些特殊的图结构"><a href="#10-2-2-Special-Graph-Structures-一些特殊的图结构" class="headerlink" title="10.2.2 Special Graph Structures 一些特殊的图结构"></a>10.2.2 Special Graph Structures 一些特殊的图结构</h3><ol>
+<li><p><strong>完全图 Complete graphs $K_n$</strong></p>
+<blockquote>
+<p>n 阶完全图记为 $K_n$<br><img src="/blog/Pasted%20image%2020231130101054.png"></p>
+</blockquote>
+</li>
+<li><p><strong>环图 Cycles</strong> $C_n$ <img src="/blog/Pasted%20image%2020231130101158.png" alt="300"></p>
+</li>
+<li><p><strong>车轮图 Wheels</strong> $W_n$ <img src="/blog/Pasted%20image%2020231130101448.png" alt="300"> 含 n 个顶点的轮图的边数：$2\times (n - 1)$</p>
+</li>
+<li><p><strong>n 维体图 n-Cubes&#x2F;hypercubes</strong> $Q_n$ <img src="/blog/Pasted%20image%2020231130101540.png" alt="400"></p>
+</li>
+<li><p><strong>二部图&#x2F;二分图 Bipartite graphs</strong></p>
+<blockquote>
+<p>顶点能被分为两个集合，使得任意一个集合中的点没有边直接相连 <img src="/blog/Pasted%20image%2020231130101800.png" alt="100"><br><img src="/blog/Pasted%20image%2020231130101959.png"></p>
+</blockquote>
+</li>
+<li><p><strong>完全二分图 Complete bipartite graphs</strong> $K_{m, n}$</p>
+<blockquote>
+<p><img src="/blog/Pasted%20image%2020231130102048.png" alt="300"><br>用邻接矩阵表示的话，结果是一个上三角&#x2F;下三角矩阵</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="10-2-3-Bipartite-Graphs-and-Matchings-二分图和匹配"><a href="#10-2-3-Bipartite-Graphs-and-Matchings-二分图和匹配" class="headerlink" title="10.2.3 Bipartite Graphs and Matchings 二分图和匹配"></a>10.2.3 Bipartite Graphs and Matchings 二分图和匹配</h3><p><img src="/blog/Pasted%20image%2020231130102648.png"></p>
+<ul>
+<li><strong>HALL’S  MARRIAGE  THEOREM 霍尔婚姻定理</strong><blockquote>
+<p><img src="/blog/Pasted%20image%2020231130102755.png"></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="10-2-4-从旧图构造新图"><a href="#10-2-4-从旧图构造新图" class="headerlink" title="10.2.4 从旧图构造新图"></a>10.2.4 从旧图构造新图</h3><ul>
+<li><strong>Subgraphs 子图</strong><blockquote>
+<p><img src="/blog/Pasted%20image%2020231130103247.png"><br>proper subgraph 真子图</p>
+</blockquote>
+</li>
+<li><strong>Graph Unions 图的并集</strong><blockquote>
+<p><img src="/blog/Pasted%20image%2020231130103620.png"></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="10-3-Graph-Representations-Isomorphism-图的表示和同构"><a href="#10-3-Graph-Representations-Isomorphism-图的表示和同构" class="headerlink" title="10.3 Graph Representations &amp; Isomorphism 图的表示和同构"></a>10.3 Graph Representations &amp; Isomorphism 图的表示和同构</h2><p><strong>参考：</strong> <a target="_blank" rel="noopener" href="https://www.cnblogs.com/SpicyArticle/p/12151018.html">10.3图的表示和同构(Graph Representations and Isomorphism) - 进击の辣条 - 博客园 (cnblogs.com)</a> +PPT+教材</p>
+<h3 id="10-3-1-Graph-representations-图的表示"><a href="#10-3-1-Graph-representations-图的表示" class="headerlink" title="10.3.1 Graph representations 图的表示"></a>10.3.1 Graph representations 图的表示</h3><ol>
+<li><p><strong>Adjacency lists 邻接表表示法</strong><img src="/blog/Pasted%20image%2020231130104552.png" alt="300"></p>
+</li>
+<li><p><strong>Adjacency matrices 邻接矩阵表示法</strong></p>
+<blockquote>
+<p><img src="/blog/Pasted%20image%2020231130104902.png" alt="inl|200"> <img src="/blog/Pasted%20image%2020231130105105.png" alt="inl|250"><br><strong>NOTE：</strong><br>The adjacency matrix of a simple graph is symmetric.<br>$a_{ii}&#x3D;0$</p>
+<blockquote>
+<p><strong>Adjacency matrix for a directed multigraph</strong><br>$a_{ij}$ equals the number of edges that are associated to $(v_i, v_j)$.</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p><strong>Incidence matrices 关联矩阵表示法</strong></p>
+<blockquote>
+<p><img src="/blog/Pasted%20image%2020231130105741.png" alt="inl|300"> <img src="/blog/Pasted%20image%2020231130105755.png" alt="inl|300"></p>
+</blockquote>
+</li>
+</ol>
+<h3 id="10-3-2-Graph-Isomorphism-图的同构"><a href="#10-3-2-Graph-Isomorphism-图的同构" class="headerlink" title="10.3.2 Graph Isomorphism 图的同构"></a>10.3.2 Graph Isomorphism 图的同构</h3><ul>
+<li><strong>通俗定义:</strong> 两个图是同构的，当且仅当(iff)除了它们的节点名称之外，它们是相同的。  </li>
+<li><strong>正式定义:</strong> $G_1&#x3D;(V_1, E_1)$ 和 $G_2&#x3D;(V_2, E_2)$ 之间存在顶点上的双射(bijection)函数 $f: V_1\to V_2$ ，使得任意 $a，b\in V_1$，有 $a$ 和 $b$ 在 $G_1$ 中相邻，那么 $f(a)$ 和 $f(b)$ 也在 $G_2$ 中相邻</li>
+</ul>
+<p><strong>图同构 $\Rightarrow$ 子图必定同构</strong></p>
+<ul>
+<li><strong>Graph Invariants under Isomorphism 同构下的图不变量</strong><br>（用来证明两个图不同构很方便）<img src="/blog/Pasted%20image%2020231130110608.png" alt="|300"></li>
+</ul>
+<h2 id="10-4-Connectivity-图的连通性"><a href="#10-4-Connectivity-图的连通性" class="headerlink" title="10.4 Connectivity 图的连通性"></a>10.4 Connectivity 图的连通性</h2><p><strong>参考：</strong> <a target="_blank" rel="noopener" href="https://www.cnblogs.com/SpicyArticle/p/12151064.html">10.4图的连通性(Connectivity) - 进击の辣条 - 博客园 (cnblogs.com)</a> +PPT+教材</p>
+<h3 id="10-4-1-Paths-路径"><a href="#10-4-1-Paths-路径" class="headerlink" title="10.4.1 Paths 路径"></a>10.4.1 Paths 路径</h3><p>如果存在一条路径，使得从 u 到 v，那么顶点 u 和 v 就是连通的</p>
+<ol>
+<li>如果能存在一条路径从u到u，那么这样的路径称为自环(circuit)</li>
+<li>路径可以视作穿过点(through the vertices)，也可视为遍历边(traverses the edges)</li>
+<li>如果这条路径穿过的边都是一次的 (无重复穿过同一条边)，那么我们称其为简单路径</li>
+</ol>
+<h3 id="10-4-2-Connectedness-图连通"><a href="#10-4-2-Connectedness-图连通" class="headerlink" title="10.4.2 Connectedness 图连通"></a>10.4.2 Connectedness 图连通</h3><ul>
+<li><strong>定义</strong><br>An undirected graph is connected if there is a path between every pair of distinct vertices in the graph. 针对于无向图而言，如果任意两个顶点都能够连通，那么称这个图为连通图</li>
+<li><strong>定理</strong><br>无向连通图的每对顶点都存在简单路径 (simple path)</li>
+<li><strong>Connected component 连通分支</strong><br><img src="/blog/Pasted%20image%2020231130112418.png" alt="|500"></li>
+<li>割点(cut vertex)或割边(cut edge)能将连通图分为两部分</li>
+</ul>
+<h3 id="10-4-3-Vertex-Connectivity-点连通"><a href="#10-4-3-Vertex-Connectivity-点连通" class="headerlink" title="10.4.3 Vertex Connectivity 点连通"></a>10.4.3 Vertex Connectivity 点连通</h3><ul>
+<li><strong>Nonseparable graphs 不可分割图</strong><br>无割点的图称为不可分割图<br>e.g. 完全图 $K_n$</li>
+<li><strong>Vertex cut 点割集</strong><br>去掉点割集 V’后，使得连通图 G 变为 G-V’不再连通</li>
+<li><strong>Vertex connectivity 点连通性</strong><br>非完全图 G 的边连通性，指的是存在的点割集的点的最小数；记为 $\kappa(G)$; 通俗的说，就是最少去掉多少条点使得 G 不再是连通图<ul>
+<li>$0 ≤ 𝜅(G) ≤ n − 1$ if G has n vertices</li>
+<li>$𝜅(K_n) &#x3D; n − 1$</li>
+<li>$𝜅(G) &#x3D; 0$ if and only if G is disconnected or $G &#x3D; K_1$</li>
+<li>A graph is k-connected (or k-vertex-connected), if $𝜅(G) ≥ k$.<ul>
+<li>Note that if G is a k-connected graph, then G is a j-connected graph for all j with $0 ≤ j ≤ k$.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="10-4-4-Edge-Connectivity-边连通"><a href="#10-4-4-Edge-Connectivity-边连通" class="headerlink" title="10.4.4 Edge Connectivity 边连通"></a>10.4.4 Edge Connectivity 边连通</h3><ul>
+<li><strong>Edge cut 边割集</strong><br>去掉边割集 E’后，使得连通图 G 变为 G-E’不再连通</li>
+<li><strong>Edge connectivity 边连通性</strong><br>非完全图 G 的边连通性，指的是存在的边割集的边的最小数；记为𝜆(G); 通俗的说，就是最少去掉多少条边使得 G 不再是连通图</li>
+</ul>
+<h3 id="10-4-5-Directed-Connectedness-有向图的连通性"><a href="#10-4-5-Directed-Connectedness-有向图的连通性" class="headerlink" title="10.4.5 Directed Connectedness 有向图的连通性"></a>10.4.5 Directed Connectedness 有向图的连通性</h3><ul>
+<li>有向图中，路径只能沿着箭头出发  </li>
+<li><strong>强连通(strongly connected):</strong> a 和 b 强连通，指存在路径从 a 连通到 b，也存在路径从 b 到 a  </li>
+<li><strong>弱连通(weakly connected):</strong> a 和 b 弱连通，指存在路径从 a 连通到 b 或存在路径从 b 到 a(强连通必定弱连通)<blockquote>
+<p><strong>NOTE:</strong> 连通性以及路径都是图同构中的同构不变量<br><strong>NOTE:</strong> 用 tarjan 算法求有向图的强连通分量极其有效</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="10-4-6-Paths-Isomorphism-通路与同构"><a href="#10-4-6-Paths-Isomorphism-通路与同构" class="headerlink" title="10.4.6 Paths &amp; Isomorphism 通路与同构"></a>10.4.6 Paths &amp; Isomorphism 通路与同构</h3><p>见书上例题即可</p>
+<h3 id="10-4-7-Counting-Paths-by-Adjacency-Matrices-通过邻接矩阵计算路径数"><a href="#10-4-7-Counting-Paths-by-Adjacency-Matrices-通过邻接矩阵计算路径数" class="headerlink" title="10.4.7 Counting Paths by Adjacency Matrices 通过邻接矩阵计算路径数"></a>10.4.7 Counting Paths by Adjacency Matrices 通过邻接矩阵计算路径数</h3><p>如果 A 是图 G 的邻接矩阵，那么 $(A^k)_{i,j}$ 表示 $v_i$ 到 $v_j$ 的路径为 k 的数目(1的数目)</p>
+<blockquote>
+<p><strong>NOTE: 注意这里求路径为 k 和之前沃舍尔算法求连通性的区别</strong></p>
+</blockquote>
+<h2 id="10-5-Euler-Paths-and-Circuits-欧拉路径与欧拉回路"><a href="#10-5-Euler-Paths-and-Circuits-欧拉路径与欧拉回路" class="headerlink" title="10.5 Euler Paths and Circuits 欧拉路径与欧拉回路"></a>10.5 Euler Paths and Circuits 欧拉路径与欧拉回路</h2><p><strong>参考：</strong> PPT+教材+<a target="_blank" rel="noopener" href="https://www.cnblogs.com/SpicyArticle/p/12152343.html">10.5欧拉路径和欧拉回路(Euler Paths and Circuits) - 进击の辣条 - 博客园 (cnblogs.com)</a></p>
+<h3 id="10-5-1-Eulerian-graph-欧拉图"><a href="#10-5-1-Eulerian-graph-欧拉图" class="headerlink" title="10.5.1 Eulerian graph 欧拉图"></a>10.5.1 Eulerian graph 欧拉图</h3><ol>
+<li>图 G 的<strong>欧拉回路(Euler circuit)</strong> 指的是遍历 G 中每一条边的<strong>简单回路(simple circuit)</strong>, 这样的轨迹称为<strong>欧拉环游(Euler tour)</strong></li>
+<li>图 G 的<strong>欧拉通路&#x2F;道路(Euler path)</strong> 指的是遍历 G 中每一条边的<strong>简单路径(simple path)</strong>, 这样的轨迹称为<strong>欧拉轨迹(Euler trail)</strong></li>
+<li>有欧拉回路的图称为欧拉图，无欧拉回路但是有欧拉通路的图称为半欧拉图</li>
+</ol>
+<ul>
+<li><p><strong>定理 1：</strong></p>
+<blockquote>
+<p>连通图 G 是欧拉图，当且仅当，G 是连通的，并且没有度为奇数 (odd)的顶点<br>![[Pasted image 20231207101146.png]]</p>
+</blockquote>
+</li>
+<li><p><strong>定理 2：</strong></p>
+<blockquote>
+<p>连通图 G 是存在从 a 到 b 的欧拉通路，当且仅当，G 是连通的，并且除 a 和 b (a≠b)的度为奇数 (odd)之外，没有度为奇数 (odd)的顶点<br>![[Pasted image 20231207101344.png]]</p>
+</blockquote>
+</li>
+<li><p><strong>定理 3：</strong></p>
+<blockquote>
+<p>有向连通图 G 是欧拉图，当且仅当：</p>
+<blockquote>
+<ol>
+<li>G 是连通的</li>
+<li>G 的每个顶点的入度＝出度</li>
+</ol>
+</blockquote>
+</blockquote>
+</li>
+<li><p><strong>定理 4：</strong></p>
+<blockquote>
+<p>有向连通图 G 含有欧拉通路，当且仅当，G 是连通的，并且 G 中除两个顶点 (节点不相等)外，其余每个顶点的入度&#x3D;出度，且此两点满足 $deg^−(u)−deg^+(v)&#x3D;±1$</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="10-5-2-Hamilton-Paths-and-Circuits-哈密顿通路与回路"><a href="#10-5-2-Hamilton-Paths-and-Circuits-哈密顿通路与回路" class="headerlink" title="10.5.2 Hamilton Paths and Circuits 哈密顿通路与回路"></a>10.5.2 Hamilton Paths and Circuits 哈密顿通路与回路</h3><ul>
+<li><p><strong>哈密顿图 Hamiltonian Graph</strong></p>
+<blockquote>
+<ol>
+<li>图 G 的<strong>哈密顿回路 (Hamiltonian circuit)</strong> 指的是遍历 G 中<em>每一个点</em>且只遍历一次的回路, 这样的轨迹称为<strong>哈密顿环游 (Hamiltonian tour)</strong></li>
+<li>图 G 的<strong>哈密顿路径 (Hamiltonian path)</strong> 指的是遍历 G 中<em>每一个点</em>且只遍历一次的路径, 这样的轨迹称为<strong>哈密顿轨迹 (Hamiltonian trail)</strong></li>
+<li>有哈密顿回路的图称为哈密顿图，无哈密顿回路但是有哈密顿路径的图称为半哈密顿图</li>
+</ol>
+<blockquote>
+<p>遗憾的是，现在还没有快速判别一个图是否为哈密顿图的方法</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p><strong>定理s：</strong></p>
+<blockquote>
+<p>![[Pasted image 20231207102509.png]]<br>Let the number of edges of G be m. Then G has a Hamiltonian circuit if </p>
+<blockquote>
+<p>$m\geq\frac{(n^2-3n-6)}{2}$.</p>
+</blockquote>
+<p>有向完全图一定存在<strong>哈密顿道路</strong></p>
+<p>一些哈密顿图判定的<strong>充分条件</strong></p>
+<blockquote>
+<p><strong>定理 1：</strong></p>
+<blockquote>
+<p>简单图 G 的最小度数的顶点度数≥n&#x2F;2<br><strong>定理 2：</strong><br>简单图G的任意一对相邻点的度数和≥n</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p><strong>记忆轮 memory wheel</strong></p>
+<blockquote>
+<p>具有 $2^n$ 的记忆轮能存储 n 位二进制的所有信息；且其和相应的哈密顿图是一一对应的<br>![[Pasted image 20231207105041.png|500]]<br>当然，相应转化后的欧拉图也具有一一对应关系，且更任意找<br>![[Pasted image 20231207105122.png|500]]</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="10-6-Shortest-Path-Problem-最短路径问题"><a href="#10-6-Shortest-Path-Problem-最短路径问题" class="headerlink" title="10.6 Shortest Path Problem 最短路径问题"></a>10.6 Shortest Path Problem 最短路径问题</h2><p><strong>参考：</strong> PPT+ <a target="_blank" rel="noopener" href="https://www.cnblogs.com/SpicyArticle/p/12151077.html">10.6最短路径问题(Shortest Path Problem) - 进击の辣条 - 博客园 (cnblogs.com)</a> +教材</p>
+<ul>
+<li><p><strong>分类：</strong></p>
+<blockquote>
+<ol>
+<li>单源最短路径问题<br>  Determining the shortest path from a vertex to an assigned vertex.</li>
+<li>多源最短路径问题<br>  Determining the shortest path of any two vertices in the graph.</li>
+</ol>
+</blockquote>
+</li>
+<li><p><strong>Dijkstra Algorithm：</strong></p>
+<blockquote>
+<p>The algorithm is to find the shortest way from $v_1$ to $v_n$, at the same time, it gets the shortest way from  $v_1$ to each other vertices in the graph.<br>![[Pasted image 20231207110430.png]]<br><strong>定理：</strong><br>![[Pasted image 20231207110932.png]]![[Pasted image 20231207110944.png]]</p>
+</blockquote>
+</li>
+<li><p><strong>flody 算法</strong></p>
+<blockquote>
+<p>多源最短路径<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/SpicyArticle/p/11549668.html">多源最短路径–flody算法 - 进击の辣条 - 博客园 (cnblogs.com)</a></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="10-7-Planar-Graphs-平面图"><a href="#10-7-Planar-Graphs-平面图" class="headerlink" title="10.7 Planar Graphs 平面图"></a>10.7 Planar Graphs 平面图</h2><p><strong>参考：</strong> <a target="_blank" rel="noopener" href="https://www.cnblogs.com/SpicyArticle/p/12152524.html">10.7平面图(Planar Graphs) - 进击の辣条 - 博客园 (cnblogs.com)</a> +PPT+教材</p>
+<h3 id="10-7-1-平面图定义"><a href="#10-7-1-平面图定义" class="headerlink" title="10.7.1 平面图定义"></a>10.7.1 平面图定义</h3><ul>
+<li>平面图的定义:能在平面上画出没有相交的边的图，称为平面图(planar)<br>![[Pasted image 20231207113251.png|400]]</li>
+<li>针对平面图而言的<strong>面 (faces)</strong>: ![[Pasted image 20231207113323.png|400]] A planar representation of a graph splits the plane into regions that we call  faces, including an unbounded region.</li>
+<li><strong>边界：</strong> 面的各边所组成的回路</li>
+<li><strong>面的次数</strong>：面边界回路的长度。记为<strong>Deg (r)</strong></li>
+</ul>
+<h3 id="10-7-2-Euler-Theorem-欧拉定理"><a href="#10-7-2-Euler-Theorem-欧拉定理" class="headerlink" title="10.7.2 Euler Theorem 欧拉定理"></a>10.7.2 Euler Theorem 欧拉定理</h3><ul>
+<li><p><strong>定理内容：</strong></p>
+<blockquote>
+<p>令 G 是一个连通的平面简单图，那么有:  </p>
+<blockquote>
+<p>$V−E+F&#x3D;2$ 或 $V−E+R&#x3D;2$  $\Rightarrow R &#x3D; E-V+2$<br>其实就算 G 具有重边或自环的平面图也成立<br>![[Pasted image 20231207114400.png|300]]</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p><strong>定理 1</strong></p>
+<blockquote>
+<p>具有 n 个顶点的<strong>简单图</strong>G, 最多有 $3n-6$ 条边<br><strong>PROOF:</strong> ![[Pasted image 20231207114458.png|300]]</p>
+</blockquote>
+</li>
+<li><p><strong>推论：</strong></p>
+<blockquote>
+<ol>
+<li>如果 G 是连通平面简单图，那么 G 中至少有一个顶点的度不超过5</li>
+<li>如果 G 是连通平面简单图，并且 $v≥3$ 且没有长为 3 的环，那么 $e≤2v-4$</li>
+</ol>
+<p>通过以上分析: $K_5$ 和 $K_{3,3}$ 都不是平面图</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="10-7-3-The-Kuratowski’s-theorem-库拉托夫斯基定理"><a href="#10-7-3-The-Kuratowski’s-theorem-库拉托夫斯基定理" class="headerlink" title="10.7.3 The Kuratowski’s theorem 库拉托夫斯基定理"></a>10.7.3 The Kuratowski’s theorem 库拉托夫斯基定理</h3><ul>
+<li><p><strong>elementary subdivision 初等细分：</strong></p>
+<blockquote>
+<p>如果一个图是平面图，那么通过移除一条边 {u, v} 并添加一个新的顶点 w，以及边 {u, w} 和 {w, v}，所得到的任何图也将是平面图。</p>
+</blockquote>
+</li>
+<li><p><strong>homeomorphic 同胚：</strong></p>
+<blockquote>
+<p>给定两个图 $G_1$ 和 $G_2$ ，如果它们同构或者通过一系列初等细分操作（反复插入或去掉 2 度结点）后, $G_1$ 和 $G_2$ 同构，则称 $G_1$ 和 $G_2$ 是 2 度结点内同构的，也称 $G_1$ 和 $G_2$ 是同胚的</p>
+</blockquote>
+</li>
+<li><p><strong>定理内容：</strong></p>
+<blockquote>
+<p>证明一个图是平面图的<strong>必要充分条件</strong>是它不包含任何<strong>同胚</strong>于 $K_5$ 或 $K_{3,3}$ 的子图<br>![[Pasted image 20231207115448.png|400]]</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="10-7-4-柏拉图体"><a href="#10-7-4-柏拉图体" class="headerlink" title="10.7.4 柏拉图体"></a>10.7.4 柏拉图体</h3><p>![[Pasted image 20231207115616.png#center|对偶图|600]]<br>![[Pasted image 20231207115621.png#center|完全正则图|300]]</p>
+<ul>
+<li><p><strong>柏拉图体：</strong></p>
+<blockquote>
+<p>![[Pasted image 20231207115835.png|400]]</p>
+</blockquote>
+</li>
+<li><p><strong>柏拉图体的平面化:</strong>![[Pasted image 20231207115742.png|300]]</p>
+</li>
+<li><p><strong>推论：</strong></p>
+<blockquote>
+<p>![[Pasted image 20231207115918.png|300]]</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="10-8-Graph-Coloring-图的着色"><a href="#10-8-Graph-Coloring-图的着色" class="headerlink" title="10.8 Graph Coloring 图的着色"></a>10.8 Graph Coloring 图的着色</h2><p><strong>参考：</strong> <a target="_blank" rel="noopener" href="https://www.cnblogs.com/SpicyArticle/p/12152824.html">10.8图着色(Graph Coloring) - 进击の辣条 - 博客园 (cnblogs.com)</a> +PPT+教材</p>
+<ul>
+<li><p><strong>chromatic number of G 图 G 的着色数</strong></p>
+<blockquote>
+<p>用 $n$ 种颜色给一副无重边和自环的图染色，要求任意一条边的端点颜色不同；满足情况下使用的最少颜色数称为**图 G 的着色数(chromatic number of G)**，记为 $\chi(G)$.</p>
+</blockquote>
+</li>
+<li><p><strong>Appel-Haken Four-Color Theorem 四色定理</strong></p>
+<blockquote>
+<p>任何<strong>平面图</strong>都能用 4 种颜色着色 (计算机证明)</p>
+</blockquote>
+</li>
+<li><p><strong>Five Color Theorem 五色定理</strong></p>
+<blockquote>
+<p>任何平面图都能用 5 种颜色着色</p>
+</blockquote>
+</li>
+<li><p><strong>五色定理证明:</strong></p>
+<blockquote>
+<p>引理:所有平面图都至少有一个顶点度数$≤5$<br>证明略 (平面图不同胚于 $K_5$)</p>
+</blockquote>
+</li>
+<li><p><strong>Chromatic Polynomials 染色多项式</strong></p>
+<blockquote>
+<p>定义 $P_G(n)$ 表示对图 $G$ 用 $n$ 种 (或更少)颜色进行染色的方法数 ($n≥0$)，$P_G(n)$ 称为 $G$ 的染色多项式 (chromatic polynomial)<br><em>example:</em></p>
+<blockquote>
+<p>![[Pasted image 20231214101612.png|300]]</p>
+</blockquote>
+<p>可见: 最小的使得染色多项式为正数的 $n$ 值就是 $\chi(G)$</p>
+</blockquote>
+</li>
+<li><p><strong>定理 1：</strong></p>
+<blockquote>
+<p>如果图 $G$ 由互不连通的子图 $G_1,G_2\cdots G_m$ 构成，那么有:<br>$P_G(x)&#x3D;P_{G_1}(x)P_{G_2}(x)\cdots P_{G_m}(x)$</p>
+</blockquote>
+</li>
+<li><p><strong>Subgraph 子图：</strong></p>
+<blockquote>
+<p>$G_e$ ![[Pasted image 20231214102404.png|350]]</p>
+</blockquote>
+</li>
+<li><p><strong>拓展：</strong></p>
+<blockquote>
+<p><strong>商图 (Quotient graph):</strong> 无重边的图 G，按某种规则划分等价类之后得到商图</p>
+<blockquote>
+<p>![[Pasted image 20231214102442.png|350]]</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p><strong>定理 2</strong></p>
+<blockquote>
+<p>通过一条边 e 来构建图 G 的子图:<br>$G_e$：通过删除边 $e$ 得到的子图，通常会得到两个互不连通的图<br>$G^e$：通过<strong>合并</strong> $e$ 两边的<strong>端点</strong>得到的 G 的商图<br>那么有:</p>
+<blockquote>
+<p>$P_G(x)&#x3D;P_{G_e}(x)-P_{G^e}(x)$</p>
+</blockquote>
+<p><em>example:</em><br>![[Pasted image 20231214102853.png|inl|300]] ![[Pasted image 20231214102929.png|inl|300]]</p>
+</blockquote>
+</li>
+<li><p><strong>k 阶临界图:</strong></p>
+<blockquote>
+<p>称图 $G$ 是 $k$ 阶临界图&#x2F;被 $k$ 阶染色的(<strong>chromatically k-critical</strong>)，指的是 $\chi(G)&#x3D;3$，且其任意真子图 $G’$ 的染色数 $\chi(G’)$.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="10-9-Transport-networks-传输网"><a href="#10-9-Transport-networks-传输网" class="headerlink" title="10.9 Transport networks 传输网"></a>10.9 Transport networks 传输网</h2><p><strong>参考：</strong> <a target="_blank" rel="noopener" href="https://www.cnblogs.com/SpicyArticle/p/12152965.html">10.9传输网(Transport network) - 进击の辣条 - 博客园 (cnblogs.com)</a> +PPT</p>
+<ul>
+<li><p><strong>一些名词：</strong>![[Pasted image 20231214103828.png|L|300]]<br>![[Pasted image 20231214104546.png|400]]</p>
+</li>
+<li><p><strong>流量守恒 (Conservation of flow)</strong></p>
+<blockquote>
+<p>除<strong>源点 s (source)</strong> 和<strong>宿点 t (sink)</strong> 之外，要求其他节点流入的流量和流出的流量相等</p>
+</blockquote>
+</li>
+<li><p><strong>Maximal flow 最大流</strong></p>
+<blockquote>
+<p>对于网络流图 G，流量最大的可行流 $f$，称为最大流</p>
+</blockquote>
+</li>
+<li><p><strong>剩余容量、反向容量：</strong></p>
+<blockquote>
+<p>![[Pasted image 20231214105345.png|400]]</p>
+</blockquote>
+</li>
+<li><p><strong>基本算法描述：</strong></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42419611/article/details/105413547">最大流算法 - 标号法_标号法求最大流-CSDN博客</a></p>
+<blockquote>
+<ol>
+<li>最为朴素的算法，便是利用回溯法，对所有可能的路径情况分析并取所有可能情况的最大值</li>
+<li>基于贪心算法的思考，在最开始先找一可行流(feasible flow)，在此基础上上不断的寻找增广路径，直到再无增广路径；但是问题在于贪心寻找时不一定最优，故引入反向边的概念，利用这一思路达到回溯的作用以确保正确性；这就是这个算法的精华部分，利用反向边，使程序有了一个后悔和改正的机会<br>因此得到如下基本算法:</li>
+</ol>
+</blockquote>
+<ol>
+<li>找一可行流，对每条边的流量更新称剩余流量和反向流量</li>
+<li>寻找增广路径，注意流量既可以走正向流量，也可以走反向流量；将总的流量值更新</li>
+<li>重复过程 2 直至再无增广路径；此时得到的流量值即为最大流</li>
+</ol>
+</blockquote>
+</li>
+<li><p><strong>割集 Cut</strong></p>
+<blockquote>
+<p>参考：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/65793018">最大流最小割(Max-flow min-cut)定理 - 知乎 (zhihu.com)</a><br>![[Pasted image 20231214112851.png|L|450]]</p>
+</blockquote>
+</li>
+<li><p><strong>最大流最小割定理：</strong></p>
+<blockquote>
+<p>最大流等于最小割</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h1 id="11-Trees-树"><a href="#11-Trees-树" class="headerlink" title="11. Trees 树"></a>11. Trees 树</h1><h2 id="11-1-Trees-树"><a href="#11-1-Trees-树" class="headerlink" title="11.1 Trees 树"></a>11.1 Trees 树</h2><p><strong>参考：</strong> PPT+教材+<a target="_blank" rel="noopener" href="https://www.cnblogs.com/SpicyArticle/p/12150454.html">11.1树(TREES) - 进击の辣条 - 博客园 (cnblogs.com)</a></p>
+<ul>
+<li><p><strong>树的特点：</strong></p>
+<blockquote>
+<ol>
+<li>树是一个无向无环图，任意两个节点间都有唯一的一个简单路径</li>
+<li>一系列树组成森林 (forest)</li>
+<li>树或森林的叶子节点指悬挂点 (pendant)或孤立顶点 (isolated vertex)</li>
+<li>内部顶点 (<strong>internal node</strong>)的度≥2</li>
+</ol>
+</blockquote>
+</li>
+<li><p><strong>Rooted Trees 有根树：</strong></p>
+<blockquote>
+<ol>
+<li>有根的树称为有根树</li>
+<li>有根树中的一些术语:<blockquote>
+<p>父母；孩子；兄弟姐妹 (siblings)；祖先 (ancestors)；后代 (descendents)；叶子；内部节点 (internal node)；子树…</p>
+</blockquote>
+</li>
+<li>根若有，可能不唯一</li>
+</ol>
+</blockquote>
+</li>
+<li><p><strong>N-ary Trees N 叉树：</strong></p>
+<blockquote>
+<p>定义一颗有根树中任何一个节点都不超过 n 个孩子节点的树为 n 叉树；特别的，2-ary tree 也称为 binary tree.</p>
+</blockquote>
+</li>
+<li><p><strong>Ordered Rooted Tree 有序有根树</strong></p>
+<blockquote>
+<p>孩子节点有序排列的有根树称为有序有根树(如左孩子，右孩子等等)</p>
+</blockquote>
+</li>
+<li><p><strong>一些树的定理</strong></p>
+<blockquote>
+<ol>
+<li>n 个节点的树有 $e&#x3D;n-1$ 条边</li>
+<li><strong>满</strong>m 叉树如果有 i 个内部节点，则有 $n&#x3D;mi+1$ 个节点，有 $l&#x3D;(m-1) i+1$ 个叶子节点 (提示:$l&#x3D;n-i$)</li>
+<li>对于一颗满 m 叉树，<strong>边数 $e$，内部节点数 $i$，节点总数 $n$ 和叶子节点数 $l$</strong> 这 4 者知其一则另外 3 个都能得知，具体关系如下: ![[Pasted image 20231221102135.png|300]]</li>
+<li>高为 $h$ (只有根节点默认高度为 1)的 m 叉树最多有 $m^h$ 个叶子，最少有 $h$ 个节点![[Pasted image 20231221102950.png|500]]</li>
+<li>A rooted m-ary tree with height h is called <strong>balanced</strong> if all leaves are at levels <strong>h</strong> or <strong>h−1</strong></li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h2 id="11-2-Applications-of-Trees-树的应用"><a href="#11-2-Applications-of-Trees-树的应用" class="headerlink" title="11.2 Applications of Trees 树的应用"></a>11.2 Applications of Trees 树的应用</h2><p><strong>参考：</strong> <a target="_blank" rel="noopener" href="https://www.cnblogs.com/SpicyArticle/p/12150572.html">11.2树的一些运用(Applications of Trees) - 进击の辣条 - 博客园 (cnblogs.com)</a> +PPT+教材</p>
+<h3 id="11-2-1-Binary-Search-Trees-二叉搜索树"><a href="#11-2-1-Binary-Search-Trees-二叉搜索树" class="headerlink" title="11.2.1 Binary Search Trees 二叉搜索树"></a>11.2.1 Binary Search Trees 二叉搜索树</h3><p>二叉搜索树中，规定数据存储在节点中，且规定右孩子的 key 大于父节点，左孩子的 key 小于父节点(如果存在的话)<br>一般情况下，二叉搜索树查找，插入(必插到叶子节点上)和删除的时间复杂度为 $O(log_n)$，但当退化到线性链表时会使得复杂度提高到 $O(n)$，此时应当选择二叉平衡树来解决(AVL 树，红黑树等)</p>
+<h3 id="11-2-2-Decision-Trees-决策树"><a href="#11-2-2-Decision-Trees-决策树" class="headerlink" title="11.2.2 Decision Trees 决策树"></a>11.2.2 Decision Trees 决策树</h3><p>根节点：决策树具有数据结构里面的二叉树、树的全部属性<br>非叶子节点 ：（决策点） 代表测试的条件，数据的属性的测试<br>叶子节点 ：分类后获得分类标记<br>分支： 测试的结果<br>![[Pasted image 20231228100740.png]]</p>
+<h3 id="11-2-3-Prefix-codes-前缀码"><a href="#11-2-3-Prefix-codes-前缀码" class="headerlink" title="11.2.3 Prefix codes 前缀码"></a>11.2.3 Prefix codes 前缀码</h3><ul>
+<li><p><strong>最优树(哈夫曼树)</strong></p>
+<blockquote>
+<p>![[Pasted image 20231228100958.png|500]] ![[Pasted image 20231228101021.png|500]] ![[Pasted image 20231228101102.png|500]]</p>
+</blockquote>
+</li>
+<li><p><strong>二元前缀码</strong></p>
+<blockquote>
+<p>设 $\alpha_1,\alpha_2,\cdots,\alpha_n$ 是长为 $n$ 的符号串，$\alpha_1,\alpha_1\alpha_2,\cdots,\alpha_1\alpha_2\cdots\alpha_{n-1}$ 均为该符号串的前缀，它们的长度分别为 $1,2,\cdots,n-1$<br>$A&#x3D;{\beta_1,\beta_2,\cdots,\beta_m}$ 为一个符号串集合，对于任意的 $\beta_i,\beta_j\in A\ \ \ (i\neq j),\ \ \beta_i$ 与 $\beta_j$ 互不为前缀，则称 $A$ 为前缀码<br>若符号串中只出现 $0，1$ 两个符号，则称 $A$ 为二元前缀码</p>
+<p><strong>定理</strong><br>任意一棵二叉树都可产生一个前缀码。<br>任何一个前缀码都对应一棵二叉树。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="11-2-4-Game-trees-博弈树"><a href="#11-2-4-Game-trees-博弈树" class="headerlink" title="11.2.4 Game trees 博弈树"></a>11.2.4 Game trees 博弈树</h3><p>似乎不重要，看看书得了</p>
+<h2 id="11-3-Tree-Traversal-树的遍历"><a href="#11-3-Tree-Traversal-树的遍历" class="headerlink" title="11.3 Tree Traversal 树的遍历"></a>11.3 Tree Traversal 树的遍历</h2><p><strong>参考：</strong><a target="_blank" rel="noopener" href="https://www.cnblogs.com/SpicyArticle/p/12150727.html">11.3~11.4树的遍历(Tree Traversal) - 进击の辣条 - 博客园 (cnblogs.com)</a> +PPT+教材</p>
+<h3 id="11-3-1-Universal-address-systems-通用地址系统"><a href="#11-3-1-Universal-address-systems-通用地址系统" class="headerlink" title="11.3.1 Universal address systems 通用地址系统"></a>11.3.1 Universal address systems 通用地址系统</h3><p>![[Pasted image 20231228102758.png]]</p>
+<h3 id="11-3-2-Traversal-algorithms-遍历算法"><a href="#11-3-2-Traversal-algorithms-遍历算法" class="headerlink" title="11.3.2 Traversal algorithms 遍历算法"></a>11.3.2 Traversal algorithms 遍历算法</h3><p>![[Pasted image 20240106154645.png]]</p>
+<ul>
+<li><p><strong>Preorder traversal 前序遍历</strong></p>
+<blockquote>
+<p>根左右 ![[Pasted image 20231228102926.png]]</p>
+</blockquote>
+</li>
+<li><p><strong>Inorder traversal 中序遍历</strong></p>
+<blockquote>
+<p>左根右![[Pasted image 20231228103023.png]]</p>
+</blockquote>
+</li>
+<li><p><strong>Postorder traversal 后序遍历</strong></p>
+<blockquote>
+<p>左右根 ![[Pasted image 20231228103109.png]]</p>
+</blockquote>
+</li>
+<li><p><strong>深度优先搜索-DFS (Depth-first search)</strong></p>
+</li>
+<li><p><strong>广度优先搜索-BFS(Breadth-First Search)</strong></p>
+</li>
+</ul>
+<h3 id="11-3-3-Infix-prefix-postfix-notation-中缀、前缀和后缀表达式"><a href="#11-3-3-Infix-prefix-postfix-notation-中缀、前缀和后缀表达式" class="headerlink" title="11.3.3 Infix&#x2F;prefix&#x2F;postfix notation 中缀、前缀和后缀表达式"></a>11.3.3 Infix&#x2F;prefix&#x2F;postfix notation 中缀、前缀和后缀表达式</h3><p>一个表达式的前缀(波兰式)，中缀和后缀表示即相应的二叉表达式树的前序，中序和后续遍历的结果</p>
+<h2 id="11-4-Spanning-Trees-生成树"><a href="#11-4-Spanning-Trees-生成树" class="headerlink" title="11.4 Spanning Trees 生成树"></a>11.4 Spanning Trees 生成树</h2><ul>
+<li><p><strong>定义</strong></p>
+<blockquote>
+<p>简单图 G 的生成树是 G 的子图，它是包含 G 每个顶点的树。</p>
+</blockquote>
+</li>
+<li><p><strong>定理</strong></p>
+<blockquote>
+<p>一个简单图是连通的，当且仅当其有生成树</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="11-5-Minimum-Spanning-Trees-最小生成树"><a href="#11-5-Minimum-Spanning-Trees-最小生成树" class="headerlink" title="11.5 Minimum Spanning Trees 最小生成树"></a>11.5 Minimum Spanning Trees 最小生成树</h2><p><strong>参考：</strong><a target="_blank" rel="noopener" href="https://www.cnblogs.com/SpicyArticle/p/12150738.html">11.5最小生成树(Minimum Spanning Trees) - 进击の辣条 - 博客园 (cnblogs.com)</a> +PPT+教材</p>
+<ul>
+<li><p><strong>Weighted graph 加权图</strong></p>
+<blockquote>
+<p>Definition: a <strong>weighted graph</strong> is a graph for which each edge is labeled with a numerical value called its <strong>weight</strong>（权值） .</p>
+<ol>
+<li>The weight of an edge $(v_i, v_j)$ is some times referred to as the <em>distance between vertice</em> $v_i$ and $v_j$</li>
+<li>A vertex $u$ is a <strong>nearest neighbor of vertex</strong> $v$ if $u$ and $v$ are adjacent and no other vertex is joined to $v$ by an edge of lesser weight than $(u, v)$.</li>
+<li>Note $v$ may have more than one nearest neighbor.</li>
+</ol>
+</blockquote>
+</li>
+<li><p><strong>Minimum spanning tree</strong></p>
+<blockquote>
+<p>对加权图求使得权值和最小的生成树，即为最小生成树，基于以点为基准和以边为基准，有两种求最小生成树的方法: Prim 算法和 Kruskal 算法</p>
+</blockquote>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yokimii.github.io/blog/2024/11/03/Discrete-Mathematics/" data-id="cm31eek5k0009nvwi99lv281h" data-title="Discrete Mathematics" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2024/11/03/%E7%BE%A4%E8%AE%BAIntro/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">群论Intro</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E7%BE%A4%E8%AE%BA/">群论</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" rel="tag">离散数学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%BE%A4%E8%AE%BA/" rel="tag">群论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0/" rel="tag">近世代数</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" style="font-size: 10px;">离散数学</a> <a href="/blog/tags/%E7%BE%A4%E8%AE%BA/" style="font-size: 10px;">群论</a> <a href="/blog/tags/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0/" style="font-size: 10px;">近世代数</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2024/11/">十一月 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2024/11/03/Discrete-Mathematics/">Discrete Mathematics</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2024/11/03/%E7%BE%A4%E8%AE%BAIntro/">群论Intro</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 Yokumi<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/blog/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
